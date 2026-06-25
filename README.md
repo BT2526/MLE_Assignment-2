@@ -23,32 +23,6 @@ backfills every month from 2023-01-01 to 2024-12-01.
 
 ---
 
-## Pipeline architecture
-
-```
-                         ┌──────────────── FEATURE STORE ────────────────┐
-  bronze_lms ──┬──────►  feature_silver_lms                              │
-  (label)      │         feature_bronze_clickstream → feature_silver_*   │
-               │         feature_bronze_attributes  → feature_silver_*   ├─► gold_feature_store ─┐
-               │         feature_bronze_financials  → feature_silver_*   │                       │
-               │                                                          │                       │
-               ▼                                                                                  ▼
-  label_silver_lms ──► gold_label_store ───────────────────────────────────────────────► store_ready
-                                                                                                  │
-                                                            branch_should_train ◄─────────────────┘
-                                                            │            │
-                                                    model_train     skip_training
-                                                            └──► training_done
-                                                                      │
-                                                          inference_start
-                                                          ├─ champion_inference  (XGBoost)
-                                                          └─ challenger_inference (LogReg)
-                                                                      │
-                                                          monitor_start
-                                                          ├─ champion_monitor    (PSI + AUC/GINI + charts)
-                                                          └─ challenger_monitor
-```
-
 ### Medallion layers
 
 | Layer  | Content | Path |
@@ -61,7 +35,7 @@ backfills every month from 2023-01-01 to 2024-12-01.
 
 ## Data sources
 
-Own Assignment-1 datamart **plus** features merged from a classmate's
+Own Assignment-1 datamart **plus** features merged from another source
 Assignment-1 pipeline (Source 2):
 
 - `lms_loan_daily.csv` — loan account snapshots → labels (`mob`, `dpd`)
