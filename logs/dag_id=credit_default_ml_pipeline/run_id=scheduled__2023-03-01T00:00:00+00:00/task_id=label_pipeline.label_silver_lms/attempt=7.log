@@ -1,0 +1,186 @@
+[2026-06-18T03:43:27.219+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-18T03:43:27.244+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.label_pipeline.label_silver_lms scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-18T03:43:27.252+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.label_pipeline.label_silver_lms scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-18T03:43:27.253+0000] {taskinstance.py:2306} INFO - Starting attempt 7 of 8
+[2026-06-18T03:43:27.265+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): label_pipeline.label_silver_lms> on 2023-03-01 00:00:00+00:00
+[2026-06-18T03:43:27.276+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=34548) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-18T03:43:27.276+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'label_pipeline.label_silver_lms', 'scheduled__2023-03-01T00:00:00+00:00', '--job-id', '968', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpdjp475tz']
+[2026-06-18T03:43:27.279+0000] {standard_task_runner.py:64} INFO - Started process 34556 to run task
+[2026-06-18T03:43:27.280+0000] {standard_task_runner.py:91} INFO - Job 968: Subtask label_pipeline.label_silver_lms
+[2026-06-18T03:43:27.327+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.label_pipeline.label_silver_lms scheduled__2023-03-01T00:00:00+00:00 [running]> on host bfbc24b887a5
+[2026-06-18T03:43:27.541+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='label_pipeline.label_silver_lms' AIRFLOW_CTX_EXECUTION_DATE='2023-03-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='7' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-03-01T00:00:00+00:00'
+[2026-06-18T03:43:27.543+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-18T03:43:27.551+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-18T03:43:27.551+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 silver_processing.py --snapshotdate "2023-03-01" --source lms']
+[2026-06-18T03:43:27.559+0000] {subprocess.py:86} INFO - Output:
+[2026-06-18T03:43:30.640+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-18T03:43:30.642+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-18T03:43:30.964+0000] {subprocess.py:93} INFO - 26/06/18 03:43:30 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-18T03:43:32.052+0000] {subprocess.py:93} INFO - 26/06/18 03:43:32 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-18T03:43:32.055+0000] {subprocess.py:93} INFO - 26/06/18 03:43:32 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[2026-06-18T03:43:32.058+0000] {subprocess.py:93} INFO - 26/06/18 03:43:32 WARN Utils: Service 'SparkUI' could not bind on port 4042. Attempting port 4043.
+[2026-06-18T03:43:43.165+0000] {subprocess.py:93} INFO - [Stage 5:>                                                          (0 + 1) / 1]                                                                                26/06/18 03:43:43 ERROR FileFormatWriter: Aborting job 8da75da6-05ba-46a2-82ab-23330299f96d.
+[2026-06-18T03:43:43.174+0000] {subprocess.py:93} INFO - java.io.FileNotFoundException: File file:/opt/***/scripts/datamart/silver/lms/2023_03_01.parquet/_temporary/0 does not exist
+[2026-06-18T03:43:43.177+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.RawLocalFileSystem.listStatus(RawLocalFileSystem.java:597)
+[2026-06-18T03:43:43.186+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.listStatus(FileSystem.java:1972)
+[2026-06-18T03:43:43.191+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.listStatus(FileSystem.java:2014)
+[2026-06-18T03:43:43.194+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.ChecksumFileSystem.listStatus(ChecksumFileSystem.java:761)
+[2026-06-18T03:43:43.199+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.listStatus(FileSystem.java:1972)
+[2026-06-18T03:43:43.201+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.listStatus(FileSystem.java:2014)
+[2026-06-18T03:43:43.205+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter.getAllCommittedTaskPaths(FileOutputCommitter.java:334)
+[2026-06-18T03:43:43.208+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter.commitJobInternal(FileOutputCommitter.java:404)
+[2026-06-18T03:43:43.210+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter.commitJob(FileOutputCommitter.java:377)
+[2026-06-18T03:43:43.213+0000] {subprocess.py:93} INFO - 	at org.apache.parquet.hadoop.ParquetOutputCommitter.commitJob(ParquetOutputCommitter.java:48)
+[2026-06-18T03:43:43.215+0000] {subprocess.py:93} INFO - 	at org.apache.spark.internal.io.HadoopMapReduceCommitProtocol.commitJob(HadoopMapReduceCommitProtocol.scala:192)
+[2026-06-18T03:43:43.216+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$writeAndCommit$3(FileFormatWriter.scala:275)
+[2026-06-18T03:43:43.217+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-18T03:43:43.218+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.timeTakenMs(Utils.scala:552)
+[2026-06-18T03:43:43.220+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.writeAndCommit(FileFormatWriter.scala:275)
+[2026-06-18T03:43:43.224+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeWrite(FileFormatWriter.scala:304)
+[2026-06-18T03:43:43.227+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:190)
+[2026-06-18T03:43:43.230+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:190)
+[2026-06-18T03:43:43.232+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+[2026-06-18T03:43:43.236+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+[2026-06-18T03:43:43.242+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+[2026-06-18T03:43:43.245+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:107)
+[2026-06-18T03:43:43.247+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2026-06-18T03:43:43.248+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2026-06-18T03:43:43.251+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2026-06-18T03:43:43.257+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-06-18T03:43:43.261+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2026-06-18T03:43:43.264+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:107)
+[2026-06-18T03:43:43.266+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+[2026-06-18T03:43:43.268+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:461)
+[2026-06-18T03:43:43.270+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(origin.scala:76)
+[2026-06-18T03:43:43.271+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:461)
+[2026-06-18T03:43:43.273+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:32)
+[2026-06-18T03:43:43.275+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+[2026-06-18T03:43:43.276+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+[2026-06-18T03:43:43.277+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+[2026-06-18T03:43:43.278+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+[2026-06-18T03:43:43.280+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:437)
+[2026-06-18T03:43:43.282+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:98)
+[2026-06-18T03:43:43.283+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:85)
+[2026-06-18T03:43:43.284+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:83)
+[2026-06-18T03:43:43.284+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:142)
+[2026-06-18T03:43:43.286+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:859)
+[2026-06-18T03:43:43.287+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:388)
+[2026-06-18T03:43:43.288+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:361)
+[2026-06-18T03:43:43.290+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:240)
+[2026-06-18T03:43:43.292+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.parquet(DataFrameWriter.scala:792)
+[2026-06-18T03:43:43.293+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2026-06-18T03:43:43.294+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2026-06-18T03:43:43.295+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2026-06-18T03:43:43.299+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2026-06-18T03:43:43.300+0000] {subprocess.py:93} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2026-06-18T03:43:43.301+0000] {subprocess.py:93} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2026-06-18T03:43:43.302+0000] {subprocess.py:93} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2026-06-18T03:43:43.303+0000] {subprocess.py:93} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2026-06-18T03:43:43.307+0000] {subprocess.py:93} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2026-06-18T03:43:43.310+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2026-06-18T03:43:43.312+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2026-06-18T03:43:43.313+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-06-18T03:43:43.317+0000] {subprocess.py:93} INFO - 
+[2026-06-18T03:43:43.319+0000] {subprocess.py:93} INFO - --- silver lms 2023-03-01 ---
+[2026-06-18T03:43:43.321+0000] {subprocess.py:93} INFO - 
+[2026-06-18T03:43:43.324+0000] {subprocess.py:93} INFO - [silver:lms] loaded datamart/bronze/lms/bronze_lms_2023_03_01.csv rows: 1537
+[2026-06-18T03:43:43.326+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-06-18T03:43:43.328+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/silver_processing.py", line 25, in <module>
+[2026-06-18T03:43:43.330+0000] {subprocess.py:93} INFO -     main(a.snapshotdate, a.source)
+[2026-06-18T03:43:43.332+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/silver_processing.py", line 13, in main
+[2026-06-18T03:43:43.335+0000] {subprocess.py:93} INFO -     silver.process_silver_table(source, snapshotdate,
+[2026-06-18T03:43:43.336+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/utils/data_processing_silver_table.py", line 251, in process_silver_table
+[2026-06-18T03:43:43.337+0000] {subprocess.py:93} INFO -     df.write.mode("overwrite").parquet(part)
+[2026-06-18T03:43:43.338+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/pyspark/sql/readwriter.py", line 1721, in parquet
+[2026-06-18T03:43:43.339+0000] {subprocess.py:93} INFO -     self._jwrite.parquet(path)
+[2026-06-18T03:43:43.342+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/py4j/java_gateway.py", line 1322, in __call__
+[2026-06-18T03:43:43.344+0000] {subprocess.py:93} INFO -     return_value = get_return_value(
+[2026-06-18T03:43:43.346+0000] {subprocess.py:93} INFO -                    ^^^^^^^^^^^^^^^^^
+[2026-06-18T03:43:43.347+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/pyspark/errors/exceptions/captured.py", line 179, in deco
+[2026-06-18T03:43:43.348+0000] {subprocess.py:93} INFO -     return f(*a, **kw)
+[2026-06-18T03:43:43.349+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^
+[2026-06-18T03:43:43.350+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/py4j/protocol.py", line 326, in get_return_value
+[2026-06-18T03:43:43.351+0000] {subprocess.py:93} INFO -     raise Py4JJavaError(
+[2026-06-18T03:43:43.352+0000] {subprocess.py:93} INFO - py4j.protocol.Py4JJavaError: An error occurred while calling o191.parquet.
+[2026-06-18T03:43:43.354+0000] {subprocess.py:93} INFO - : java.io.FileNotFoundException: File file:/opt/***/scripts/datamart/silver/lms/2023_03_01.parquet/_temporary/0 does not exist
+[2026-06-18T03:43:43.355+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.RawLocalFileSystem.listStatus(RawLocalFileSystem.java:597)
+[2026-06-18T03:43:43.356+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.listStatus(FileSystem.java:1972)
+[2026-06-18T03:43:43.357+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.listStatus(FileSystem.java:2014)
+[2026-06-18T03:43:43.360+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.ChecksumFileSystem.listStatus(ChecksumFileSystem.java:761)
+[2026-06-18T03:43:43.361+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.listStatus(FileSystem.java:1972)
+[2026-06-18T03:43:43.363+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.listStatus(FileSystem.java:2014)
+[2026-06-18T03:43:43.363+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter.getAllCommittedTaskPaths(FileOutputCommitter.java:334)
+[2026-06-18T03:43:43.366+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter.commitJobInternal(FileOutputCommitter.java:404)
+[2026-06-18T03:43:43.368+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter.commitJob(FileOutputCommitter.java:377)
+[2026-06-18T03:43:43.369+0000] {subprocess.py:93} INFO - 	at org.apache.parquet.hadoop.ParquetOutputCommitter.commitJob(ParquetOutputCommitter.java:48)
+[2026-06-18T03:43:43.371+0000] {subprocess.py:93} INFO - 	at org.apache.spark.internal.io.HadoopMapReduceCommitProtocol.commitJob(HadoopMapReduceCommitProtocol.scala:192)
+[2026-06-18T03:43:43.372+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$writeAndCommit$3(FileFormatWriter.scala:275)
+[2026-06-18T03:43:43.374+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-18T03:43:43.376+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.timeTakenMs(Utils.scala:552)
+[2026-06-18T03:43:43.378+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.writeAndCommit(FileFormatWriter.scala:275)
+[2026-06-18T03:43:43.380+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeWrite(FileFormatWriter.scala:304)
+[2026-06-18T03:43:43.382+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:190)
+[2026-06-18T03:43:43.383+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:190)
+[2026-06-18T03:43:43.384+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+[2026-06-18T03:43:43.385+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+[2026-06-18T03:43:43.386+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+[2026-06-18T03:43:43.387+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:107)
+[2026-06-18T03:43:43.388+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2026-06-18T03:43:43.390+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2026-06-18T03:43:43.393+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2026-06-18T03:43:43.395+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-06-18T03:43:43.396+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2026-06-18T03:43:43.397+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:107)
+[2026-06-18T03:43:43.398+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+[2026-06-18T03:43:43.399+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:461)
+[2026-06-18T03:43:43.399+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(origin.scala:76)
+[2026-06-18T03:43:43.400+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:461)
+[2026-06-18T03:43:43.401+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:32)
+[2026-06-18T03:43:43.405+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+[2026-06-18T03:43:43.408+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+[2026-06-18T03:43:43.410+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+[2026-06-18T03:43:43.411+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+[2026-06-18T03:43:43.412+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:437)
+[2026-06-18T03:43:43.414+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:98)
+[2026-06-18T03:43:43.416+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:85)
+[2026-06-18T03:43:43.417+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:83)
+[2026-06-18T03:43:43.418+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:142)
+[2026-06-18T03:43:43.419+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:859)
+[2026-06-18T03:43:43.420+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:388)
+[2026-06-18T03:43:43.421+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:361)
+[2026-06-18T03:43:43.422+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:240)
+[2026-06-18T03:43:43.423+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.parquet(DataFrameWriter.scala:792)
+[2026-06-18T03:43:43.425+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2026-06-18T03:43:43.427+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2026-06-18T03:43:43.428+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2026-06-18T03:43:43.429+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2026-06-18T03:43:43.431+0000] {subprocess.py:93} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2026-06-18T03:43:43.432+0000] {subprocess.py:93} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2026-06-18T03:43:43.433+0000] {subprocess.py:93} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2026-06-18T03:43:43.435+0000] {subprocess.py:93} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2026-06-18T03:43:43.437+0000] {subprocess.py:93} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2026-06-18T03:43:43.439+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2026-06-18T03:43:43.440+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2026-06-18T03:43:43.441+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-06-18T03:43:43.442+0000] {subprocess.py:93} INFO - 
+[2026-06-18T03:43:43.859+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-06-18T03:43:43.861+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-18T03:43:43.882+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-06-18T03:43:43.897+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=credit_default_ml_pipeline, task_id=label_pipeline.label_silver_lms, run_id=scheduled__2023-03-01T00:00:00+00:00, execution_date=20230301T000000, start_date=20260618T034327, end_date=20260618T034343
+[2026-06-18T03:43:43.923+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 968 for task label_pipeline.label_silver_lms (Bash command failed. The command returned a non-zero exit code 1.; 34556)
+[2026-06-18T03:43:43.965+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-06-18T03:43:44.245+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-18T03:43:44.248+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

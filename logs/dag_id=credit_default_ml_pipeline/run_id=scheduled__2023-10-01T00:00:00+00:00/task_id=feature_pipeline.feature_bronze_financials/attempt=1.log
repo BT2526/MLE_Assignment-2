@@ -1,0 +1,264 @@
+[2026-06-16T15:15:03.708+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-16T15:15:03.726+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-16T15:15:03.729+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-16T15:15:03.730+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-16T15:15:03.737+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_bronze_financials> on 2023-10-01 00:00:00+00:00
+[2026-06-16T15:15:03.743+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=45109) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-16T15:15:03.744+0000] {standard_task_runner.py:64} INFO - Started process 45112 to run task
+[2026-06-16T15:15:03.744+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_bronze_financials', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '208', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpxzmb8sg7']
+[2026-06-16T15:15:03.746+0000] {standard_task_runner.py:91} INFO - Job 208: Subtask feature_pipeline.feature_bronze_financials
+[2026-06-16T15:15:03.782+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [running]> on host 1cab6e97738a
+[2026-06-16T15:15:03.817+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_bronze_financials' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-16T15:15:03.818+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-16T15:15:03.825+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-16T15:15:03.826+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 bronze_processing.py --snapshotdate "2023-10-01" --source financials']
+[2026-06-16T15:15:03.831+0000] {subprocess.py:86} INFO - Output:
+[2026-06-16T15:15:05.430+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-16T15:15:05.433+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-16T15:15:05.619+0000] {subprocess.py:93} INFO - 26/06/16 15:15:05 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-16T15:15:06.161+0000] {subprocess.py:93} INFO - 26/06/16 15:15:06 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-16T15:15:06.164+0000] {subprocess.py:93} INFO - 26/06/16 15:15:06 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[2026-06-16T15:15:12.505+0000] {subprocess.py:93} INFO - 
+[2026-06-16T15:15:12.514+0000] {subprocess.py:93} INFO - --- bronze financials 2023-10-01 ---
+[2026-06-16T15:15:12.516+0000] {subprocess.py:93} INFO - 
+[2026-06-16T15:15:12.517+0000] {subprocess.py:93} INFO - [bronze:financials] 2023-10-01 row count: 487
+[2026-06-16T15:15:12.521+0000] {subprocess.py:93} INFO - [bronze:financials] saved to: datamart/bronze/financials/bronze_financials_2023_10_01.csv
+[2026-06-16T15:15:12.522+0000] {subprocess.py:93} INFO - 
+[2026-06-16T15:15:12.524+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-16T15:15:12.526+0000] {subprocess.py:93} INFO - 
+[2026-06-16T15:15:13.033+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-16T15:15:13.041+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-16T15:15:13.101+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_bronze_financials, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260616T151503, end_date=20260616T151513
+[2026-06-16T15:15:13.116+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-16T15:15:13.152+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-06-16T15:15:13.154+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T05:56:59.537+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T05:56:59.553+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T05:56:59.556+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T05:56:59.558+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T05:56:59.566+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_bronze_financials> on 2023-10-01 00:00:00+00:00
+[2026-06-20T05:56:59.572+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=38818) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T05:56:59.572+0000] {standard_task_runner.py:64} INFO - Started process 38825 to run task
+[2026-06-20T05:56:59.572+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_bronze_financials', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '1611', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp_h719dmm']
+[2026-06-20T05:56:59.573+0000] {standard_task_runner.py:91} INFO - Job 1611: Subtask feature_pipeline.feature_bronze_financials
+[2026-06-20T05:56:59.697+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T05:56:59.727+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_bronze_financials' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-20T05:56:59.728+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T05:56:59.732+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T05:56:59.733+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 bronze_processing.py --snapshotdate "2023-10-01" --source financials']
+[2026-06-20T05:56:59.736+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T05:57:01.087+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T05:57:01.088+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T05:57:01.291+0000] {subprocess.py:93} INFO - 26/06/20 05:57:01 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T05:57:01.822+0000] {subprocess.py:93} INFO - 26/06/20 05:57:01 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-20T05:57:01.823+0000] {subprocess.py:93} INFO - 26/06/20 05:57:01 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[2026-06-20T05:57:07.568+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:57:07.570+0000] {subprocess.py:93} INFO - --- bronze financials 2023-10-01 ---
+[2026-06-20T05:57:07.571+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:57:07.573+0000] {subprocess.py:93} INFO - [bronze:financials] 2023-10-01 row count: 487
+[2026-06-20T05:57:07.576+0000] {subprocess.py:93} INFO - [bronze:financials] saved to: datamart/bronze/financials/bronze_financials_2023_10_01.csv
+[2026-06-20T05:57:07.577+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:57:07.585+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T05:57:07.586+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:57:08.071+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T05:57:08.072+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T05:57:08.084+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_bronze_financials, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260620T055659, end_date=20260620T055708
+[2026-06-20T05:57:08.130+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T05:57:08.144+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T05:57:08.146+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T07:07:16.565+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T07:07:16.580+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T07:07:16.586+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T07:07:16.587+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T07:07:16.691+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_bronze_financials> on 2023-10-01 00:00:00+00:00
+[2026-06-20T07:07:16.697+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=92170) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T07:07:16.698+0000] {standard_task_runner.py:64} INFO - Started process 92178 to run task
+[2026-06-20T07:07:16.698+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_bronze_financials', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '1925', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmppwq5w9i5']
+[2026-06-20T07:07:16.700+0000] {standard_task_runner.py:91} INFO - Job 1925: Subtask feature_pipeline.feature_bronze_financials
+[2026-06-20T07:07:16.729+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T07:07:16.762+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_bronze_financials' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-20T07:07:16.763+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T07:07:16.768+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T07:07:16.769+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 bronze_processing.py --snapshotdate "2023-10-01" --source financials']
+[2026-06-20T07:07:16.774+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T07:07:18.686+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T07:07:18.690+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T07:07:18.925+0000] {subprocess.py:93} INFO - 26/06/20 07:07:18 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T07:07:19.900+0000] {subprocess.py:93} INFO - 26/06/20 07:07:19 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-20T07:07:19.904+0000] {subprocess.py:93} INFO - 26/06/20 07:07:19 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[2026-06-20T07:07:28.920+0000] {subprocess.py:93} INFO - [Stage 1:>                                                          (0 + 1) / 1]
+[2026-06-20T07:07:28.941+0000] {subprocess.py:93} INFO - --- bronze financials 2023-10-01 ---
+[2026-06-20T07:07:28.945+0000] {subprocess.py:93} INFO - 
+[2026-06-20T07:07:28.952+0000] {subprocess.py:93} INFO - [bronze:financials] 2023-10-01 row count: 487
+[2026-06-20T07:07:28.961+0000] {subprocess.py:93} INFO - [bronze:financials] saved to: datamart/bronze/financials/bronze_financials_2023_10_01.csv
+[2026-06-20T07:07:28.971+0000] {subprocess.py:93} INFO - 
+[2026-06-20T07:07:28.993+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T07:07:29.000+0000] {subprocess.py:93} INFO - 
+[2026-06-20T07:07:29.745+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T07:07:29.748+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T07:07:29.800+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_bronze_financials, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260620T070716, end_date=20260620T070729
+[2026-06-20T07:07:29.849+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T07:07:29.880+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T07:35:43.082+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T07:35:43.094+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T07:35:43.099+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T07:35:43.100+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T07:35:43.106+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_bronze_financials> on 2023-10-01 00:00:00+00:00
+[2026-06-20T07:35:43.109+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=23733) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T07:35:43.110+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_bronze_financials', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '2107', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpnsq0_r0a']
+[2026-06-20T07:35:43.111+0000] {standard_task_runner.py:64} INFO - Started process 23740 to run task
+[2026-06-20T07:35:43.111+0000] {standard_task_runner.py:91} INFO - Job 2107: Subtask feature_pipeline.feature_bronze_financials
+[2026-06-20T07:35:43.230+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T07:35:43.261+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_bronze_financials' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-20T07:35:43.262+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T07:35:43.267+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T07:35:43.267+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 bronze_processing.py --snapshotdate "2023-10-01" --source financials']
+[2026-06-20T07:35:43.272+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T07:35:44.657+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T07:35:44.659+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T07:35:44.827+0000] {subprocess.py:93} INFO - 26/06/20 07:35:44 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T07:35:54.887+0000] {subprocess.py:93} INFO - [Stage 1:>                                                          (0 + 1) / 1]
+[2026-06-20T07:35:54.892+0000] {subprocess.py:93} INFO - --- bronze financials 2023-10-01 ---
+[2026-06-20T07:35:54.900+0000] {subprocess.py:93} INFO - 
+[2026-06-20T07:35:54.905+0000] {subprocess.py:93} INFO - [bronze:financials] 2023-10-01 row count: 487
+[2026-06-20T07:35:54.908+0000] {subprocess.py:93} INFO - [bronze:financials] saved to: datamart/bronze/financials/bronze_financials_2023_10_01.csv
+[2026-06-20T07:35:54.909+0000] {subprocess.py:93} INFO - 
+[2026-06-20T07:35:54.911+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T07:35:54.915+0000] {subprocess.py:93} INFO - 
+[2026-06-20T07:35:55.583+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T07:35:55.586+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T07:35:55.630+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_bronze_financials, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260620T073543, end_date=20260620T073555
+[2026-06-20T07:35:55.658+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T07:35:55.685+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T07:35:55.686+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T15:34:59.785+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T15:34:59.803+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T15:34:59.809+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T15:34:59.809+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T15:34:59.816+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_bronze_financials> on 2023-10-01 00:00:00+00:00
+[2026-06-20T15:34:59.822+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=10368) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T15:34:59.823+0000] {standard_task_runner.py:64} INFO - Started process 10376 to run task
+[2026-06-20T15:34:59.822+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_bronze_financials', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '2576', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpben4dqap']
+[2026-06-20T15:34:59.825+0000] {standard_task_runner.py:91} INFO - Job 2576: Subtask feature_pipeline.feature_bronze_financials
+[2026-06-20T15:34:59.944+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T15:34:59.974+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_bronze_financials' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-20T15:34:59.975+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T15:34:59.980+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T15:34:59.981+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 bronze_processing.py --snapshotdate "2023-10-01" --source financials']
+[2026-06-20T15:34:59.987+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T15:35:01.504+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T15:35:01.505+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T15:35:01.623+0000] {subprocess.py:93} INFO - 26/06/20 15:35:01 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T15:35:09.030+0000] {subprocess.py:93} INFO - [Stage 1:>                                                          (0 + 1) / 1]
+[2026-06-20T15:35:09.032+0000] {subprocess.py:93} INFO - --- bronze financials 2023-10-01 ---
+[2026-06-20T15:35:09.033+0000] {subprocess.py:93} INFO - 
+[2026-06-20T15:35:09.034+0000] {subprocess.py:93} INFO - [bronze:financials] 2023-10-01 row count: 487
+[2026-06-20T15:35:09.035+0000] {subprocess.py:93} INFO - [bronze:financials] saved to: datamart/bronze/financials/bronze_financials_2023_10_01.csv
+[2026-06-20T15:35:09.036+0000] {subprocess.py:93} INFO - 
+[2026-06-20T15:35:09.037+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T15:35:09.038+0000] {subprocess.py:93} INFO - 
+[2026-06-20T15:35:09.527+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T15:35:09.528+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T15:35:09.582+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_bronze_financials, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260620T153459, end_date=20260620T153509
+[2026-06-20T15:35:09.639+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T15:35:09.665+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T15:35:09.666+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T17:28:21.844+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T17:28:21.870+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T17:28:21.880+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T17:28:21.881+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T17:28:21.893+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_bronze_financials> on 2023-10-01 00:00:00+00:00
+[2026-06-20T17:28:21.902+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=28450) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T17:28:21.904+0000] {standard_task_runner.py:64} INFO - Started process 28455 to run task
+[2026-06-20T17:28:21.903+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_bronze_financials', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '3154', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpg8yxo6pf']
+[2026-06-20T17:28:21.907+0000] {standard_task_runner.py:91} INFO - Job 3154: Subtask feature_pipeline.feature_bronze_financials
+[2026-06-20T17:28:22.123+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T17:28:22.197+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_bronze_financials' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-20T17:28:22.199+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T17:28:22.212+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T17:28:22.215+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 bronze_processing.py --snapshotdate "2023-10-01" --source financials']
+[2026-06-20T17:28:22.228+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T17:28:25.691+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T17:28:25.692+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T17:28:26.049+0000] {subprocess.py:93} INFO - 26/06/20 17:28:26 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T17:28:27.365+0000] {subprocess.py:93} INFO - 26/06/20 17:28:27 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-20T17:28:27.370+0000] {subprocess.py:93} INFO - 26/06/20 17:28:27 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[2026-06-20T17:28:27.373+0000] {subprocess.py:93} INFO - 26/06/20 17:28:27 WARN Utils: Service 'SparkUI' could not bind on port 4042. Attempting port 4043.
+[2026-06-20T17:28:40.958+0000] {subprocess.py:93} INFO - [Stage 1:>                                                          (0 + 1) / 1]                                                                                [Stage 2:>                                                          (0 + 1) / 1]                                                                                [Stage 5:>                                                          (0 + 1) / 1]
+[2026-06-20T17:28:40.962+0000] {subprocess.py:93} INFO - --- bronze financials 2023-10-01 ---
+[2026-06-20T17:28:40.964+0000] {subprocess.py:93} INFO - 
+[2026-06-20T17:28:40.966+0000] {subprocess.py:93} INFO - [bronze:financials] 2023-10-01 row count: 487
+[2026-06-20T17:28:40.969+0000] {subprocess.py:93} INFO - [bronze:financials] saved to: datamart/bronze/financials/bronze_financials_2023_10_01.csv
+[2026-06-20T17:28:40.971+0000] {subprocess.py:93} INFO - 
+[2026-06-20T17:28:40.974+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T17:28:40.976+0000] {subprocess.py:93} INFO - 
+[2026-06-20T17:28:41.707+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T17:28:41.710+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T17:28:41.760+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_bronze_financials, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260620T172821, end_date=20260620T172841
+[2026-06-20T17:28:41.796+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T17:28:41.813+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T01:52:50.400+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T01:52:50.415+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-21T01:52:50.420+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-21T01:52:50.421+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T01:52:50.427+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_bronze_financials> on 2023-10-01 00:00:00+00:00
+[2026-06-21T01:52:50.432+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=28320) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T01:52:50.433+0000] {standard_task_runner.py:64} INFO - Started process 28326 to run task
+[2026-06-21T01:52:50.433+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_bronze_financials', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '3618', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp91tg26ca']
+[2026-06-21T01:52:50.434+0000] {standard_task_runner.py:91} INFO - Job 3618: Subtask feature_pipeline.feature_bronze_financials
+[2026-06-21T01:52:50.457+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [running]> on host f6e9e2801916
+[2026-06-21T01:52:50.588+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_bronze_financials' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-21T01:52:50.589+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T01:52:50.594+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-21T01:52:50.596+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 bronze_processing.py --snapshotdate "2023-10-01" --source financials']
+[2026-06-21T01:52:50.601+0000] {subprocess.py:86} INFO - Output:
+[2026-06-21T01:52:51.916+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-21T01:52:51.918+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-21T01:52:52.050+0000] {subprocess.py:93} INFO - 26/06/21 01:52:52 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-21T01:52:52.612+0000] {subprocess.py:93} INFO - 26/06/21 01:52:52 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-21T01:52:59.428+0000] {subprocess.py:93} INFO - 
+[2026-06-21T01:52:59.466+0000] {subprocess.py:93} INFO - --- bronze financials 2023-10-01 ---
+[2026-06-21T01:52:59.478+0000] {subprocess.py:93} INFO - 
+[2026-06-21T01:52:59.488+0000] {subprocess.py:93} INFO - [bronze:financials] 2023-10-01 row count: 487
+[2026-06-21T01:52:59.510+0000] {subprocess.py:93} INFO - [bronze:financials] saved to: datamart/bronze/financials/bronze_financials_2023_10_01.csv
+[2026-06-21T01:52:59.516+0000] {subprocess.py:93} INFO - 
+[2026-06-21T01:52:59.523+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-21T01:52:59.525+0000] {subprocess.py:93} INFO - 
+[2026-06-21T01:53:00.262+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-21T01:53:00.265+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T01:53:00.301+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_bronze_financials, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260621T015250, end_date=20260621T015300
+[2026-06-21T01:53:00.360+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T01:53:00.370+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T05:49:54.484+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T05:49:54.522+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-21T05:49:54.530+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-21T05:49:54.531+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T05:49:54.546+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_bronze_financials> on 2023-10-01 00:00:00+00:00
+[2026-06-21T05:49:54.555+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=28991) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T05:49:54.556+0000] {standard_task_runner.py:64} INFO - Started process 29000 to run task
+[2026-06-21T05:49:54.555+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_bronze_financials', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '4081', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp1evlj1uq']
+[2026-06-21T05:49:54.559+0000] {standard_task_runner.py:91} INFO - Job 4081: Subtask feature_pipeline.feature_bronze_financials
+[2026-06-21T05:49:54.774+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_financials scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9377a3f0491f
+[2026-06-21T05:49:54.840+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_bronze_financials' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-21T05:49:54.842+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T05:49:54.853+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-21T05:49:54.855+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 bronze_processing.py --snapshotdate "2023-10-01" --source financials']
+[2026-06-21T05:49:54.865+0000] {subprocess.py:86} INFO - Output:
+[2026-06-21T05:49:58.009+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-21T05:49:58.013+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-21T05:49:58.264+0000] {subprocess.py:93} INFO - 26/06/21 05:49:58 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-21T05:49:59.419+0000] {subprocess.py:93} INFO - 26/06/21 05:49:59 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-21T05:49:59.426+0000] {subprocess.py:93} INFO - 26/06/21 05:49:59 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[2026-06-21T05:50:11.688+0000] {subprocess.py:93} INFO - [Stage 1:>                                                          (0 + 1) / 1]                                                                                [Stage 2:>                                                          (0 + 1) / 1][Stage 2:===========================================================(1 + 0) / 1]
+[2026-06-21T05:50:11.691+0000] {subprocess.py:93} INFO - --- bronze financials 2023-10-01 ---
+[2026-06-21T05:50:11.693+0000] {subprocess.py:93} INFO - 
+[2026-06-21T05:50:11.694+0000] {subprocess.py:93} INFO - [bronze:financials] 2023-10-01 row count: 487
+[2026-06-21T05:50:11.695+0000] {subprocess.py:93} INFO - [bronze:financials] saved to: datamart/bronze/financials/bronze_financials_2023_10_01.csv
+[2026-06-21T05:50:11.700+0000] {subprocess.py:93} INFO - 
+[2026-06-21T05:50:11.702+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-21T05:50:11.704+0000] {subprocess.py:93} INFO - 
+[2026-06-21T05:50:12.296+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-21T05:50:12.303+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T05:50:12.342+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_bronze_financials, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260621T054954, end_date=20260621T055012
+[2026-06-21T05:50:12.402+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T05:50:12.419+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

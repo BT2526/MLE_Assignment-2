@@ -1,0 +1,32 @@
+[2026-06-18T04:36:51.398+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-18T04:36:51.427+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.evidently_drift_report manual__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-18T04:36:51.436+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.evidently_drift_report manual__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-18T04:36:51.438+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 3
+[2026-06-18T04:36:51.449+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): monitoring.evidently_drift_report> on 2024-09-01 00:00:00+00:00
+[2026-06-18T04:36:51.456+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=92725) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-18T04:36:51.458+0000] {standard_task_runner.py:64} INFO - Started process 92731 to run task
+[2026-06-18T04:36:51.457+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'monitoring.evidently_drift_report', 'manual__2024-09-01T00:00:00+00:00', '--job-id', '1283', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpcvc60o89']
+[2026-06-18T04:36:51.459+0000] {standard_task_runner.py:91} INFO - Job 1283: Subtask monitoring.evidently_drift_report
+[2026-06-18T04:36:51.500+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.monitoring.evidently_drift_report manual__2024-09-01T00:00:00+00:00 [running]> on host bfbc24b887a5
+[2026-06-18T04:36:51.720+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='monitoring.evidently_drift_report' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-01T00:00:00+00:00'
+[2026-06-18T04:36:51.721+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-18T04:36:51.729+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-18T04:36:51.731+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ -f model_bank/champion.txt ]; then CHAMPION=$(cat model_bank/champion.txt) && python3 evidently_drift_report.py --baseline "2024-09-01" --current "2024-09-01" --modelname "$CHAMPION"; else echo "[skip] champion.txt not found yet - no model deployed as of 2024-09-01"; fi']
+[2026-06-18T04:36:51.740+0000] {subprocess.py:86} INFO - Output:
+[2026-06-18T04:37:01.055+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:37:01.057+0000] {subprocess.py:93} INFO - --- Evidently drift report: current=2024-09-01, model=credit_xgb_2024_09_01.pkl ---
+[2026-06-18T04:37:01.058+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:37:01.059+0000] {subprocess.py:93} INFO - PSI baseline month: 2024-09-01  current: 2024-09-01  PSI=0.0
+[2026-06-18T04:37:01.061+0000] {subprocess.py:93} INFO - CSI max: 0.0 (feature: Outstanding_Debt)
+[2026-06-18T04:37:01.061+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:37:01.062+0000] {subprocess.py:93} INFO - saved combined report (PSI -> CSI -> data summary): reports/evidently/drift_report_2024_09_01_vs_2024_09_01.html
+[2026-06-18T04:37:01.063+0000] {subprocess.py:93} INFO - open this file directly in a browser to view the interactive report.
+[2026-06-18T04:37:01.063+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:37:01.064+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-18T04:37:01.064+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:37:01.690+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-18T04:37:01.692+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-18T04:37:01.720+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=monitoring.evidently_drift_report, run_id=manual__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260618T043651, end_date=20260618T043701
+[2026-06-18T04:37:01.786+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-18T04:37:01.802+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-18T04:37:01.803+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

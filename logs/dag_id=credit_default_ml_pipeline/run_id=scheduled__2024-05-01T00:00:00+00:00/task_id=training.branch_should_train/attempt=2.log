@@ -1,0 +1,41 @@
+[2026-06-16T15:50:04.613+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-16T15:50:04.628+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.branch_should_train scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2026-06-16T15:50:04.632+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.branch_should_train scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2026-06-16T15:50:04.633+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2026-06-16T15:50:04.637+0000] {taskinstance.py:2330} INFO - Executing <Task(BranchPythonOperator): training.branch_should_train> on 2024-05-01 00:00:00+00:00
+[2026-06-16T15:50:04.644+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=13629) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-16T15:50:04.643+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.branch_should_train', 'scheduled__2024-05-01T00:00:00+00:00', '--job-id', '310', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpviung_by']
+[2026-06-16T15:50:04.646+0000] {standard_task_runner.py:91} INFO - Job 310: Subtask training.branch_should_train
+[2026-06-16T15:50:04.646+0000] {standard_task_runner.py:64} INFO - Started process 13630 to run task
+[2026-06-16T15:50:04.704+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.branch_should_train scheduled__2024-05-01T00:00:00+00:00 [running]> on host 2b9b50b7433d
+[2026-06-16T15:50:04.742+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.branch_should_train' AIRFLOW_CTX_EXECUTION_DATE='2024-05-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-01T00:00:00+00:00'
+[2026-06-16T15:50:04.743+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-16T15:50:04.750+0000] {baseoperator.py:400} WARNING - BranchPythonOperator.execute cannot be called outside TaskInstance!
+[2026-06-16T15:50:04.750+0000] {python.py:237} INFO - Done. Returned value was: skip_training
+[2026-06-16T15:50:04.750+0000] {branch.py:36} INFO - Branch into skip_training
+[2026-06-16T15:50:04.751+0000] {skipmixin.py:178} INFO - Following branch skip_training
+[2026-06-16T15:50:04.751+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-16T15:50:04.754+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 269, in execute
+    return self.do_branch(context, super().execute(context))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/branch.py", line 37, in do_branch
+    self.skip_all_except(context["ti"], branches_to_execute)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/skipmixin.py", line 215, in skip_all_except
+    raise AirflowException(
+airflow.exceptions.AirflowException: 'branch_task_ids' must contain only valid task_ids. Invalid tasks found: {'skip_training'}.
+[2026-06-16T15:50:04.758+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=credit_default_ml_pipeline, task_id=training.branch_should_train, run_id=scheduled__2024-05-01T00:00:00+00:00, execution_date=20240501T000000, start_date=20260616T155004, end_date=20260616T155004
+[2026-06-16T15:50:04.763+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 310 for task training.branch_should_train ('branch_task_ids' must contain only valid task_ids. Invalid tasks found: {'skip_training'}.; 13630)
+[2026-06-16T15:50:04.788+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-06-16T15:50:04.800+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-16T15:50:04.802+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

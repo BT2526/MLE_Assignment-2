@@ -1,0 +1,138 @@
+[2026-06-20T05:59:40.921+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T05:59:40.932+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T05:59:40.935+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T05:59:40.936+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T05:59:40.941+0000] {taskinstance.py:2330} INFO - Executing <Task(BranchPythonOperator): training.training_gate> on 2023-10-01 00:00:00+00:00
+[2026-06-20T05:59:40.943+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=41977) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T05:59:40.944+0000] {standard_task_runner.py:64} INFO - Started process 41979 to run task
+[2026-06-20T05:59:40.944+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.training_gate', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '1623', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp6ua75nbe']
+[2026-06-20T05:59:40.946+0000] {standard_task_runner.py:91} INFO - Job 1623: Subtask training.training_gate
+[2026-06-20T05:59:41.036+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T05:59:41.060+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.training_gate' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-20T05:59:41.062+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T05:59:41.066+0000] {baseoperator.py:400} WARNING - BranchPythonOperator.execute cannot be called outside TaskInstance!
+[2026-06-20T05:59:41.068+0000] {logging_mixin.py:188} INFO - [retrain-trigger] no monitoring history yet for credit_xgb_2024_09_01 (first eligible month); skipping training.
+[2026-06-20T05:59:41.068+0000] {python.py:237} INFO - Done. Returned value was: training.skip_training
+[2026-06-20T05:59:41.068+0000] {branch.py:36} INFO - Branch into training.skip_training
+[2026-06-20T05:59:41.069+0000] {skipmixin.py:178} INFO - Following branch training.skip_training
+[2026-06-20T05:59:41.073+0000] {skipmixin.py:246} INFO - Skipping tasks [('training.start_training', -1)]
+[2026-06-20T05:59:41.080+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T05:59:41.085+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.training_gate, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260620T055940, end_date=20260620T055941
+[2026-06-20T05:59:41.125+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T05:59:41.212+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T05:59:41.217+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T07:38:41.624+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T07:38:41.641+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T07:38:41.646+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T07:38:41.647+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T07:38:41.654+0000] {taskinstance.py:2330} INFO - Executing <Task(BranchPythonOperator): training.training_gate> on 2023-10-01 00:00:00+00:00
+[2026-06-20T07:38:41.660+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=26905) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T07:38:41.659+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.training_gate', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '2117', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpi2z85qam']
+[2026-06-20T07:38:41.661+0000] {standard_task_runner.py:64} INFO - Started process 26907 to run task
+[2026-06-20T07:38:41.662+0000] {standard_task_runner.py:91} INFO - Job 2117: Subtask training.training_gate
+[2026-06-20T07:38:41.797+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T07:38:41.829+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.training_gate' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-20T07:38:41.831+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T07:38:41.837+0000] {baseoperator.py:400} WARNING - BranchPythonOperator.execute cannot be called outside TaskInstance!
+[2026-06-20T07:38:41.840+0000] {logging_mixin.py:188} INFO - [retrain-trigger] no monitoring history yet for credit_xgb_2024_09_01 (first eligible month); skipping training.
+[2026-06-20T07:38:41.840+0000] {python.py:237} INFO - Done. Returned value was: training.skip_training
+[2026-06-20T07:38:41.841+0000] {branch.py:36} INFO - Branch into training.skip_training
+[2026-06-20T07:38:41.841+0000] {skipmixin.py:178} INFO - Following branch training.skip_training
+[2026-06-20T07:38:41.848+0000] {skipmixin.py:246} INFO - Skipping tasks [('training.start_training', -1)]
+[2026-06-20T07:38:41.857+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T07:38:41.864+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.training_gate, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260620T073841, end_date=20260620T073841
+[2026-06-20T07:38:41.889+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T07:38:41.980+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T07:38:41.983+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T15:37:42.662+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T15:37:42.674+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T15:37:42.678+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T15:37:42.679+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T15:37:42.684+0000] {taskinstance.py:2330} INFO - Executing <Task(BranchPythonOperator): training.training_gate> on 2023-10-01 00:00:00+00:00
+[2026-06-20T15:37:42.687+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=13496) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T15:37:42.688+0000] {standard_task_runner.py:64} INFO - Started process 13498 to run task
+[2026-06-20T15:37:42.687+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.training_gate', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '2587', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpyfuho053']
+[2026-06-20T15:37:42.689+0000] {standard_task_runner.py:91} INFO - Job 2587: Subtask training.training_gate
+[2026-06-20T15:37:42.778+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T15:37:42.801+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.training_gate' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-20T15:37:42.802+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T15:37:42.806+0000] {baseoperator.py:400} WARNING - BranchPythonOperator.execute cannot be called outside TaskInstance!
+[2026-06-20T15:37:42.807+0000] {logging_mixin.py:188} INFO - [training] 2023-10-01 — retraining is manual; skipping automated training.
+[2026-06-20T15:37:42.807+0000] {python.py:237} INFO - Done. Returned value was: training.skip_training
+[2026-06-20T15:37:42.807+0000] {branch.py:36} INFO - Branch into training.skip_training
+[2026-06-20T15:37:42.807+0000] {skipmixin.py:178} INFO - Following branch training.skip_training
+[2026-06-20T15:37:42.812+0000] {skipmixin.py:246} INFO - Skipping tasks [('training.start_training', -1)]
+[2026-06-20T15:37:42.818+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T15:37:42.824+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.training_gate, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260620T153742, end_date=20260620T153742
+[2026-06-20T15:37:42.831+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T15:37:42.915+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T15:37:42.918+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T17:31:21.488+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T17:31:21.507+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T17:31:21.514+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T17:31:21.514+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T17:31:21.523+0000] {taskinstance.py:2330} INFO - Executing <Task(BranchPythonOperator): training.training_gate> on 2023-10-01 00:00:00+00:00
+[2026-06-20T17:31:21.527+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=31752) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T17:31:21.528+0000] {standard_task_runner.py:64} INFO - Started process 31754 to run task
+[2026-06-20T17:31:21.528+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.training_gate', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '3165', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmprk5s2m0t']
+[2026-06-20T17:31:21.530+0000] {standard_task_runner.py:91} INFO - Job 3165: Subtask training.training_gate
+[2026-06-20T17:31:21.666+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T17:31:21.707+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.training_gate' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-20T17:31:21.708+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T17:31:21.715+0000] {baseoperator.py:400} WARNING - BranchPythonOperator.execute cannot be called outside TaskInstance!
+[2026-06-20T17:31:21.716+0000] {logging_mixin.py:188} INFO - [training] 2023-10-01 — retraining is manual; skipping automated training.
+[2026-06-20T17:31:21.717+0000] {python.py:237} INFO - Done. Returned value was: training.skip_training
+[2026-06-20T17:31:21.717+0000] {branch.py:36} INFO - Branch into training.skip_training
+[2026-06-20T17:31:21.718+0000] {skipmixin.py:178} INFO - Following branch training.skip_training
+[2026-06-20T17:31:21.727+0000] {skipmixin.py:246} INFO - Skipping tasks [('training.start_training', -1)]
+[2026-06-20T17:31:21.738+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T17:31:21.750+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.training_gate, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260620T173121, end_date=20260620T173121
+[2026-06-20T17:31:21.793+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T17:31:21.910+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T17:31:21.913+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T02:14:35.938+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T02:14:35.961+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-21T02:14:35.965+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-21T02:14:35.966+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T02:14:35.973+0000] {taskinstance.py:2330} INFO - Executing <Task(BranchPythonOperator): training.training_gate> on 2023-10-01 00:00:00+00:00
+[2026-06-21T02:14:35.976+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=31480) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T02:14:35.977+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.training_gate', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '3629', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp5st8qvxb']
+[2026-06-21T02:14:35.978+0000] {standard_task_runner.py:64} INFO - Started process 31482 to run task
+[2026-06-21T02:14:35.979+0000] {standard_task_runner.py:91} INFO - Job 3629: Subtask training.training_gate
+[2026-06-21T02:14:36.003+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [running]> on host f6e9e2801916
+[2026-06-21T02:14:36.123+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.training_gate' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-21T02:14:36.125+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T02:14:36.129+0000] {baseoperator.py:400} WARNING - BranchPythonOperator.execute cannot be called outside TaskInstance!
+[2026-06-21T02:14:36.130+0000] {logging_mixin.py:188} INFO - [training] 2023-10-01 — retraining is manual; skipping automated training.
+[2026-06-21T02:14:36.130+0000] {python.py:237} INFO - Done. Returned value was: training.skip_training
+[2026-06-21T02:14:36.131+0000] {branch.py:36} INFO - Branch into training.skip_training
+[2026-06-21T02:14:36.131+0000] {skipmixin.py:178} INFO - Following branch training.skip_training
+[2026-06-21T02:14:36.137+0000] {skipmixin.py:246} INFO - Skipping tasks [('training.start_training', -1)]
+[2026-06-21T02:14:36.146+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T02:14:36.154+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.training_gate, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260621T021435, end_date=20260621T021436
+[2026-06-21T02:14:36.202+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T02:14:36.218+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-21T02:14:36.221+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T05:52:51.526+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T05:52:51.550+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-21T05:52:51.557+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-21T05:52:51.558+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T05:52:51.568+0000] {taskinstance.py:2330} INFO - Executing <Task(BranchPythonOperator): training.training_gate> on 2023-10-01 00:00:00+00:00
+[2026-06-21T05:52:51.574+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=32232) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T05:52:51.574+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.training_gate', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '4093', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmps6iwa_ry']
+[2026-06-21T05:52:51.576+0000] {standard_task_runner.py:64} INFO - Started process 32234 to run task
+[2026-06-21T05:52:51.576+0000] {standard_task_runner.py:91} INFO - Job 4093: Subtask training.training_gate
+[2026-06-21T05:52:51.736+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.training_gate scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9377a3f0491f
+[2026-06-21T05:52:51.791+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.training_gate' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-21T05:52:51.792+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T05:52:51.801+0000] {baseoperator.py:400} WARNING - BranchPythonOperator.execute cannot be called outside TaskInstance!
+[2026-06-21T05:52:51.802+0000] {logging_mixin.py:188} INFO - [training] 2023-10-01 — retraining is manual; skipping automated training.
+[2026-06-21T05:52:51.803+0000] {python.py:237} INFO - Done. Returned value was: training.skip_training
+[2026-06-21T05:52:51.803+0000] {branch.py:36} INFO - Branch into training.skip_training
+[2026-06-21T05:52:51.804+0000] {skipmixin.py:178} INFO - Following branch training.skip_training
+[2026-06-21T05:52:51.816+0000] {skipmixin.py:246} INFO - Skipping tasks [('training.start_training', -1)]
+[2026-06-21T05:52:51.835+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T05:52:51.848+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.training_gate, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260621T055251, end_date=20260621T055251
+[2026-06-21T05:52:51.897+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T05:52:52.043+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-21T05:52:52.048+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -15,6 +15,7 @@ No business labelling or cross-source joins happen here - that is the gold layer
 """
 
 import os
+import shutil
 from collections import Counter
 from datetime import datetime
 
@@ -248,6 +249,19 @@ def process_silver_table(table_name, snapshot_date_str,
         raise ValueError(f"Unknown source table: {table_name}")
 
     part = os.path.join(out_dir, snapshot_date_str.replace("-", "_") + ".parquet")
-    df.write.mode("overwrite").parquet(part)
+    # Remove any stale partial write from a previous failed attempt before
+    # writing. Spark's mode("overwrite") does not reliably clean up a broken
+    # _temporary directory left by a prior killed/failed write, causing a
+    # ParentNotDirectoryException on retry. Removing the directory first
+    # guarantees Spark starts with a clean slate every time.
+    if os.path.exists(part):
+        shutil.rmtree(part)
+        print(f"[silver:{table_name}] cleared stale partition: {part}")
+    # Coalesce to 1 partition before writing — avoids the Spark
+    # FileNotFoundException: _temporary/0 does not exist error that
+    # occurs in resource-constrained environments when Spark tries to
+    # stage output across multiple task partitions. Silver partitions
+    # are small (typically <10k rows) so single-partition write is fine.
+    df.coalesce(1).write.mode("overwrite").parquet(part)
     print(f"[silver:{table_name}] saved to: {part}")
     return df

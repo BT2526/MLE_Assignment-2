@@ -1,0 +1,32 @@
+[2026-06-18T04:23:15.381+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-18T04:23:15.398+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.label_pipeline.gold_label_store scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2026-06-18T04:23:15.402+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.label_pipeline.gold_label_store scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2026-06-18T04:23:15.403+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 4
+[2026-06-18T04:23:15.409+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): label_pipeline.gold_label_store> on 2024-05-01 00:00:00+00:00
+[2026-06-18T04:23:15.414+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=78641) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-18T04:23:15.415+0000] {standard_task_runner.py:64} INFO - Started process 78643 to run task
+[2026-06-18T04:23:15.414+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'label_pipeline.gold_label_store', 'scheduled__2024-05-01T00:00:00+00:00', '--job-id', '1204', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpxg6kvqtt']
+[2026-06-18T04:23:15.416+0000] {standard_task_runner.py:91} INFO - Job 1204: Subtask label_pipeline.gold_label_store
+[2026-06-18T04:23:15.440+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.label_pipeline.gold_label_store scheduled__2024-05-01T00:00:00+00:00 [running]> on host bfbc24b887a5
+[2026-06-18T04:23:15.582+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='label_pipeline.gold_label_store' AIRFLOW_CTX_EXECUTION_DATE='2024-05-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-01T00:00:00+00:00'
+[2026-06-18T04:23:15.583+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-18T04:23:15.589+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-18T04:23:15.589+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 gold_label_store.py --snapshotdate "2024-05-01"']
+[2026-06-18T04:23:15.595+0000] {subprocess.py:86} INFO - Output:
+[2026-06-18T04:23:17.173+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-18T04:23:17.174+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-18T04:23:17.403+0000] {subprocess.py:93} INFO - 26/06/18 04:23:17 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-18T04:23:21.810+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:23:21.812+0000] {subprocess.py:93} INFO - --- gold label 2024-05-01 ---
+[2026-06-18T04:23:21.813+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:23:21.813+0000] {subprocess.py:93} INFO - [gold:label] loaded datamart/silver/lms/2024_05_01.parquet rows: 5391
+[2026-06-18T04:23:21.814+0000] {subprocess.py:93} INFO - [gold:label] saved to: datamart/gold/label_store/gold_label_store_2024_05_01.parquet
+[2026-06-18T04:23:21.814+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:23:21.815+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-18T04:23:21.816+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:23:22.363+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-18T04:23:22.364+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-18T04:23:22.380+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=label_pipeline.gold_label_store, run_id=scheduled__2024-05-01T00:00:00+00:00, execution_date=20240501T000000, start_date=20260618T042315, end_date=20260618T042322
+[2026-06-18T04:23:22.398+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-18T04:23:22.509+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-18T04:23:22.512+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

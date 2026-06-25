@@ -1,0 +1,34 @@
+[2026-06-18T04:44:19.947+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-18T04:44:19.981+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.champion_monitor scheduled__2024-11-01T00:00:00+00:00 [queued]>
+[2026-06-18T04:44:19.991+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.champion_monitor scheduled__2024-11-01T00:00:00+00:00 [queued]>
+[2026-06-18T04:44:19.993+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 3
+[2026-06-18T04:44:20.004+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): monitoring.champion_monitor> on 2024-11-01 00:00:00+00:00
+[2026-06-18T04:44:20.013+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=934) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-18T04:44:20.014+0000] {standard_task_runner.py:64} INFO - Started process 940 to run task
+[2026-06-18T04:44:20.013+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'monitoring.champion_monitor', 'scheduled__2024-11-01T00:00:00+00:00', '--job-id', '1323', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp7pjiv8wd']
+[2026-06-18T04:44:20.015+0000] {standard_task_runner.py:91} INFO - Job 1323: Subtask monitoring.champion_monitor
+[2026-06-18T04:44:20.055+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.monitoring.champion_monitor scheduled__2024-11-01T00:00:00+00:00 [running]> on host bfbc24b887a5
+[2026-06-18T04:44:20.313+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='monitoring.champion_monitor' AIRFLOW_CTX_EXECUTION_DATE='2024-11-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-01T00:00:00+00:00'
+[2026-06-18T04:44:20.314+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-18T04:44:20.325+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-18T04:44:20.326+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ -f model_bank/champion.txt ]; then CHAMPION=$(cat model_bank/champion.txt) && python3 model_monitor.py --snapshotdate "2024-11-01" --modelname "$CHAMPION"; else echo "[skip] champion.txt not found yet - no model deployed as of 2024-11-01"; fi']
+[2026-06-18T04:44:20.335+0000] {subprocess.py:86} INFO - Output:
+[2026-06-18T04:44:23.581+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:44:23.583+0000] {subprocess.py:93} INFO - --- monitoring credit_xgb_2024_11_01.pkl ---
+[2026-06-18T04:44:23.584+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:44:23.585+0000] {subprocess.py:93} INFO - OOT1 baseline AUC for credit_xgb_2024_11_01: 0.9208005782958345
+[2026-06-18T04:44:23.586+0000] {subprocess.py:93} INFO - [csi] scoping to top 15 features: ['Outstanding_Debt', 'Interest_Rate', 'fe_5', 'fe_10', 'Delay_from_due_date', 'fe_9', 'Num_Bank_Accounts', 'fe_4', 'Credit_Mix_bad', 'fe_8', 'Num_Credit_Inquiries', 'fe_3', 'Credit_Mix_standard', 'Changed_Credit_Limit', 'Credit_Mix_good']
+[2026-06-18T04:44:23.587+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:44:23.588+0000] {subprocess.py:93} INFO - snapshot_date  n_scored  mean_score  psi  auc  gini  auc_drop_from_oot1  csi_max  csi_max_feature  csi_Outstanding_Debt  csi_Interest_Rate  csi_fe_5  csi_fe_10  csi_Delay_from_due_date  csi_fe_9  csi_Num_Bank_Accounts  csi_fe_4  csi_Credit_Mix_bad  csi_fe_8  csi_Num_Credit_Inquiries  csi_fe_3  csi_Credit_Mix_standard  csi_Changed_Credit_Limit  csi_Credit_Mix_good
+[2026-06-18T04:44:23.589+0000] {subprocess.py:93} INFO -    2024-11-01       488      0.2311  0.0  NaN   NaN                 NaN      0.0 Outstanding_Debt                   0.0                0.0       0.0        0.0                      0.0       0.0                    0.0       0.0                 0.0       0.0                       0.0       0.0                      0.0                       0.0                  0.0
+[2026-06-18T04:44:23.590+0000] {subprocess.py:93} INFO - saved monitoring table: datamart/gold/model_monitoring/credit_xgb_2024_11_01/credit_xgb_2024_11_01_monitoring.parquet
+[2026-06-18T04:44:23.591+0000] {subprocess.py:93} INFO - saved plots: datamart/gold/monitoring_plots/credit_xgb_2024_11_01/psi_stability.png, datamart/gold/monitoring_plots/credit_xgb_2024_11_01/csi_stability.png, datamart/gold/monitoring_plots/credit_xgb_2024_11_01/csi_breakdown_all_features.png, datamart/gold/monitoring_plots/credit_xgb_2024_11_01/auc_gini_performance.png
+[2026-06-18T04:44:23.592+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:44:23.593+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-18T04:44:23.594+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:44:23.836+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-18T04:44:23.837+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-18T04:44:23.863+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=monitoring.champion_monitor, run_id=scheduled__2024-11-01T00:00:00+00:00, execution_date=20241101T000000, start_date=20260618T044419, end_date=20260618T044423
+[2026-06-18T04:44:23.897+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-18T04:44:23.924+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-18T04:44:23.926+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

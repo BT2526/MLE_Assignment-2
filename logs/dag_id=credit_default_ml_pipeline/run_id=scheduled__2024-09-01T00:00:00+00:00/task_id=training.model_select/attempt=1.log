@@ -1,0 +1,160 @@
+[2026-06-20T08:12:15.358+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T08:12:15.380+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.model_select scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T08:12:15.387+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.model_select scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T08:12:15.388+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T08:12:15.511+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): training.model_select> on 2024-09-01 00:00:00+00:00
+[2026-06-20T08:12:15.516+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=63115) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T08:12:15.518+0000] {standard_task_runner.py:64} INFO - Started process 63117 to run task
+[2026-06-20T08:12:15.516+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.model_select', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '2329', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpzty5voqt']
+[2026-06-20T08:12:15.519+0000] {standard_task_runner.py:91} INFO - Job 2329: Subtask training.model_select
+[2026-06-20T08:12:15.548+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.model_select scheduled__2024-09-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T08:12:15.591+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.model_select' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2026-06-20T08:12:15.592+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T08:12:15.600+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T08:12:15.601+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 model_select.py --snapshotdate "2024-09-01"']
+[2026-06-20T08:12:15.606+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T08:12:16.540+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:16.540+0000] {subprocess.py:93} INFO - --- model selection 2024-09-01 (tt_months=12) ---
+[2026-06-20T08:12:16.541+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:16.542+0000] {subprocess.py:93} INFO -   xgb       OOT AUC = 0.9217  (credit_xgb_2024_09_01.pkl)
+[2026-06-20T08:12:16.542+0000] {subprocess.py:93} INFO -   logreg    OOT AUC = 0.8712  (credit_logreg_2024_09_01.pkl)
+[2026-06-20T08:12:16.542+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:16.543+0000] {subprocess.py:93} INFO - CHAMPION: xgb (OOT AUC 0.9217)  vs  logreg (OOT AUC 0.8712)  margin: 0.0505
+[2026-06-20T08:12:16.543+0000] {subprocess.py:93} INFO - wrote champion.txt -> credit_xgb_2024_09_01.pkl
+[2026-06-20T08:12:16.544+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:16.544+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T08:12:16.544+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:16.641+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T08:12:16.642+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T08:12:16.658+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.model_select, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260620T081215, end_date=20260620T081216
+[2026-06-20T08:12:16.678+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T08:12:16.693+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T08:12:16.694+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T16:41:55.655+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T16:41:55.668+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.model_select scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T16:41:55.673+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.model_select scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T16:41:55.674+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T16:41:55.753+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): training.model_select> on 2024-09-01 00:00:00+00:00
+[2026-06-20T16:41:55.757+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=64087) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T16:41:55.758+0000] {standard_task_runner.py:64} INFO - Started process 64089 to run task
+[2026-06-20T16:41:55.757+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.model_select', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '2884', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpdqmt00dk']
+[2026-06-20T16:41:55.758+0000] {standard_task_runner.py:91} INFO - Job 2884: Subtask training.model_select
+[2026-06-20T16:41:55.780+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.model_select scheduled__2024-09-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T16:41:55.810+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.model_select' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2026-06-20T16:41:55.811+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T16:41:55.816+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T16:41:55.817+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 model_select.py --snapshotdate "2024-09-01"']
+[2026-06-20T16:41:55.821+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T16:41:56.459+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:41:56.460+0000] {subprocess.py:93} INFO - --- model selection 2024-09-01 (tt_months=12) ---
+[2026-06-20T16:41:56.460+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:41:56.460+0000] {subprocess.py:93} INFO -   xgb       OOT AUC = 0.9217  (credit_xgb_2024_09_01.pkl)
+[2026-06-20T16:41:56.460+0000] {subprocess.py:93} INFO -   logreg    OOT AUC = 0.8712  (credit_logreg_2024_09_01.pkl)
+[2026-06-20T16:41:56.461+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:41:56.461+0000] {subprocess.py:93} INFO - CHAMPION: xgb (OOT AUC 0.9217)  vs  logreg (OOT AUC 0.8712)  margin: 0.0505
+[2026-06-20T16:41:56.461+0000] {subprocess.py:93} INFO - wrote champion.txt -> credit_xgb_2024_09_01.pkl
+[2026-06-20T16:41:56.461+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:41:56.462+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T16:41:56.462+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:41:56.539+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T16:41:56.540+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T16:41:56.551+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.model_select, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260620T164155, end_date=20260620T164156
+[2026-06-20T16:41:56.566+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T16:41:56.577+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T16:41:56.578+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T18:05:57.429+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T18:05:57.453+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.model_select scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T18:05:57.460+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.model_select scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T18:05:57.461+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T18:05:57.637+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): training.model_select> on 2024-09-01 00:00:00+00:00
+[2026-06-20T18:05:57.646+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.model_select', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '3377', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp7clghvma']
+[2026-06-20T18:05:57.648+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=68023) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T18:05:57.649+0000] {standard_task_runner.py:91} INFO - Job 3377: Subtask training.model_select
+[2026-06-20T18:05:57.650+0000] {standard_task_runner.py:64} INFO - Started process 68025 to run task
+[2026-06-20T18:05:57.700+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.model_select scheduled__2024-09-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T18:05:57.749+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.model_select' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2026-06-20T18:05:57.752+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T18:05:57.761+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T18:05:57.763+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 model_select.py --snapshotdate "2024-09-01"']
+[2026-06-20T18:05:57.769+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T18:05:58.814+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:05:58.814+0000] {subprocess.py:93} INFO - --- model selection 2024-09-01 (tt_months=12) ---
+[2026-06-20T18:05:58.815+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:05:58.815+0000] {subprocess.py:93} INFO -   xgb       OOT AUC = 0.9223  (credit_xgb_2024_09_01.pkl)
+[2026-06-20T18:05:58.816+0000] {subprocess.py:93} INFO -   logreg    OOT AUC = 0.8748  (credit_logreg_2024_09_01.pkl)
+[2026-06-20T18:05:58.816+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:05:58.817+0000] {subprocess.py:93} INFO - CHAMPION: xgb (OOT AUC 0.9223)  vs  logreg (OOT AUC 0.8748)  margin: 0.0475
+[2026-06-20T18:05:58.817+0000] {subprocess.py:93} INFO - wrote champion.txt -> credit_xgb_2024_09_01.pkl
+[2026-06-20T18:05:58.817+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:05:58.818+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T18:05:58.818+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:05:58.918+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T18:05:58.918+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T18:05:58.936+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.model_select, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260620T180557, end_date=20260620T180558
+[2026-06-20T18:05:58.951+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T18:05:58.970+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T18:05:58.971+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T03:00:26.184+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T03:00:26.200+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.model_select scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-21T03:00:26.205+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.model_select scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-21T03:00:26.206+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T03:00:26.212+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): training.model_select> on 2024-09-01 00:00:00+00:00
+[2026-06-21T03:00:26.216+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=66832) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T03:00:26.216+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.model_select', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '3843', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpm31_4np6']
+[2026-06-21T03:00:26.217+0000] {standard_task_runner.py:64} INFO - Started process 66834 to run task
+[2026-06-21T03:00:26.218+0000] {standard_task_runner.py:91} INFO - Job 3843: Subtask training.model_select
+[2026-06-21T03:00:26.242+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.model_select scheduled__2024-09-01T00:00:00+00:00 [running]> on host f6e9e2801916
+[2026-06-21T03:00:26.373+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.model_select' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2026-06-21T03:00:26.374+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T03:00:26.378+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-21T03:00:26.379+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 model_select.py --snapshotdate "2024-09-01"']
+[2026-06-21T03:00:26.383+0000] {subprocess.py:86} INFO - Output:
+[2026-06-21T03:00:27.103+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:27.104+0000] {subprocess.py:93} INFO - --- model selection 2024-09-01 (tt_months=12) ---
+[2026-06-21T03:00:27.105+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:27.106+0000] {subprocess.py:93} INFO -   xgb       OOT AUC = 0.9087  (credit_xgb_2024_09_01.pkl)
+[2026-06-21T03:00:27.106+0000] {subprocess.py:93} INFO -   logreg    OOT AUC = 0.8663  (credit_logreg_2024_09_01.pkl)
+[2026-06-21T03:00:27.106+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:27.106+0000] {subprocess.py:93} INFO - CHAMPION: xgb (OOT AUC 0.9087)  vs  logreg (OOT AUC 0.8663)  margin: 0.0424
+[2026-06-21T03:00:27.107+0000] {subprocess.py:93} INFO - wrote champion.txt -> credit_xgb_2024_09_01.pkl
+[2026-06-21T03:00:27.107+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:27.108+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-21T03:00:27.109+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:27.184+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-21T03:00:27.185+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T03:00:27.195+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.model_select, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260621T030026, end_date=20260621T030027
+[2026-06-21T03:00:27.233+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T03:00:27.244+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-21T03:00:27.245+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T06:27:28.186+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T06:27:28.210+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.model_select scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-21T06:27:28.216+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.model_select scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-21T06:27:28.217+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T06:27:28.226+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): training.model_select> on 2024-09-01 00:00:00+00:00
+[2026-06-21T06:27:28.232+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=68681) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T06:27:28.232+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.model_select', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '4304', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpvmnusygm']
+[2026-06-21T06:27:28.235+0000] {standard_task_runner.py:64} INFO - Started process 68683 to run task
+[2026-06-21T06:27:28.236+0000] {standard_task_runner.py:91} INFO - Job 4304: Subtask training.model_select
+[2026-06-21T06:27:28.395+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.model_select scheduled__2024-09-01T00:00:00+00:00 [running]> on host 9377a3f0491f
+[2026-06-21T06:27:28.442+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.model_select' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2026-06-21T06:27:28.444+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T06:27:28.453+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-21T06:27:28.455+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 model_select.py --snapshotdate "2024-09-01"']
+[2026-06-21T06:27:28.462+0000] {subprocess.py:86} INFO - Output:
+[2026-06-21T06:27:29.500+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:29.502+0000] {subprocess.py:93} INFO - --- model selection 2024-09-01 (tt_months=12) ---
+[2026-06-21T06:27:29.502+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:29.503+0000] {subprocess.py:93} INFO -   xgb       OOT AUC = 0.9197  (credit_xgb_2024_09_01.pkl)
+[2026-06-21T06:27:29.503+0000] {subprocess.py:93} INFO -   logreg    OOT AUC = 0.8767  (credit_logreg_2024_09_01.pkl)
+[2026-06-21T06:27:29.504+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:29.504+0000] {subprocess.py:93} INFO - CHAMPION: xgb (OOT AUC 0.9197)  vs  logreg (OOT AUC 0.8767)  margin: 0.0430
+[2026-06-21T06:27:29.505+0000] {subprocess.py:93} INFO - wrote champion.txt -> credit_xgb_2024_09_01.pkl
+[2026-06-21T06:27:29.505+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:29.506+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-21T06:27:29.506+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:29.615+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-21T06:27:29.616+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T06:27:29.632+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.model_select, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260621T062728, end_date=20260621T062729
+[2026-06-21T06:27:29.643+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T06:27:29.757+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-21T06:27:29.758+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

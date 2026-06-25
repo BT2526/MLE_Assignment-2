@@ -1,0 +1,42 @@
+[2026-06-18T02:25:37.735+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-18T02:25:37.756+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.challenger_monitor scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-18T02:25:37.762+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.challenger_monitor scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-18T02:25:37.762+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 3
+[2026-06-18T02:25:37.769+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): monitoring.challenger_monitor> on 2023-02-01 00:00:00+00:00
+[2026-06-18T02:25:37.775+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=15519) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-18T02:25:37.775+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'monitoring.challenger_monitor', 'scheduled__2023-02-01T00:00:00+00:00', '--job-id', '870', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpm2nfkcoo']
+[2026-06-18T02:25:37.776+0000] {standard_task_runner.py:64} INFO - Started process 15529 to run task
+[2026-06-18T02:25:37.777+0000] {standard_task_runner.py:91} INFO - Job 870: Subtask monitoring.challenger_monitor
+[2026-06-18T02:25:37.806+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.monitoring.challenger_monitor scheduled__2023-02-01T00:00:00+00:00 [running]> on host bfbc24b887a5
+[2026-06-18T02:25:37.975+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='monitoring.challenger_monitor' AIRFLOW_CTX_EXECUTION_DATE='2023-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-02-01T00:00:00+00:00'
+[2026-06-18T02:25:37.977+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-18T02:25:37.982+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-18T02:25:37.983+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 model_monitor.py --snapshotdate "2023-02-01" --modelname "credit_logreg_2024_09_01.pkl"']
+[2026-06-18T02:25:37.992+0000] {subprocess.py:86} INFO - Output:
+[2026-06-18T02:25:39.488+0000] {subprocess.py:93} INFO - 
+[2026-06-18T02:25:39.489+0000] {subprocess.py:93} INFO - --- monitoring credit_logreg_2024_09_01.pkl ---
+[2026-06-18T02:25:39.489+0000] {subprocess.py:93} INFO - 
+[2026-06-18T02:25:39.491+0000] {subprocess.py:93} INFO - OOT1 baseline AUC for credit_logreg_2024_09_01: 0.8711581528244334
+[2026-06-18T02:25:39.491+0000] {subprocess.py:93} INFO - [csi] scoping to top 15 features: ['fe_5', 'fe_10', 'fe_4', 'loans_per_credit_card', 'payment_stress', 'fe_9', 'Interest_Rate', 'Changed_Credit_Limit', 'Delay_from_due_date', 'fe_8', 'Monthly_Balance', 'fe_3', 'Monthly_Inhand_Salary', 'Outstanding_Debt', 'fe_7']
+[2026-06-18T02:25:39.492+0000] {subprocess.py:93} INFO - 
+[2026-06-18T02:25:39.493+0000] {subprocess.py:93} INFO - snapshot_date  n_scored  mean_score    psi    auc   gini  auc_drop_from_oot1  csi_max csi_max_feature  csi_fe_5  csi_fe_10  csi_fe_4  csi_loans_per_credit_card  csi_payment_stress  csi_fe_9  csi_Interest_Rate  csi_Changed_Credit_Limit  csi_Delay_from_due_date  csi_fe_8  csi_Monthly_Balance  csi_fe_3  csi_Monthly_Inhand_Salary  csi_Outstanding_Debt  csi_fe_7
+[2026-06-18T02:25:39.495+0000] {subprocess.py:93} INFO -    2023-01-01       530      0.4053 0.0000 0.7707 0.5413              0.1005   0.0000            fe_5    0.0000     0.0000    0.0000                     0.0000              0.0000    0.0000             0.0000                    0.0000                   0.0000    0.0000               0.0000    0.0000                     0.0000                0.0000    0.0000
+[2026-06-18T02:25:39.497+0000] {subprocess.py:93} INFO -    2023-02-01       501      0.4391 0.0674 0.7973 0.5946              0.0739   0.3313            fe_4    0.1835     0.1685    0.3313                     0.0434              0.1074    0.2209             0.0421                    0.0469                   0.0415    0.1584               0.0425    0.1611                     0.0546                0.0275    0.2421
+[2026-06-18T02:25:39.497+0000] {subprocess.py:93} INFO -    2024-09-01       493      0.4253 1.2266    NaN    NaN                 NaN   8.3196           fe_10    8.2473     8.3196    8.2472                     0.0325              0.0875    8.1763             0.0755                    0.0595                   0.0196    8.2833               0.0704    8.2471                     0.0356                0.0419    8.2472
+[2026-06-18T02:25:39.498+0000] {subprocess.py:93} INFO -    2024-10-01       456      0.4064 1.5647    NaN    NaN                 NaN   8.3196           fe_10    8.2473     8.3196    8.2472                     0.0491              0.1440    8.1763             0.0164                    0.0507                   0.0391    8.2833               0.0504    8.2471                     0.0473                0.0149    8.2472
+[2026-06-18T02:25:39.498+0000] {subprocess.py:93} INFO -    2024-11-01       488      0.4294 1.3210    NaN    NaN                 NaN   8.3196           fe_10    8.2473     8.3196    8.2472                     0.2386              0.0812    8.1763             0.0508                    0.0628                   0.0299    8.2833               0.0555    8.2471                     0.0475                0.0620    8.2472
+[2026-06-18T02:25:39.499+0000] {subprocess.py:93} INFO -    2024-12-01       515      0.3816 1.6813    NaN    NaN                 NaN   8.3196           fe_10    8.2473     8.3196    8.2472                     0.0346              0.0566    8.1763             0.0142                    0.0298                   0.0342    8.2833               0.0273    8.2471                     0.0316                0.0674    8.2472
+[2026-06-18T02:25:39.500+0000] {subprocess.py:93} INFO - 
+[2026-06-18T02:25:39.501+0000] {subprocess.py:93} INFO - [ALERT] PSI breached 0.25 for credit_logreg_2024_09_01 at 2024-12-01 (PSI=1.6813); this would trigger a scheduled retrain.
+[2026-06-18T02:25:39.504+0000] {subprocess.py:93} INFO - 
+[2026-06-18T02:25:39.504+0000] {subprocess.py:93} INFO - [ALERT] CSI breached 0.25 for credit_logreg_2024_09_01 at 2024-12-01 on feature 'fe_10' (CSI=8.3196); this would trigger a scheduled retrain.
+[2026-06-18T02:25:39.504+0000] {subprocess.py:93} INFO - saved monitoring table: datamart/gold/model_monitoring/credit_logreg_2024_09_01/credit_logreg_2024_09_01_monitoring.parquet
+[2026-06-18T02:25:39.505+0000] {subprocess.py:93} INFO - saved plots: datamart/gold/monitoring_plots/credit_logreg_2024_09_01/psi_stability.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/csi_stability.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/csi_breakdown_all_features.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/auc_gini_performance.png
+[2026-06-18T02:25:39.505+0000] {subprocess.py:93} INFO - 
+[2026-06-18T02:25:39.505+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-18T02:25:39.506+0000] {subprocess.py:93} INFO - 
+[2026-06-18T02:25:39.632+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-18T02:25:39.632+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-18T02:25:39.643+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=monitoring.challenger_monitor, run_id=scheduled__2023-02-01T00:00:00+00:00, execution_date=20230201T000000, start_date=20260618T022537, end_date=20260618T022539
+[2026-06-18T02:25:39.677+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-18T02:25:39.685+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

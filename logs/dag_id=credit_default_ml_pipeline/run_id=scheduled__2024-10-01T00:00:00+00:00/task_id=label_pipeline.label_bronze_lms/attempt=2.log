@@ -1,0 +1,33 @@
+[2026-06-17T01:28:31.376+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-17T01:28:31.392+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.label_pipeline.label_bronze_lms scheduled__2024-10-01T00:00:00+00:00 [queued]>
+[2026-06-17T01:28:31.396+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.label_pipeline.label_bronze_lms scheduled__2024-10-01T00:00:00+00:00 [queued]>
+[2026-06-17T01:28:31.397+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 3
+[2026-06-17T01:28:31.403+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): label_pipeline.label_bronze_lms> on 2024-10-01 00:00:00+00:00
+[2026-06-17T01:28:31.407+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=7691) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-17T01:28:31.408+0000] {standard_task_runner.py:64} INFO - Started process 7694 to run task
+[2026-06-17T01:28:31.407+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'label_pipeline.label_bronze_lms', 'scheduled__2024-10-01T00:00:00+00:00', '--job-id', '769', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpp_b1ej5d']
+[2026-06-17T01:28:31.409+0000] {standard_task_runner.py:91} INFO - Job 769: Subtask label_pipeline.label_bronze_lms
+[2026-06-17T01:28:31.433+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.label_pipeline.label_bronze_lms scheduled__2024-10-01T00:00:00+00:00 [running]> on host 2b9b50b7433d
+[2026-06-17T01:28:31.467+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='label_pipeline.label_bronze_lms' AIRFLOW_CTX_EXECUTION_DATE='2024-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-01T00:00:00+00:00'
+[2026-06-17T01:28:31.468+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-17T01:28:31.474+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-17T01:28:31.475+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 bronze_processing.py --snapshotdate "2024-10-01" --source lms']
+[2026-06-17T01:28:31.478+0000] {subprocess.py:86} INFO - Output:
+[2026-06-17T01:28:32.979+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-17T01:28:32.984+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-17T01:28:33.213+0000] {subprocess.py:93} INFO - 26/06/17 01:28:33 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-17T01:28:33.801+0000] {subprocess.py:93} INFO - 26/06/17 01:28:33 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-17T01:28:33.805+0000] {subprocess.py:93} INFO - 26/06/17 01:28:33 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[2026-06-17T01:28:40.649+0000] {subprocess.py:93} INFO - [Stage 1:>                                                          (0 + 3) / 3]
+[2026-06-17T01:28:40.656+0000] {subprocess.py:93} INFO - --- bronze lms 2024-10-01 ---
+[2026-06-17T01:28:40.658+0000] {subprocess.py:93} INFO - 
+[2026-06-17T01:28:40.659+0000] {subprocess.py:93} INFO - [bronze:lms] 2024-10-01 row count: 5502
+[2026-06-17T01:28:40.660+0000] {subprocess.py:93} INFO - [bronze:lms] saved to: datamart/bronze/lms/bronze_lms_2024_10_01.csv
+[2026-06-17T01:28:40.662+0000] {subprocess.py:93} INFO - 
+[2026-06-17T01:28:40.663+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-17T01:28:40.664+0000] {subprocess.py:93} INFO - 
+[2026-06-17T01:28:41.202+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-17T01:28:41.206+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-17T01:28:41.258+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=label_pipeline.label_bronze_lms, run_id=scheduled__2024-10-01T00:00:00+00:00, execution_date=20241001T000000, start_date=20260617T012831, end_date=20260617T012841
+[2026-06-17T01:28:41.280+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-17T01:28:41.293+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

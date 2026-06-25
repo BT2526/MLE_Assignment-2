@@ -1,0 +1,233 @@
+[2026-06-20T05:25:54.145+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T05:25:54.159+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-20T05:25:54.163+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-20T05:25:54.164+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T05:25:54.170+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): inference.xgb_inference> on 2023-03-01 00:00:00+00:00
+[2026-06-20T05:25:54.176+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=7374) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T05:25:54.176+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'inference.xgb_inference', 'scheduled__2023-03-01T00:00:00+00:00', '--job-id', '1424', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp3kca11o2']
+[2026-06-20T05:25:54.177+0000] {standard_task_runner.py:64} INFO - Started process 7379 to run task
+[2026-06-20T05:25:54.177+0000] {standard_task_runner.py:91} INFO - Job 1424: Subtask inference.xgb_inference
+[2026-06-20T05:25:54.271+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T05:25:54.294+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='inference.xgb_inference' AIRFLOW_CTX_EXECUTION_DATE='2023-03-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-03-01T00:00:00+00:00'
+[2026-06-20T05:25:54.295+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T05:25:54.298+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T05:25:54.299+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && CHAMP=$(cat model_bank/champion.txt | tr -d \'\\n\') && python3 model_inference.py --snapshotdate "2023-03-01" --modelname "$CHAMP"']
+[2026-06-20T05:25:54.303+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T05:25:54.304+0000] {subprocess.py:93} INFO - cat: model_bank/champion.txt: No such file or directory
+[2026-06-20T05:25:54.722+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:25:54.722+0000] {subprocess.py:93} INFO - --- inference 2023-03-01 (label date: 2023-03-01) /  ---
+[2026-06-20T05:25:54.723+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:25:54.723+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-06-20T05:25:54.723+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/model_inference.py", line 126, in <module>
+[2026-06-20T05:25:54.724+0000] {subprocess.py:93} INFO -     main(a.snapshotdate, a.modelname, a.labeldate)
+[2026-06-20T05:25:54.724+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/model_inference.py", line 47, in main
+[2026-06-20T05:25:54.724+0000] {subprocess.py:93} INFO -     with open(model_path, "rb") as f:
+[2026-06-20T05:25:54.725+0000] {subprocess.py:93} INFO -          ^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-20T05:25:54.725+0000] {subprocess.py:93} INFO - IsADirectoryError: [Errno 21] Is a directory: 'model_bank/'
+[2026-06-20T05:25:54.774+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-06-20T05:25:54.775+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T05:25:54.779+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-06-20T05:25:54.781+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=credit_default_ml_pipeline, task_id=inference.xgb_inference, run_id=scheduled__2023-03-01T00:00:00+00:00, execution_date=20230301T000000, start_date=20260620T052554, end_date=20260620T052554
+[2026-06-20T05:25:54.786+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1424 for task inference.xgb_inference (Bash command failed. The command returned a non-zero exit code 1.; 7379)
+[2026-06-20T05:25:54.812+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-06-20T05:25:54.900+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T05:25:54.900+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T05:42:24.593+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T05:42:24.605+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-20T05:42:24.611+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-20T05:42:24.611+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T05:42:24.678+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): inference.xgb_inference> on 2023-03-01 00:00:00+00:00
+[2026-06-20T05:42:24.684+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=20054) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T05:42:24.684+0000] {standard_task_runner.py:64} INFO - Started process 20059 to run task
+[2026-06-20T05:42:24.684+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'inference.xgb_inference', 'scheduled__2023-03-01T00:00:00+00:00', '--job-id', '1493', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmptjxsf1d5']
+[2026-06-20T05:42:24.685+0000] {standard_task_runner.py:91} INFO - Job 1493: Subtask inference.xgb_inference
+[2026-06-20T05:42:24.703+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T05:42:24.729+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='inference.xgb_inference' AIRFLOW_CTX_EXECUTION_DATE='2023-03-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-03-01T00:00:00+00:00'
+[2026-06-20T05:42:24.730+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T05:42:24.734+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T05:42:24.735+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ ! -f model_bank/champion.txt ]; then echo \'[SKIP] no champion.txt for 2023-03-01\'; exit 0; fi && CHAMP=$(cat model_bank/champion.txt | tr -d \'\\n\') && python3 model_inference.py --snapshotdate "2023-03-01" --modelname "$CHAMP"']
+[2026-06-20T05:42:24.739+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T05:42:24.740+0000] {subprocess.py:93} INFO - [SKIP] no champion.txt for 2023-03-01
+[2026-06-20T05:42:24.741+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T05:42:24.741+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T05:42:24.749+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=inference.xgb_inference, run_id=scheduled__2023-03-01T00:00:00+00:00, execution_date=20230301T000000, start_date=20260620T054224, end_date=20260620T054224
+[2026-06-20T05:42:24.782+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T05:42:24.793+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T05:42:24.795+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T06:49:03.382+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T06:49:03.400+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-20T06:49:03.405+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-20T06:49:03.406+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T06:49:03.489+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): inference.xgb_inference> on 2023-03-01 00:00:00+00:00
+[2026-06-20T06:49:03.492+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=72765) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T06:49:03.493+0000] {standard_task_runner.py:64} INFO - Started process 72768 to run task
+[2026-06-20T06:49:03.493+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'inference.xgb_inference', 'scheduled__2023-03-01T00:00:00+00:00', '--job-id', '1804', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpf445_s09']
+[2026-06-20T06:49:03.494+0000] {standard_task_runner.py:91} INFO - Job 1804: Subtask inference.xgb_inference
+[2026-06-20T06:49:03.515+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T06:49:03.541+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='inference.xgb_inference' AIRFLOW_CTX_EXECUTION_DATE='2023-03-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-03-01T00:00:00+00:00'
+[2026-06-20T06:49:03.542+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T06:49:03.547+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T06:49:03.548+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ ! -f model_bank/champion.txt ]; then echo \'[SKIP] no champion.txt for 2023-03-01\'; exit 0; fi && CHAMP=$(cat model_bank/champion.txt | tr -d \'\\n\') && python3 model_inference.py --snapshotdate "2023-03-01" --modelname "$CHAMP"']
+[2026-06-20T06:49:03.553+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T06:49:03.554+0000] {subprocess.py:93} INFO - [SKIP] no champion.txt for 2023-03-01
+[2026-06-20T06:49:03.554+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T06:49:03.555+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T06:49:03.565+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=inference.xgb_inference, run_id=scheduled__2023-03-01T00:00:00+00:00, execution_date=20230301T000000, start_date=20260620T064903, end_date=20260620T064903
+[2026-06-20T06:49:03.594+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T06:49:03.604+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T06:49:03.606+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T07:17:15.068+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T07:17:15.080+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-20T07:17:15.084+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-20T07:17:15.086+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T07:17:15.157+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): inference.xgb_inference> on 2023-03-01 00:00:00+00:00
+[2026-06-20T07:17:15.162+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=4247) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T07:17:15.161+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'inference.xgb_inference', 'scheduled__2023-03-01T00:00:00+00:00', '--job-id', '1985', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpmze4wcpo']
+[2026-06-20T07:17:15.164+0000] {standard_task_runner.py:64} INFO - Started process 4251 to run task
+[2026-06-20T07:17:15.164+0000] {standard_task_runner.py:91} INFO - Job 1985: Subtask inference.xgb_inference
+[2026-06-20T07:17:15.184+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T07:17:15.213+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='inference.xgb_inference' AIRFLOW_CTX_EXECUTION_DATE='2023-03-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-03-01T00:00:00+00:00'
+[2026-06-20T07:17:15.214+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T07:17:15.219+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T07:17:15.219+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ ! -f model_bank/champion.txt ]; then echo \'[SKIP] no champion.txt for 2023-03-01\'; exit 0; fi && CHAMP=$(cat model_bank/champion.txt | tr -d \'\\n\') && python3 model_inference.py --snapshotdate "2023-03-01" --modelname "$CHAMP"']
+[2026-06-20T07:17:15.223+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T07:17:15.224+0000] {subprocess.py:93} INFO - [SKIP] no champion.txt for 2023-03-01
+[2026-06-20T07:17:15.225+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T07:17:15.225+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T07:17:15.234+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=inference.xgb_inference, run_id=scheduled__2023-03-01T00:00:00+00:00, execution_date=20230301T000000, start_date=20260620T071715, end_date=20260620T071715
+[2026-06-20T07:17:15.263+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T07:17:15.271+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T15:20:01.021+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T15:20:01.036+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-20T15:20:01.041+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-20T15:20:01.041+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T15:20:01.112+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): inference.xgb_inference> on 2023-03-01 00:00:00+00:00
+[2026-06-20T15:20:01.116+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'inference.xgb_inference', 'scheduled__2023-03-01T00:00:00+00:00', '--job-id', '2457', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp4hzgrd4k']
+[2026-06-20T15:20:01.117+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=91308) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T15:20:01.118+0000] {standard_task_runner.py:91} INFO - Job 2457: Subtask inference.xgb_inference
+[2026-06-20T15:20:01.118+0000] {standard_task_runner.py:64} INFO - Started process 91311 to run task
+[2026-06-20T15:20:01.137+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T15:20:01.164+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='inference.xgb_inference' AIRFLOW_CTX_EXECUTION_DATE='2023-03-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-03-01T00:00:00+00:00'
+[2026-06-20T15:20:01.166+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T15:20:01.170+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T15:20:01.171+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ ! -f model_bank/champion.txt ]; then echo \'[SKIP] no champion.txt for 2023-03-01\'; exit 0; fi && CHAMP=$(cat model_bank/champion.txt | tr -d \'\\n\') && python3 model_inference.py --snapshotdate "2023-03-01" --modelname "$CHAMP"']
+[2026-06-20T15:20:01.175+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T15:20:01.176+0000] {subprocess.py:93} INFO - [SKIP] no champion.txt for 2023-03-01
+[2026-06-20T15:20:01.176+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T15:20:01.176+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T15:20:01.186+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=inference.xgb_inference, run_id=scheduled__2023-03-01T00:00:00+00:00, execution_date=20230301T000000, start_date=20260620T152001, end_date=20260620T152001
+[2026-06-20T15:20:01.218+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T15:20:01.225+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T16:58:27.092+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T16:58:27.109+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-20T16:58:27.113+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-20T16:58:27.114+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T16:58:27.120+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): inference.xgb_inference> on 2023-03-01 00:00:00+00:00
+[2026-06-20T16:58:27.124+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=75847) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T16:58:27.125+0000] {standard_task_runner.py:64} INFO - Started process 75851 to run task
+[2026-06-20T16:58:27.125+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'inference.xgb_inference', 'scheduled__2023-03-01T00:00:00+00:00', '--job-id', '2945', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp93x_0wu8']
+[2026-06-20T16:58:27.126+0000] {standard_task_runner.py:91} INFO - Job 2945: Subtask inference.xgb_inference
+[2026-06-20T16:58:27.222+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T16:58:27.246+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='inference.xgb_inference' AIRFLOW_CTX_EXECUTION_DATE='2023-03-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-03-01T00:00:00+00:00'
+[2026-06-20T16:58:27.248+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T16:58:27.251+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T16:58:27.252+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ ! -f model_bank/champion.txt ]; then echo \'[SKIP] no champion.txt for 2023-03-01\'; exit 0; fi && CHAMP=$(cat model_bank/champion.txt | tr -d \'\\n\') && python3 model_inference.py --snapshotdate "2023-03-01" --modelname "$CHAMP"']
+[2026-06-20T16:58:27.258+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T16:58:28.748+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T16:58:28.749+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T16:58:28.901+0000] {subprocess.py:93} INFO - 26/06/20 16:58:28 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T16:58:29.245+0000] {subprocess.py:93} INFO - 26/06/20 16:58:29 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-20T16:58:33.526+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:58:33.528+0000] {subprocess.py:93} INFO - --- inference 2023-03-01 (label date: 2023-03-01) / credit_xgb_2024_09_01.pkl ---
+[2026-06-20T16:58:33.529+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:58:33.530+0000] {subprocess.py:93} INFO - loaded model: model_bank/credit_xgb_2024_09_01.pkl
+[2026-06-20T16:58:33.531+0000] {subprocess.py:93} INFO - using CALIBRATED probabilities (Platt-scaled)
+[2026-06-20T16:58:33.532+0000] {subprocess.py:93} INFO - predicted defaults: 138 / 506 (27.3%) at threshold=0.5
+[2026-06-20T16:58:33.533+0000] {subprocess.py:93} INFO - saved predictions: datamart/gold/model_predictions/credit_xgb_2024_09_01/credit_xgb_2024_09_01_predictions_2023_03_01.parquet (506 rows, mean_score=0.3338)
+[2026-06-20T16:58:33.533+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:58:33.534+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T16:58:33.535+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:58:34.115+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T16:58:34.119+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T16:58:34.146+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=inference.xgb_inference, run_id=scheduled__2023-03-01T00:00:00+00:00, execution_date=20230301T000000, start_date=20260620T165827, end_date=20260620T165834
+[2026-06-20T16:58:34.165+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T16:58:34.183+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T16:58:34.184+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T17:10:33.429+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T17:10:33.442+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-20T17:10:33.448+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-20T17:10:33.448+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T17:10:33.519+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): inference.xgb_inference> on 2023-03-01 00:00:00+00:00
+[2026-06-20T17:10:33.525+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=9267) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T17:10:33.525+0000] {standard_task_runner.py:64} INFO - Started process 9272 to run task
+[2026-06-20T17:10:33.525+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'inference.xgb_inference', 'scheduled__2023-03-01T00:00:00+00:00', '--job-id', '3033', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpuagbgmfi']
+[2026-06-20T17:10:33.526+0000] {standard_task_runner.py:91} INFO - Job 3033: Subtask inference.xgb_inference
+[2026-06-20T17:10:33.545+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T17:10:33.571+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='inference.xgb_inference' AIRFLOW_CTX_EXECUTION_DATE='2023-03-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-03-01T00:00:00+00:00'
+[2026-06-20T17:10:33.573+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T17:10:33.578+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T17:10:33.578+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ ! -f model_bank/champion.txt ]; then echo \'[SKIP] no champion.txt for 2023-03-01\'; exit 0; fi && CHAMP=$(cat model_bank/champion.txt | tr -d \'\\n\') && python3 model_inference.py --snapshotdate "2023-03-01" --modelname "$CHAMP"']
+[2026-06-20T17:10:33.583+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T17:10:33.585+0000] {subprocess.py:93} INFO - [SKIP] no champion.txt for 2023-03-01
+[2026-06-20T17:10:33.585+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T17:10:33.586+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T17:10:33.595+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=inference.xgb_inference, run_id=scheduled__2023-03-01T00:00:00+00:00, execution_date=20230301T000000, start_date=20260620T171033, end_date=20260620T171033
+[2026-06-20T17:10:33.629+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T17:10:33.640+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T17:10:33.641+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T01:36:04.250+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T01:36:04.263+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-21T01:36:04.271+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-21T01:36:04.272+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T01:36:04.278+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): inference.xgb_inference> on 2023-03-01 00:00:00+00:00
+[2026-06-21T01:36:04.282+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=9880) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T01:36:04.283+0000] {standard_task_runner.py:64} INFO - Started process 9884 to run task
+[2026-06-21T01:36:04.282+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'inference.xgb_inference', 'scheduled__2023-03-01T00:00:00+00:00', '--job-id', '3498', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp71uh1xxf']
+[2026-06-21T01:36:04.284+0000] {standard_task_runner.py:91} INFO - Job 3498: Subtask inference.xgb_inference
+[2026-06-21T01:36:04.301+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [running]> on host f6e9e2801916
+[2026-06-21T01:36:04.407+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='inference.xgb_inference' AIRFLOW_CTX_EXECUTION_DATE='2023-03-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-03-01T00:00:00+00:00'
+[2026-06-21T01:36:04.409+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T01:36:04.413+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-21T01:36:04.415+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ ! -f model_bank/champion.txt ]; then   echo \'[SKIP] no champion.txt for 2023-03-01\'; exit 0; fi && CHAMP=$(cat model_bank/champion.txt | tr -d \'\\\\n\') && APP_DATE=$(python3 app_date_helper.py \'2023-03-01\') && python3 model_inference.py --snapshotdate "$APP_DATE" --labeldate "2023-03-01" --modelname "$CHAMP"']
+[2026-06-21T01:36:04.419+0000] {subprocess.py:86} INFO - Output:
+[2026-06-21T01:36:04.420+0000] {subprocess.py:93} INFO - [SKIP] no champion.txt for 2023-03-01
+[2026-06-21T01:36:04.421+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-21T01:36:04.421+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T01:36:04.432+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=inference.xgb_inference, run_id=scheduled__2023-03-01T00:00:00+00:00, execution_date=20230301T000000, start_date=20260621T013604, end_date=20260621T013604
+[2026-06-21T01:36:04.466+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T01:36:04.472+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T05:30:28.903+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T05:30:28.918+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-21T05:30:28.924+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [queued]>
+[2026-06-21T05:30:28.924+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T05:30:29.002+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): inference.xgb_inference> on 2023-03-01 00:00:00+00:00
+[2026-06-21T05:30:29.007+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=9572) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T05:30:29.007+0000] {standard_task_runner.py:64} INFO - Started process 9576 to run task
+[2026-06-21T05:30:29.007+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'inference.xgb_inference', 'scheduled__2023-03-01T00:00:00+00:00', '--job-id', '3962', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmphauuuumh']
+[2026-06-21T05:30:29.009+0000] {standard_task_runner.py:91} INFO - Job 3962: Subtask inference.xgb_inference
+[2026-06-21T05:30:29.029+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.inference.xgb_inference scheduled__2023-03-01T00:00:00+00:00 [running]> on host 9377a3f0491f
+[2026-06-21T05:30:29.056+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='inference.xgb_inference' AIRFLOW_CTX_EXECUTION_DATE='2023-03-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-03-01T00:00:00+00:00'
+[2026-06-21T05:30:29.057+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T05:30:29.062+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-21T05:30:29.063+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ ! -f model_bank/champion.txt ]; then   echo \'[SKIP] no champion.txt for 2023-03-01\'; exit 0; fi && CHAMP=$(cat model_bank/champion.txt | tr -d \'\\\\n\') && APP_DATE=$(python3 app_date_helper.py \'2023-03-01\') && python3 model_inference.py --snapshotdate "$APP_DATE" --labeldate "2023-03-01" --modelname "$CHAMP"']
+[2026-06-21T05:30:29.067+0000] {subprocess.py:86} INFO - Output:
+[2026-06-21T05:30:29.069+0000] {subprocess.py:93} INFO - [SKIP] no champion.txt for 2023-03-01
+[2026-06-21T05:30:29.069+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-21T05:30:29.069+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T05:30:29.079+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=inference.xgb_inference, run_id=scheduled__2023-03-01T00:00:00+00:00, execution_date=20230301T000000, start_date=20260621T053028, end_date=20260621T053029
+[2026-06-21T05:30:29.105+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T05:30:29.116+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-21T05:30:29.117+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

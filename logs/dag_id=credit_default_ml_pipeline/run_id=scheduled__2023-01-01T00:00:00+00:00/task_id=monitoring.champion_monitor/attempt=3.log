@@ -1,0 +1,21 @@
+[2026-06-18T03:40:12.145+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-18T03:40:12.160+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.champion_monitor scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2026-06-18T03:40:12.164+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.champion_monitor scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2026-06-18T03:40:12.164+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 4
+[2026-06-18T03:40:12.169+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): monitoring.champion_monitor> on 2023-01-01 00:00:00+00:00
+[2026-06-18T03:40:12.174+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=30422) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-18T03:40:12.175+0000] {standard_task_runner.py:64} INFO - Started process 30428 to run task
+[2026-06-18T03:40:12.176+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'monitoring.champion_monitor', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '942', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpxmeu6gfc']
+[2026-06-18T03:40:12.177+0000] {standard_task_runner.py:91} INFO - Job 942: Subtask monitoring.champion_monitor
+[2026-06-18T03:40:12.199+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.monitoring.champion_monitor scheduled__2023-01-01T00:00:00+00:00 [running]> on host bfbc24b887a5
+[2026-06-18T03:40:12.331+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='monitoring.champion_monitor' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2026-06-18T03:40:12.332+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-18T03:40:12.336+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-18T03:40:12.338+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ -f model_bank/champion.txt ]; then CHAMPION=$(cat model_bank/champion.txt) && python3 model_monitor.py --snapshotdate "2023-01-01" --modelname "$CHAMPION"; else echo "[skip] champion.txt not found yet - no model deployed as of 2023-01-01"; fi']
+[2026-06-18T03:40:12.342+0000] {subprocess.py:86} INFO - Output:
+[2026-06-18T03:40:12.343+0000] {subprocess.py:93} INFO - [skip] champion.txt not found yet - no model deployed as of 2023-01-01
+[2026-06-18T03:40:12.343+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-18T03:40:12.344+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-18T03:40:12.353+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=monitoring.champion_monitor, run_id=scheduled__2023-01-01T00:00:00+00:00, execution_date=20230101T000000, start_date=20260618T034012, end_date=20260618T034012
+[2026-06-18T03:40:12.399+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-18T03:40:12.419+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

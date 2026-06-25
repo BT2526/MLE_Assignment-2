@@ -1,0 +1,171 @@
+[2026-06-20T08:12:32.426+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T08:12:32.455+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.logreg_monitor scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T08:12:32.465+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.logreg_monitor scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T08:12:32.467+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T08:12:32.627+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): monitoring.logreg_monitor> on 2024-09-01 00:00:00+00:00
+[2026-06-20T08:12:32.640+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=63569) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T08:12:32.642+0000] {standard_task_runner.py:64} INFO - Started process 63573 to run task
+[2026-06-20T08:12:32.641+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'monitoring.logreg_monitor', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '2332', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpi38xx5pr']
+[2026-06-20T08:12:32.644+0000] {standard_task_runner.py:91} INFO - Job 2332: Subtask monitoring.logreg_monitor
+[2026-06-20T08:12:32.703+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.monitoring.logreg_monitor scheduled__2024-09-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T08:12:32.803+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='monitoring.logreg_monitor' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2026-06-20T08:12:32.805+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T08:12:32.819+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T08:12:32.820+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ ! -f model_bank/champion.txt ]; then echo \'[SKIP] no champion.txt for 2024-09-01\'; exit 0; fi && python3 model_monitor.py --snapshotdate "2024-09-01" --modelname "credit_logreg_2024_09_01.pkl"']
+[2026-06-20T08:12:32.831+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T08:12:36.239+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:36.240+0000] {subprocess.py:93} INFO - --- monitoring credit_logreg_2024_09_01.pkl ---
+[2026-06-20T08:12:36.242+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:36.243+0000] {subprocess.py:93} INFO - OOT1 baseline AUC for credit_logreg_2024_09_01: 0.8711581528244334
+[2026-06-20T08:12:36.246+0000] {subprocess.py:93} INFO - OOT1 baseline Brier for credit_logreg_2024_09_01: 0.1464
+[2026-06-20T08:12:36.248+0000] {subprocess.py:93} INFO -   [csi] no feature_importance_report.py output found for credit_logreg_2024_09_01 at reports/feature_importance/credit_logreg_2024_09_01_feature_importance.csv; falling back to first 15 feature_cols as a placeholder scope (run feature_importance_report.py for a proper ranking).
+[2026-06-20T08:12:36.249+0000] {subprocess.py:93} INFO - [csi] scoping to top 15 features: ['loan_amt', 'tenure', 'Annual_Income', 'Monthly_Inhand_Salary', 'Num_Bank_Accounts', 'Num_Credit_Card', 'Interest_Rate', 'Num_of_Loan', 'Delay_from_due_date', 'Num_of_Delayed_Payment', 'Changed_Credit_Limit', 'Num_Credit_Inquiries', 'Outstanding_Debt', 'Credit_Utilization_Ratio', 'Credit_History_Age']
+[2026-06-20T08:12:36.249+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:36.250+0000] {subprocess.py:93} INFO - snapshot_date  n_scored  mean_score    psi     f1  precision  recall  brier    auc   gini  auc_drop_from_oot1  csi_max      csi_max_feature  csi_loan_amt  csi_tenure  csi_Annual_Income  csi_Monthly_Inhand_Salary  csi_Num_Bank_Accounts  csi_Num_Credit_Card  csi_Interest_Rate  csi_Num_of_Loan  csi_Delay_from_due_date  csi_Num_of_Delayed_Payment  csi_Changed_Credit_Limit  csi_Num_Credit_Inquiries  csi_Outstanding_Debt  csi_Credit_Utilization_Ratio  csi_Credit_History_Age
+[2026-06-20T08:12:36.251+0000] {subprocess.py:93} INFO -    2024-07-01       485      0.4129 0.0000 0.7278     0.6686  0.7986 0.1392 0.8781 0.7562             -0.0069   0.0000             loan_amt           0.0         0.0             0.0000                     0.0000                 0.0000               0.0000             0.0000           0.0000                   0.0000                      0.0000                    0.0000                    0.0000                0.0000                        0.0000                  0.0000
+[2026-06-20T08:12:36.253+0000] {subprocess.py:93} INFO -    2024-08-01       518      0.4363 0.0341 0.6725     0.5897  0.7823 0.1531 0.8665 0.7330              0.0046   0.0796 Changed_Credit_Limit           0.0         0.0             0.0606                     0.0491                 0.0442               0.0481             0.0536           0.0291                   0.0288                      0.0256                    0.0796                    0.0290                0.0302                        0.0644                  0.0492
+[2026-06-20T08:12:36.254+0000] {subprocess.py:93} INFO -    2024-09-01       493      0.4271 0.1096    NaN        NaN     NaN    NaN    NaN    NaN                 NaN   0.0603        Interest_Rate           0.0         0.0             0.0309                     0.0288                 0.0288               0.0329             0.0603           0.0165                   0.0175                      0.0452                    0.0208                    0.0175                0.0240                        0.0370                  0.0361
+[2026-06-20T08:12:36.254+0000] {subprocess.py:93} INFO - saved monitoring table: datamart/gold/model_monitoring/credit_logreg_2024_09_01/credit_logreg_2024_09_01_monitoring.parquet
+[2026-06-20T08:12:36.256+0000] {subprocess.py:93} INFO - saved plots: datamart/gold/monitoring_plots/credit_logreg_2024_09_01/psi_stability.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/csi_stability.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/csi_breakdown_all_features.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/auc_performance.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/brier_score.png
+[2026-06-20T08:12:36.257+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:36.258+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T08:12:36.261+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:36.474+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T08:12:36.476+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T08:12:36.499+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=monitoring.logreg_monitor, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260620T081232, end_date=20260620T081236
+[2026-06-20T08:12:36.553+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T08:12:36.572+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T08:12:36.573+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T16:12:54.942+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T16:12:54.954+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.logreg_monitor scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T16:12:54.960+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.logreg_monitor scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T16:12:54.961+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T16:12:55.042+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): monitoring.logreg_monitor> on 2024-09-01 00:00:00+00:00
+[2026-06-20T16:12:55.045+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=49747) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T16:12:55.046+0000] {standard_task_runner.py:64} INFO - Started process 49752 to run task
+[2026-06-20T16:12:55.046+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'monitoring.logreg_monitor', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '2806', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpjd06s3hj']
+[2026-06-20T16:12:55.047+0000] {standard_task_runner.py:91} INFO - Job 2806: Subtask monitoring.logreg_monitor
+[2026-06-20T16:12:55.068+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.monitoring.logreg_monitor scheduled__2024-09-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T16:12:55.104+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='monitoring.logreg_monitor' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2026-06-20T16:12:55.105+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T16:12:55.112+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T16:12:55.112+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ ! -f model_bank/champion.txt ]; then echo \'[SKIP] no champion.txt for 2024-09-01\'; exit 0; fi && python3 model_monitor.py --snapshotdate "2024-09-01" --modelname "credit_logreg_2024_09_01.pkl"']
+[2026-06-20T16:12:55.117+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T16:12:55.118+0000] {subprocess.py:93} INFO - [SKIP] no champion.txt for 2024-09-01
+[2026-06-20T16:12:55.118+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T16:12:55.119+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T16:12:55.131+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=monitoring.logreg_monitor, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260620T161254, end_date=20260620T161255
+[2026-06-20T16:12:55.146+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T16:12:55.150+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T18:06:13.686+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T18:06:13.710+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.logreg_monitor scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T18:06:13.718+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.logreg_monitor scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T18:06:13.720+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T18:06:13.855+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): monitoring.logreg_monitor> on 2024-09-01 00:00:00+00:00
+[2026-06-20T18:06:13.862+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=68466) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T18:06:13.862+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'monitoring.logreg_monitor', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '3380', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp0dh206zm']
+[2026-06-20T18:06:13.864+0000] {standard_task_runner.py:64} INFO - Started process 68472 to run task
+[2026-06-20T18:06:13.866+0000] {standard_task_runner.py:91} INFO - Job 3380: Subtask monitoring.logreg_monitor
+[2026-06-20T18:06:13.902+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.monitoring.logreg_monitor scheduled__2024-09-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T18:06:13.954+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='monitoring.logreg_monitor' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2026-06-20T18:06:13.956+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T18:06:13.965+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T18:06:13.967+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ ! -f model_bank/champion.txt ]; then echo \'[SKIP] no champion.txt for 2024-09-01\'; exit 0; fi && python3 model_monitor.py --snapshotdate "2024-09-01" --modelname "credit_logreg_2024_09_01.pkl"']
+[2026-06-20T18:06:13.975+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T18:06:17.042+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:06:17.043+0000] {subprocess.py:93} INFO - --- monitoring credit_logreg_2024_09_01.pkl ---
+[2026-06-20T18:06:17.044+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:06:17.045+0000] {subprocess.py:93} INFO - OOT1 baseline AUC for credit_logreg_2024_09_01: 0.8747779837059345
+[2026-06-20T18:06:17.046+0000] {subprocess.py:93} INFO - OOT1 baseline Brier for credit_logreg_2024_09_01: 0.1438
+[2026-06-20T18:06:17.048+0000] {subprocess.py:93} INFO -   [csi] no feature_importance_report.py output found for credit_logreg_2024_09_01 at reports/feature_importance/credit_logreg_2024_09_01_feature_importance.csv; falling back to first 15 feature_cols as a placeholder scope (run feature_importance_report.py for a proper ranking).
+[2026-06-20T18:06:17.049+0000] {subprocess.py:93} INFO - [csi] scoping to top 15 features: ['loan_amt', 'tenure', 'Annual_Income', 'Monthly_Inhand_Salary', 'Num_Bank_Accounts', 'Num_Credit_Card', 'Interest_Rate', 'Num_of_Loan', 'Delay_from_due_date', 'Num_of_Delayed_Payment', 'Changed_Credit_Limit', 'Num_Credit_Inquiries', 'Outstanding_Debt', 'Credit_Utilization_Ratio', 'Credit_History_Age']
+[2026-06-20T18:06:17.050+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:06:17.051+0000] {subprocess.py:93} INFO - snapshot_date  n_scored  mean_score    psi     f1  precision  recall  brier    auc   gini  auc_drop_from_oot1  csi_max      csi_max_feature  csi_loan_amt  csi_tenure  csi_Annual_Income  csi_Monthly_Inhand_Salary  csi_Num_Bank_Accounts  csi_Num_Credit_Card  csi_Interest_Rate  csi_Num_of_Loan  csi_Delay_from_due_date  csi_Num_of_Delayed_Payment  csi_Changed_Credit_Limit  csi_Num_Credit_Inquiries  csi_Outstanding_Debt  csi_Credit_Utilization_Ratio  csi_Credit_History_Age
+[2026-06-20T18:06:17.053+0000] {subprocess.py:93} INFO -    2024-07-01       485      0.4109 0.0000 0.7375     0.6705  0.8194 0.1372 0.8809 0.7618             -0.0061   0.0000             loan_amt           0.0         0.0             0.0000                     0.0000                 0.0000               0.0000             0.0000           0.0000                   0.0000                      0.0000                    0.0000                    0.0000                0.0000                        0.0000                  0.0000
+[2026-06-20T18:06:17.054+0000] {subprocess.py:93} INFO -    2024-08-01       518      0.4318 0.0357 0.6884     0.6105  0.7891 0.1499 0.8707 0.7415              0.0040   0.0796 Changed_Credit_Limit           0.0         0.0             0.0606                     0.0491                 0.0442               0.0481             0.0536           0.0291                   0.0288                      0.0256                    0.0796                    0.0290                0.0302                        0.0644                  0.0492
+[2026-06-20T18:06:17.056+0000] {subprocess.py:93} INFO -    2024-09-01       493      0.4242 0.1251    NaN        NaN     NaN    NaN    NaN    NaN                 NaN   0.0603        Interest_Rate           0.0         0.0             0.0309                     0.0288                 0.0288               0.0329             0.0603           0.0165                   0.0175                      0.0452                    0.0208                    0.0175                0.0240                        0.0370                  0.0361
+[2026-06-20T18:06:17.056+0000] {subprocess.py:93} INFO - saved monitoring table: datamart/gold/model_monitoring/credit_logreg_2024_09_01/credit_logreg_2024_09_01_monitoring.parquet
+[2026-06-20T18:06:17.057+0000] {subprocess.py:93} INFO - saved plots: datamart/gold/monitoring_plots/credit_logreg_2024_09_01/psi_stability.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/csi_stability.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/csi_breakdown_all_features.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/auc_performance.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/brier_score.png
+[2026-06-20T18:06:17.058+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:06:17.058+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T18:06:17.061+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:06:17.298+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T18:06:17.300+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T18:06:17.330+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=monitoring.logreg_monitor, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260620T180613, end_date=20260620T180617
+[2026-06-20T18:06:17.385+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T18:06:17.404+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T18:06:17.406+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T03:00:34.049+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T03:00:34.065+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.logreg_monitor scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-21T03:00:34.071+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.logreg_monitor scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-21T03:00:34.072+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T03:00:34.079+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): monitoring.logreg_monitor> on 2024-09-01 00:00:00+00:00
+[2026-06-21T03:00:34.084+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=66925) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T03:00:34.085+0000] {standard_task_runner.py:64} INFO - Started process 66930 to run task
+[2026-06-21T03:00:34.085+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'monitoring.logreg_monitor', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '3846', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp5mh43_uw']
+[2026-06-21T03:00:34.086+0000] {standard_task_runner.py:91} INFO - Job 3846: Subtask monitoring.logreg_monitor
+[2026-06-21T03:00:34.111+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.monitoring.logreg_monitor scheduled__2024-09-01T00:00:00+00:00 [running]> on host f6e9e2801916
+[2026-06-21T03:00:34.239+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='monitoring.logreg_monitor' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2026-06-21T03:00:34.240+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T03:00:34.245+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-21T03:00:34.246+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ ! -f model_bank/champion.txt ]; then echo \'[SKIP] no champion.txt for 2024-09-01\'; exit 0; fi && python3 model_monitor.py --snapshotdate "2024-09-01" --modelname "credit_logreg_2024_09_01.pkl"']
+[2026-06-21T03:00:34.251+0000] {subprocess.py:86} INFO - Output:
+[2026-06-21T03:00:36.290+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:36.292+0000] {subprocess.py:93} INFO - --- monitoring credit_logreg_2024_09_01.pkl ---
+[2026-06-21T03:00:36.294+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:36.295+0000] {subprocess.py:93} INFO - OOT1 baseline AUC for credit_logreg_2024_09_01: 0.8663075794432218
+[2026-06-21T03:00:36.296+0000] {subprocess.py:93} INFO - OOT1 baseline Brier for credit_logreg_2024_09_01: 0.1496
+[2026-06-21T03:00:36.296+0000] {subprocess.py:93} INFO -   [csi] no feature_importance_report.py output found for credit_logreg_2024_09_01 at reports/feature_importance/credit_logreg_2024_09_01_feature_importance.csv; falling back to first 15 feature_cols as a placeholder scope (run feature_importance_report.py for a proper ranking).
+[2026-06-21T03:00:36.296+0000] {subprocess.py:93} INFO - [csi] scoping to top 15 features: ['loan_amt', 'tenure', 'Annual_Income', 'Monthly_Inhand_Salary', 'Num_Bank_Accounts', 'Num_Credit_Card', 'Interest_Rate', 'Num_of_Loan', 'Delay_from_due_date', 'Num_of_Delayed_Payment', 'Changed_Credit_Limit', 'Num_Credit_Inquiries', 'Outstanding_Debt', 'Credit_Utilization_Ratio', 'Credit_History_Age']
+[2026-06-21T03:00:36.297+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:36.300+0000] {subprocess.py:93} INFO - snapshot_date  n_scored  mean_score    psi     f1  precision  recall  brier    auc   gini  auc_drop_from_oot1  csi_max      csi_max_feature  csi_loan_amt  csi_tenure  csi_Annual_Income  csi_Monthly_Inhand_Salary  csi_Num_Bank_Accounts  csi_Num_Credit_Card  csi_Interest_Rate  csi_Num_of_Loan  csi_Delay_from_due_date  csi_Num_of_Delayed_Payment  csi_Changed_Credit_Limit  csi_Num_Credit_Inquiries  csi_Outstanding_Debt  csi_Credit_Utilization_Ratio  csi_Credit_History_Age
+[2026-06-21T03:00:36.301+0000] {subprocess.py:93} INFO -    2024-07-01       485      0.4162 0.0000 0.7134     0.6588  0.7778 0.1440 0.8712 0.7425             -0.0049   0.0000             loan_amt           0.0         0.0             0.0000                     0.0000                 0.0000               0.0000             0.0000           0.0000                   0.0000                      0.0000                    0.0000                     0.000                0.0000                        0.0000                  0.0000
+[2026-06-21T03:00:36.302+0000] {subprocess.py:93} INFO -    2024-08-01       518      0.4373 0.0236 0.6628     0.5787  0.7755 0.1548 0.8640 0.7280              0.0023   0.0796 Changed_Credit_Limit           0.0         0.0             0.0606                     0.0491                 0.0442               0.0481             0.0536           0.0291                   0.0288                      0.0256                    0.0796                     0.029                0.0302                        0.0644                  0.0492
+[2026-06-21T03:00:36.303+0000] {subprocess.py:93} INFO - saved monitoring table: datamart/gold/model_monitoring/credit_logreg_2024_09_01/credit_logreg_2024_09_01_monitoring.parquet
+[2026-06-21T03:00:36.303+0000] {subprocess.py:93} INFO - saved plots: datamart/gold/monitoring_plots/credit_logreg_2024_09_01/psi_stability.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/csi_stability.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/csi_breakdown_all_features.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/auc_performance.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/brier_score.png
+[2026-06-21T03:00:36.304+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:36.305+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-21T03:00:36.305+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:36.461+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-21T03:00:36.463+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T03:00:36.476+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=monitoring.logreg_monitor, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260621T030034, end_date=20260621T030036
+[2026-06-21T03:00:36.509+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T03:00:36.524+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-21T03:00:36.526+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T06:27:44.433+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T06:27:44.463+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.logreg_monitor scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-21T06:27:44.473+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.logreg_monitor scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-21T06:27:44.475+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T06:27:44.638+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): monitoring.logreg_monitor> on 2024-09-01 00:00:00+00:00
+[2026-06-21T06:27:44.647+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=69134) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T06:27:44.649+0000] {standard_task_runner.py:64} INFO - Started process 69138 to run task
+[2026-06-21T06:27:44.648+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'monitoring.logreg_monitor', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '4307', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp_7hm_ywa']
+[2026-06-21T06:27:44.652+0000] {standard_task_runner.py:91} INFO - Job 4307: Subtask monitoring.logreg_monitor
+[2026-06-21T06:27:44.694+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.monitoring.logreg_monitor scheduled__2024-09-01T00:00:00+00:00 [running]> on host 9377a3f0491f
+[2026-06-21T06:27:44.755+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='monitoring.logreg_monitor' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2026-06-21T06:27:44.757+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T06:27:44.767+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-21T06:27:44.769+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ ! -f model_bank/champion.txt ]; then echo \'[SKIP] no champion.txt for 2024-09-01\'; exit 0; fi && python3 model_monitor.py --snapshotdate "2024-09-01" --modelname "credit_logreg_2024_09_01.pkl"']
+[2026-06-21T06:27:44.778+0000] {subprocess.py:86} INFO - Output:
+[2026-06-21T06:27:47.938+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:47.939+0000] {subprocess.py:93} INFO - --- monitoring credit_logreg_2024_09_01.pkl ---
+[2026-06-21T06:27:47.940+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:47.944+0000] {subprocess.py:93} INFO - OOT1 baseline AUC for credit_logreg_2024_09_01: 0.8767471717054713
+[2026-06-21T06:27:47.946+0000] {subprocess.py:93} INFO - OOT1 baseline Brier for credit_logreg_2024_09_01: 0.1433
+[2026-06-21T06:27:47.946+0000] {subprocess.py:93} INFO -   [csi] no feature_importance_report.py output found for credit_logreg_2024_09_01 at reports/feature_importance/credit_logreg_2024_09_01_feature_importance.csv; falling back to first 15 feature_cols as a placeholder scope (run feature_importance_report.py for a proper ranking).
+[2026-06-21T06:27:47.947+0000] {subprocess.py:93} INFO - [csi] scoping to top 15 features: ['loan_amt', 'tenure', 'Annual_Income', 'Monthly_Inhand_Salary', 'Num_Bank_Accounts', 'Num_Credit_Card', 'Interest_Rate', 'Num_of_Loan', 'Delay_from_due_date', 'Num_of_Delayed_Payment', 'Changed_Credit_Limit', 'Num_Credit_Inquiries', 'Outstanding_Debt', 'Credit_Utilization_Ratio', 'Credit_History_Age']
+[2026-06-21T06:27:47.948+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:47.949+0000] {subprocess.py:93} INFO - snapshot_date  n_scored  mean_score    psi     f1  precision  recall  brier    auc   gini  auc_drop_from_oot1  csi_max      csi_max_feature  csi_loan_amt  csi_tenure  csi_Annual_Income  csi_Monthly_Inhand_Salary  csi_Num_Bank_Accounts  csi_Num_Credit_Card  csi_Interest_Rate  csi_Num_of_Loan  csi_Delay_from_due_date  csi_Num_of_Delayed_Payment  csi_Changed_Credit_Limit  csi_Num_Credit_Inquiries  csi_Outstanding_Debt  csi_Credit_Utilization_Ratio  csi_Credit_History_Age
+[2026-06-21T06:27:47.950+0000] {subprocess.py:93} INFO -    2024-07-01       485      0.4102 0.0000 0.7342     0.6744  0.8056 0.1357 0.8844 0.7687             -0.0076   0.0000             loan_amt           0.0         0.0             0.0000                     0.0000                 0.0000               0.0000             0.0000           0.0000                   0.0000                      0.0000                    0.0000                    0.0000                0.0000                        0.0000                  0.0000
+[2026-06-21T06:27:47.951+0000] {subprocess.py:93} INFO -    2024-08-01       518      0.4343 0.0249 0.6706     0.5907  0.7755 0.1504 0.8711 0.7422              0.0057   0.0796 Changed_Credit_Limit           0.0         0.0             0.0606                     0.0491                 0.0442               0.0481             0.0536           0.0291                   0.0288                      0.0256                    0.0796                    0.0290                0.0302                        0.0644                  0.0492
+[2026-06-21T06:27:47.953+0000] {subprocess.py:93} INFO -    2024-09-01       511      0.4495 0.0381 0.7253     0.6570  0.8095 0.1449 0.8856 0.7712             -0.0088   0.0603        Interest_Rate           0.0         0.0             0.0309                     0.0288                 0.0288               0.0329             0.0603           0.0165                   0.0175                      0.0452                    0.0208                    0.0175                0.0240                        0.0370                  0.0361
+[2026-06-21T06:27:47.954+0000] {subprocess.py:93} INFO - saved monitoring table: datamart/gold/model_monitoring/credit_logreg_2024_09_01/credit_logreg_2024_09_01_monitoring.parquet
+[2026-06-21T06:27:47.954+0000] {subprocess.py:93} INFO - saved plots: datamart/gold/monitoring_plots/credit_logreg_2024_09_01/psi_stability.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/csi_stability.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/csi_breakdown_all_features.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/auc_performance.png, datamart/gold/monitoring_plots/credit_logreg_2024_09_01/brier_score.png
+[2026-06-21T06:27:47.956+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:47.957+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-21T06:27:47.958+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:48.189+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-21T06:27:48.191+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T06:27:48.218+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=monitoring.logreg_monitor, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260621T062744, end_date=20260621T062748
+[2026-06-21T06:27:48.264+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T06:27:48.277+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

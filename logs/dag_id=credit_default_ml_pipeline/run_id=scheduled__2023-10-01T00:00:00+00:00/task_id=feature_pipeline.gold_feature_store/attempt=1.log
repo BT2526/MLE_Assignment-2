@@ -1,0 +1,224 @@
+[2026-06-16T15:17:31.013+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-16T15:17:31.027+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-16T15:17:31.030+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-16T15:17:31.030+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-16T15:17:31.035+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.gold_feature_store> on 2023-10-01 00:00:00+00:00
+[2026-06-16T15:17:31.039+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=47685) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-16T15:17:31.039+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.gold_feature_store', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '217', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpik476_ti']
+[2026-06-16T15:17:31.040+0000] {standard_task_runner.py:64} INFO - Started process 47686 to run task
+[2026-06-16T15:17:31.040+0000] {standard_task_runner.py:91} INFO - Job 217: Subtask feature_pipeline.gold_feature_store
+[2026-06-16T15:17:31.061+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [running]> on host 1cab6e97738a
+[2026-06-16T15:17:31.086+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.gold_feature_store' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-16T15:17:31.088+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-16T15:17:31.094+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-16T15:17:31.094+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 gold_feature_store.py --snapshotdate "2023-10-01"']
+[2026-06-16T15:17:31.098+0000] {subprocess.py:86} INFO - Output:
+[2026-06-16T15:17:32.075+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-16T15:17:32.076+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-16T15:17:32.135+0000] {subprocess.py:93} INFO - 26/06/16 15:17:32 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-16T15:17:43.467+0000] {subprocess.py:93} INFO - [Stage 63:>                                                         (0 + 1) / 1]
+[2026-06-16T15:17:43.471+0000] {subprocess.py:93} INFO - --- gold feature 2023-10-01 ---
+[2026-06-16T15:17:43.473+0000] {subprocess.py:93} INFO - 
+[2026-06-16T15:17:43.475+0000] {subprocess.py:93} INFO - [gold:feature] 2023-10-01 applications (mob=0): 487
+[2026-06-16T15:17:43.477+0000] {subprocess.py:93} INFO - [gold:feature] saved to: datamart/gold/feature_store/gold_feature_store_2023_10_01.parquet (487 rows, 86 cols)
+[2026-06-16T15:17:43.479+0000] {subprocess.py:93} INFO - 
+[2026-06-16T15:17:43.480+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-16T15:17:43.481+0000] {subprocess.py:93} INFO - 
+[2026-06-16T15:17:43.962+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-16T15:17:43.963+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-16T15:17:43.985+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.gold_feature_store, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260616T151731, end_date=20260616T151743
+[2026-06-16T15:17:44.000+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-16T15:17:44.015+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-16T15:17:44.016+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T05:59:24.775+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T05:59:24.787+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T05:59:24.791+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T05:59:24.792+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T05:59:24.797+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.gold_feature_store> on 2023-10-01 00:00:00+00:00
+[2026-06-20T05:59:24.800+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=41392) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T05:59:24.800+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.gold_feature_store', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '1622', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpi2f6feaa']
+[2026-06-20T05:59:24.802+0000] {standard_task_runner.py:64} INFO - Started process 41394 to run task
+[2026-06-20T05:59:24.802+0000] {standard_task_runner.py:91} INFO - Job 1622: Subtask feature_pipeline.gold_feature_store
+[2026-06-20T05:59:24.885+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T05:59:24.907+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.gold_feature_store' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-20T05:59:24.908+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T05:59:24.912+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T05:59:24.912+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 gold_feature_store.py --snapshotdate "2023-10-01"']
+[2026-06-20T05:59:24.915+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T05:59:25.909+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T05:59:25.910+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T05:59:26.041+0000] {subprocess.py:93} INFO - 26/06/20 05:59:26 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T05:59:38.102+0000] {subprocess.py:93} INFO - [Stage 11:>                                                       (0 + 10) / 10]                                                                                [Stage 63:>                                                         (0 + 1) / 1]
+[2026-06-20T05:59:38.104+0000] {subprocess.py:93} INFO - --- gold feature 2023-10-01 ---
+[2026-06-20T05:59:38.105+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:59:38.105+0000] {subprocess.py:93} INFO - [gold:feature] 2023-10-01 applications (mob=0): 487
+[2026-06-20T05:59:38.107+0000] {subprocess.py:93} INFO - [gold:feature] saved to: datamart/gold/feature_store/gold_feature_store_2023_10_01.parquet (487 rows, 86 cols)
+[2026-06-20T05:59:38.107+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:59:38.108+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T05:59:38.109+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:59:38.598+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T05:59:38.599+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T05:59:38.617+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.gold_feature_store, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260620T055924, end_date=20260620T055938
+[2026-06-20T05:59:38.647+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T05:59:38.661+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T05:59:38.662+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T07:38:20.871+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T07:38:20.888+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T07:38:20.894+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T07:38:20.895+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T07:38:20.977+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.gold_feature_store> on 2023-10-01 00:00:00+00:00
+[2026-06-20T07:38:20.982+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=26318) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T07:38:20.983+0000] {standard_task_runner.py:64} INFO - Started process 26320 to run task
+[2026-06-20T07:38:20.982+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.gold_feature_store', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '2116', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpoi_py65n']
+[2026-06-20T07:38:20.983+0000] {standard_task_runner.py:91} INFO - Job 2116: Subtask feature_pipeline.gold_feature_store
+[2026-06-20T07:38:21.005+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T07:38:21.036+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.gold_feature_store' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-20T07:38:21.037+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T07:38:21.042+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T07:38:21.044+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 gold_feature_store.py --snapshotdate "2023-10-01"']
+[2026-06-20T07:38:21.048+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T07:38:22.541+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T07:38:22.542+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T07:38:22.690+0000] {subprocess.py:93} INFO - 26/06/20 07:38:22 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T07:38:40.066+0000] {subprocess.py:93} INFO - [Stage 11:>                                                       (0 + 10) / 10]                                                                                [Stage 18:>                                                         (0 + 1) / 1]                                                                                [Stage 63:>                                                         (0 + 1) / 1]
+[2026-06-20T07:38:40.069+0000] {subprocess.py:93} INFO - --- gold feature 2023-10-01 ---
+[2026-06-20T07:38:40.070+0000] {subprocess.py:93} INFO - 
+[2026-06-20T07:38:40.070+0000] {subprocess.py:93} INFO - [gold:feature] 2023-10-01 applications (mob=0): 487
+[2026-06-20T07:38:40.071+0000] {subprocess.py:93} INFO - [gold:feature] saved to: datamart/gold/feature_store/gold_feature_store_2023_10_01.parquet (487 rows, 86 cols)
+[2026-06-20T07:38:40.071+0000] {subprocess.py:93} INFO - 
+[2026-06-20T07:38:40.072+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T07:38:40.073+0000] {subprocess.py:93} INFO - 
+[2026-06-20T07:38:40.592+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T07:38:40.594+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T07:38:40.617+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.gold_feature_store, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260620T073820, end_date=20260620T073840
+[2026-06-20T07:38:40.654+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T07:38:40.678+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T07:38:40.680+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T15:37:27.171+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T15:37:27.182+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T15:37:27.185+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T15:37:27.186+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T15:37:27.190+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.gold_feature_store> on 2023-10-01 00:00:00+00:00
+[2026-06-20T15:37:27.193+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=12916) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T15:37:27.195+0000] {standard_task_runner.py:64} INFO - Started process 12918 to run task
+[2026-06-20T15:37:27.195+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.gold_feature_store', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '2586', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp9fg46_p3']
+[2026-06-20T15:37:27.196+0000] {standard_task_runner.py:91} INFO - Job 2586: Subtask feature_pipeline.gold_feature_store
+[2026-06-20T15:37:27.281+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T15:37:27.304+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.gold_feature_store' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-20T15:37:27.306+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T15:37:27.310+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T15:37:27.310+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 gold_feature_store.py --snapshotdate "2023-10-01"']
+[2026-06-20T15:37:27.315+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T15:37:28.307+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T15:37:28.308+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T15:37:28.446+0000] {subprocess.py:93} INFO - 26/06/20 15:37:28 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T15:37:40.820+0000] {subprocess.py:93} INFO - [Stage 11:>                                                       (0 + 10) / 10]                                                                                [Stage 63:>                                                         (0 + 1) / 1]
+[2026-06-20T15:37:40.822+0000] {subprocess.py:93} INFO - --- gold feature 2023-10-01 ---
+[2026-06-20T15:37:40.823+0000] {subprocess.py:93} INFO - 
+[2026-06-20T15:37:40.824+0000] {subprocess.py:93} INFO - [gold:feature] 2023-10-01 applications (mob=0): 487
+[2026-06-20T15:37:40.825+0000] {subprocess.py:93} INFO - [gold:feature] saved to: datamart/gold/feature_store/gold_feature_store_2023_10_01.parquet (487 rows, 86 cols)
+[2026-06-20T15:37:40.825+0000] {subprocess.py:93} INFO - 
+[2026-06-20T15:37:40.826+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T15:37:40.827+0000] {subprocess.py:93} INFO - 
+[2026-06-20T15:37:41.350+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T15:37:41.351+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T15:37:41.369+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.gold_feature_store, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260620T153727, end_date=20260620T153741
+[2026-06-20T15:37:41.413+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T15:37:41.426+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T15:37:41.427+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T17:29:11.276+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T17:29:11.302+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T17:29:11.310+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-20T17:29:11.311+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T17:29:11.323+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.gold_feature_store> on 2023-10-01 00:00:00+00:00
+[2026-06-20T17:29:11.331+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=30683) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T17:29:11.332+0000] {standard_task_runner.py:64} INFO - Started process 30685 to run task
+[2026-06-20T17:29:11.331+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.gold_feature_store', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '3162', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpxv9eixxc']
+[2026-06-20T17:29:11.334+0000] {standard_task_runner.py:91} INFO - Job 3162: Subtask feature_pipeline.gold_feature_store
+[2026-06-20T17:29:11.531+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T17:29:11.586+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.gold_feature_store' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-20T17:29:11.588+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T17:29:11.597+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T17:29:11.599+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 gold_feature_store.py --snapshotdate "2023-10-01"']
+[2026-06-20T17:29:11.607+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T17:29:14.018+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T17:29:14.021+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T17:29:14.237+0000] {subprocess.py:93} INFO - 26/06/20 17:29:14 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T17:29:39.727+0000] {subprocess.py:93} INFO - [Stage 1:====================================================>      (8 + 1) / 9]                                                                                [Stage 11:>                                                       (0 + 10) / 10][Stage 11:======================>                                  (4 + 6) / 10]                                                                                [Stage 18:>                                                         (0 + 1) / 1]                                                                                [Stage 63:>                                                         (0 + 1) / 1]                                                                                [Stage 78:>                                                         (0 + 1) / 1]                                                                                [Stage 93:>                                                         (0 + 1) / 1]
+[2026-06-20T17:29:39.729+0000] {subprocess.py:93} INFO - --- gold feature 2023-10-01 ---
+[2026-06-20T17:29:39.730+0000] {subprocess.py:93} INFO - 
+[2026-06-20T17:29:39.731+0000] {subprocess.py:93} INFO - [gold:feature] 2023-10-01 applications (mob=0): 487
+[2026-06-20T17:29:39.733+0000] {subprocess.py:93} INFO - [gold:feature] saved to: datamart/gold/feature_store/gold_feature_store_2023_10_01.parquet (487 rows, 86 cols)
+[2026-06-20T17:29:39.733+0000] {subprocess.py:93} INFO - 
+[2026-06-20T17:29:39.734+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T17:29:39.735+0000] {subprocess.py:93} INFO - 
+[2026-06-20T17:29:40.332+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T17:29:40.334+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T17:29:40.355+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.gold_feature_store, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260620T172911, end_date=20260620T172940
+[2026-06-20T17:29:40.383+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T17:29:40.402+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T17:29:40.404+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T01:53:19.378+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T01:53:19.392+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-21T01:53:19.397+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-21T01:53:19.398+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T01:53:19.403+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.gold_feature_store> on 2023-10-01 00:00:00+00:00
+[2026-06-21T01:53:19.407+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=30404) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T01:53:19.408+0000] {standard_task_runner.py:64} INFO - Started process 30406 to run task
+[2026-06-21T01:53:19.407+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.gold_feature_store', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '3626', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp38if5th3']
+[2026-06-21T01:53:19.409+0000] {standard_task_runner.py:91} INFO - Job 3626: Subtask feature_pipeline.gold_feature_store
+[2026-06-21T01:53:19.428+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [running]> on host f6e9e2801916
+[2026-06-21T01:53:19.537+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.gold_feature_store' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-21T01:53:19.538+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T01:53:19.542+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-21T01:53:19.542+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 gold_feature_store.py --snapshotdate "2023-10-01"']
+[2026-06-21T01:53:19.547+0000] {subprocess.py:86} INFO - Output:
+[2026-06-21T01:53:20.901+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-21T01:53:20.902+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-21T01:53:21.040+0000] {subprocess.py:93} INFO - 26/06/21 01:53:21 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-21T01:53:38.891+0000] {subprocess.py:93} INFO - [Stage 1:====================================================>      (8 + 1) / 9]                                                                                [Stage 11:>                                                       (0 + 10) / 10]                                                                                [Stage 63:>                                                         (0 + 1) / 1]
+[2026-06-21T01:53:38.893+0000] {subprocess.py:93} INFO - --- gold feature 2023-10-01 ---
+[2026-06-21T01:53:38.894+0000] {subprocess.py:93} INFO - 
+[2026-06-21T01:53:38.895+0000] {subprocess.py:93} INFO - [gold:feature] 2023-10-01 applications (mob=0): 487
+[2026-06-21T01:53:38.897+0000] {subprocess.py:93} INFO - [gold:feature] saved to: datamart/gold/feature_store/gold_feature_store_2023_10_01.parquet (487 rows, 86 cols)
+[2026-06-21T01:53:38.897+0000] {subprocess.py:93} INFO - 
+[2026-06-21T01:53:38.898+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-21T01:53:38.899+0000] {subprocess.py:93} INFO - 
+[2026-06-21T01:53:39.442+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-21T01:53:39.445+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T01:53:39.474+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.gold_feature_store, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260621T015319, end_date=20260621T015339
+[2026-06-21T01:53:39.499+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T01:53:39.691+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-21T01:53:39.693+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T05:50:39.003+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T05:50:39.025+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-21T05:50:39.030+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [queued]>
+[2026-06-21T05:50:39.031+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T05:50:39.040+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.gold_feature_store> on 2023-10-01 00:00:00+00:00
+[2026-06-21T05:50:39.046+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=31176) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T05:50:39.047+0000] {standard_task_runner.py:64} INFO - Started process 31178 to run task
+[2026-06-21T05:50:39.046+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.gold_feature_store', 'scheduled__2023-10-01T00:00:00+00:00', '--job-id', '4090', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpz9zr2mc1']
+[2026-06-21T05:50:39.048+0000] {standard_task_runner.py:91} INFO - Job 4090: Subtask feature_pipeline.gold_feature_store
+[2026-06-21T05:50:39.195+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.gold_feature_store scheduled__2023-10-01T00:00:00+00:00 [running]> on host 9377a3f0491f
+[2026-06-21T05:50:39.242+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.gold_feature_store' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T00:00:00+00:00'
+[2026-06-21T05:50:39.244+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T05:50:39.252+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-21T05:50:39.253+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 gold_feature_store.py --snapshotdate "2023-10-01"']
+[2026-06-21T05:50:39.260+0000] {subprocess.py:86} INFO - Output:
+[2026-06-21T05:50:41.448+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-21T05:50:41.449+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-21T05:50:41.693+0000] {subprocess.py:93} INFO - 26/06/21 05:50:41 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-21T05:51:05.642+0000] {subprocess.py:93} INFO - [Stage 1:=================================================>         (5 + 1) / 6]                                                                                [Stage 11:>                                                       (0 + 10) / 10]                                                                                [Stage 18:>                                                         (0 + 1) / 1]                                                                                [Stage 63:>                                                         (0 + 1) / 1]                                                                                [Stage 93:>                                                         (0 + 1) / 1]
+[2026-06-21T05:51:05.645+0000] {subprocess.py:93} INFO - --- gold feature 2023-10-01 ---
+[2026-06-21T05:51:05.646+0000] {subprocess.py:93} INFO - 
+[2026-06-21T05:51:05.647+0000] {subprocess.py:93} INFO - [gold:feature] 2023-10-01 applications (mob=0): 487
+[2026-06-21T05:51:05.647+0000] {subprocess.py:93} INFO - [gold:feature] saved to: datamart/gold/feature_store/gold_feature_store_2023_10_01.parquet (487 rows, 86 cols)
+[2026-06-21T05:51:05.648+0000] {subprocess.py:93} INFO - 
+[2026-06-21T05:51:05.649+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-21T05:51:05.649+0000] {subprocess.py:93} INFO - 
+[2026-06-21T05:51:06.240+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-21T05:51:06.241+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T05:51:06.261+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.gold_feature_store, run_id=scheduled__2023-10-01T00:00:00+00:00, execution_date=20231001T000000, start_date=20260621T055039, end_date=20260621T055106
+[2026-06-21T05:51:06.289+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T05:51:06.310+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-21T05:51:06.312+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

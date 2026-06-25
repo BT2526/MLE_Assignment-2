@@ -1,0 +1,55 @@
+[2026-06-18T04:36:33.229+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-18T04:36:33.251+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.refresh_feature_importance manual__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-18T04:36:33.257+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.refresh_feature_importance manual__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-18T04:36:33.258+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-18T04:36:33.266+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): training.refresh_feature_importance> on 2024-09-01 00:00:00+00:00
+[2026-06-18T04:36:33.271+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=92271) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-18T04:36:33.272+0000] {standard_task_runner.py:64} INFO - Started process 92273 to run task
+[2026-06-18T04:36:33.271+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.refresh_feature_importance', 'manual__2024-09-01T00:00:00+00:00', '--job-id', '1279', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpi77jmutq']
+[2026-06-18T04:36:33.273+0000] {standard_task_runner.py:91} INFO - Job 1279: Subtask training.refresh_feature_importance
+[2026-06-18T04:36:33.306+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.refresh_feature_importance manual__2024-09-01T00:00:00+00:00 [running]> on host bfbc24b887a5
+[2026-06-18T04:36:33.470+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.refresh_feature_importance' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-01T00:00:00+00:00'
+[2026-06-18T04:36:33.472+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-18T04:36:33.482+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-18T04:36:33.483+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && CHAMPION=$(cat model_bank/champion.txt) && python3 feature_importance_report.py --modelname "$CHAMPION"']
+[2026-06-18T04:36:33.492+0000] {subprocess.py:86} INFO - Output:
+[2026-06-18T04:36:34.916+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:36:34.917+0000] {subprocess.py:93} INFO - --- feature importance report: credit_xgb_2024_09_01.pkl ---
+[2026-06-18T04:36:34.917+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:36:34.918+0000] {subprocess.py:93} INFO - model: credit_xgb_2024_09_01  (XGBoost importance (gain-based, normalised to sum to 1))
+[2026-06-18T04:36:34.919+0000] {subprocess.py:93} INFO - total features: 84
+[2026-06-18T04:36:34.920+0000] {subprocess.py:93} INFO - top 20 features capture 53.7% of total importance
+[2026-06-18T04:36:34.921+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:36:34.921+0000] {subprocess.py:93} INFO -                      feature  importance
+[2026-06-18T04:36:34.922+0000] {subprocess.py:93} INFO -             Outstanding_Debt    0.104379
+[2026-06-18T04:36:34.922+0000] {subprocess.py:93} INFO -               Credit_Mix_bad    0.051283
+[2026-06-18T04:36:34.923+0000] {subprocess.py:93} INFO -                Interest_Rate    0.031187
+[2026-06-18T04:36:34.924+0000] {subprocess.py:93} INFO -                  Num_of_Loan    0.028777
+[2026-06-18T04:36:34.924+0000] {subprocess.py:93} INFO -                         fe_5    0.027355
+[2026-06-18T04:36:34.925+0000] {subprocess.py:93} INFO -            Num_Bank_Accounts    0.026564
+[2026-06-18T04:36:34.926+0000] {subprocess.py:93} INFO -                        fe_10    0.025719
+[2026-06-18T04:36:34.927+0000] {subprocess.py:93} INFO -          Delay_from_due_date    0.023896
+[2026-06-18T04:36:34.928+0000] {subprocess.py:93} INFO -               debt_to_income    0.020967
+[2026-06-18T04:36:34.928+0000] {subprocess.py:93} INFO -                         fe_9    0.020666
+[2026-06-18T04:36:34.929+0000] {subprocess.py:93} INFO -                         fe_4    0.019489
+[2026-06-18T04:36:34.929+0000] {subprocess.py:93} INFO -         Num_Credit_Inquiries    0.019489
+[2026-06-18T04:36:34.930+0000] {subprocess.py:93} INFO -         Changed_Credit_Limit    0.019389
+[2026-06-18T04:36:34.930+0000] {subprocess.py:93} INFO - payment_behaviour_spent_high    0.019178
+[2026-06-18T04:36:34.931+0000] {subprocess.py:93} INFO -                         fe_8    0.018265
+[2026-06-18T04:36:34.932+0000] {subprocess.py:93} INFO -          Credit_Mix_standard    0.016887
+[2026-06-18T04:36:34.932+0000] {subprocess.py:93} INFO -       Num_of_Delayed_Payment    0.016695
+[2026-06-18T04:36:34.933+0000] {subprocess.py:93} INFO -                         fe_3    0.016077
+[2026-06-18T04:36:34.933+0000] {subprocess.py:93} INFO -              Credit_Mix_good    0.015574
+[2026-06-18T04:36:34.934+0000] {subprocess.py:93} INFO -              Num_Credit_Card    0.014774
+[2026-06-18T04:36:34.934+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:36:34.935+0000] {subprocess.py:93} INFO - saved full ranking: reports/feature_importance/credit_xgb_2024_09_01_feature_importance.csv
+[2026-06-18T04:36:34.935+0000] {subprocess.py:93} INFO - saved chart: reports/feature_importance/credit_xgb_2024_09_01_feature_importance_top20.png
+[2026-06-18T04:36:34.935+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:36:34.936+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-18T04:36:34.936+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:36:35.090+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-18T04:36:35.092+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-18T04:36:35.111+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.refresh_feature_importance, run_id=manual__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260618T043633, end_date=20260618T043635
+[2026-06-18T04:36:35.133+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-18T04:36:35.153+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-06-18T04:36:35.156+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

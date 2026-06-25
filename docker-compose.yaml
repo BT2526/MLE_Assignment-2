@@ -9,6 +9,11 @@ x-airflow-common: &airflow-common
     AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "True"
     JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
     PYTHONPATH: /opt/airflow/scripts
+    AIRFLOW__SMTP__SMTP_HOST: mailhog
+    AIRFLOW__SMTP__SMTP_PORT: 1025
+    AIRFLOW__SMTP__SMTP_MAIL_FROM: airflow@example.com
+    AIRFLOW__SMTP__SMTP_SSL: 'false'
+    AIRFLOW__SMTP__SMTP_STARTTLS: 'false'
   volumes:
     - ./dags:/opt/airflow/dags
     - ./scripts:/opt/airflow/scripts
@@ -83,10 +88,18 @@ services:
                mlflow ui --host 0.0.0.0 --port 5000
                --backend-store-uri sqlite:///mlflow.db"
     ports:
-      - "5000:5000"
+      - "5001:5000"
     restart: always
     depends_on:
       <<: *airflow-deps
+
+  mailhog:
+    image: mailhog/mailhog
+    platform: linux/amd64
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    restart: always
 
 volumes:
   postgres_db:

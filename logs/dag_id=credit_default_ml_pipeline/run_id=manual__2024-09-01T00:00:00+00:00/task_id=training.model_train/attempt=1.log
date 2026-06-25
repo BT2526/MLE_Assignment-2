@@ -1,0 +1,69 @@
+[2026-06-18T04:36:15.157+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-18T04:36:15.176+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.model_train manual__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-18T04:36:15.182+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.model_train manual__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-18T04:36:15.183+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-18T04:36:15.189+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): training.model_train> on 2024-09-01 00:00:00+00:00
+[2026-06-18T04:36:15.193+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=91970) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-18T04:36:15.193+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.model_train', 'manual__2024-09-01T00:00:00+00:00', '--job-id', '1278', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpo5w8y7wi']
+[2026-06-18T04:36:15.195+0000] {standard_task_runner.py:64} INFO - Started process 91972 to run task
+[2026-06-18T04:36:15.196+0000] {standard_task_runner.py:91} INFO - Job 1278: Subtask training.model_train
+[2026-06-18T04:36:15.222+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.model_train manual__2024-09-01T00:00:00+00:00 [running]> on host bfbc24b887a5
+[2026-06-18T04:36:15.359+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.model_train' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-01T00:00:00+00:00'
+[2026-06-18T04:36:15.360+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-18T04:36:15.366+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-18T04:36:15.367+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 model_train.py --snapshotdate "2024-09-01"']
+[2026-06-18T04:36:15.373+0000] {subprocess.py:86} INFO - Output:
+[2026-06-18T04:36:18.446+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-18T04:36:18.448+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-18T04:36:18.599+0000] {subprocess.py:93} INFO - 26/06/18 04:36:18 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-18T04:36:24.458+0000] {subprocess.py:93} INFO - 2026/06/18 04:36:24 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+[2026-06-18T04:36:24.460+0000] {subprocess.py:93} INFO - The git executable must be specified in one of the following ways:
+[2026-06-18T04:36:24.460+0000] {subprocess.py:93} INFO -     - be included in your $PATH
+[2026-06-18T04:36:24.461+0000] {subprocess.py:93} INFO -     - be set via $GIT_PYTHON_GIT_EXECUTABLE
+[2026-06-18T04:36:24.461+0000] {subprocess.py:93} INFO -     - explicitly set via git.refresh(<full-path-to-git-executable>)
+[2026-06-18T04:36:24.462+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:36:24.463+0000] {subprocess.py:93} INFO - All git commands will error until this is rectified.
+[2026-06-18T04:36:24.463+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:36:24.464+0000] {subprocess.py:93} INFO - This initial message can be silenced or aggravated in the future by setting the
+[2026-06-18T04:36:24.464+0000] {subprocess.py:93} INFO - $GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+[2026-06-18T04:36:24.465+0000] {subprocess.py:93} INFO -     - quiet|q|silence|s|silent|none|n|0: for no message or exception
+[2026-06-18T04:36:24.466+0000] {subprocess.py:93} INFO -     - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+[2026-06-18T04:36:24.466+0000] {subprocess.py:93} INFO -     - error|e|exception|raise|r|2: for a raised exception
+[2026-06-18T04:36:24.467+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:36:24.467+0000] {subprocess.py:93} INFO - Example:
+[2026-06-18T04:36:24.468+0000] {subprocess.py:93} INFO -     export GIT_PYTHON_REFRESH=quiet
+[2026-06-18T04:36:24.469+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:36:24.565+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:36:24.568+0000] {subprocess.py:93} INFO - --- model training 2024-09-01 (tt_months=12) ---
+[2026-06-18T04:36:24.569+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:36:24.571+0000] {subprocess.py:93} INFO - {'oot_end': datetime.datetime(2024, 8, 31, 0, 0),
+[2026-06-18T04:36:24.572+0000] {subprocess.py:93} INFO -  'oot_start': datetime.datetime(2024, 7, 1, 0, 0),
+[2026-06-18T04:36:24.585+0000] {subprocess.py:93} INFO -  'train_date': '2024-09-01',
+[2026-06-18T04:36:24.614+0000] {subprocess.py:93} INFO -  'tt_end': datetime.datetime(2024, 6, 30, 0, 0),
+[2026-06-18T04:36:24.677+0000] {subprocess.py:93} INFO -  'tt_months': 12,
+[2026-06-18T04:36:24.691+0000] {subprocess.py:93} INFO -  'tt_start': datetime.datetime(2023, 7, 1, 0, 0)}
+[2026-06-18T04:36:24.702+0000] {subprocess.py:93} INFO - aligned rows: 7482  bad rate: 0.283
+[2026-06-18T04:36:24.707+0000] {subprocess.py:93} INFO - train 5499  test 980  oot 1003
+[2026-06-18T04:36:30.464+0000] {subprocess.py:93} INFO - 2026/06/18 04:36:30 INFO mlflow.tracking._tracking_service.client: 🏃 View run xgb_champion_2024-09-01_tt12m at: http://mlflow-ui:5000/#/experiments/981367458601381198/runs/37c2669b83e6469babf2696c7604dce6.
+[2026-06-18T04:36:30.466+0000] {subprocess.py:93} INFO - 2026/06/18 04:36:30 INFO mlflow.tracking._tracking_service.client: 🧪 View experiment at: http://mlflow-ui:5000/#/experiments/981367458601381198.
+[2026-06-18T04:36:30.828+0000] {subprocess.py:93} INFO - 2026/06/18 04:36:30 INFO mlflow.tracking._tracking_service.client: 🏃 View run logreg_challenger_2024-09-01_tt12m at: http://mlflow-ui:5000/#/experiments/981367458601381198/runs/a3aaf7eb91f64ad997c33dfa4c1b6057.
+[2026-06-18T04:36:30.829+0000] {subprocess.py:93} INFO - 2026/06/18 04:36:30 INFO mlflow.tracking._tracking_service.client: 🧪 View experiment at: http://mlflow-ui:5000/#/experiments/981367458601381198.
+[2026-06-18T04:36:30.847+0000] {subprocess.py:93} INFO - XGB AUC: {'train': 0.9283, 'test': 0.8967, 'oot': 0.9145}
+[2026-06-18T04:36:30.848+0000] {subprocess.py:93} INFO - XGB precision/recall/F1 (oot): {'precision': 0.8047, 'recall': 0.5945, 'f1': 0.6838}
+[2026-06-18T04:36:30.866+0000] {subprocess.py:93} INFO - XGB calibration (oot) - Brier raw: 0.1073  Brier calibrated: 0.1059  AUC calibrated: 0.9145 (vs raw AUC oot: 0.9145)
+[2026-06-18T04:36:30.890+0000] {subprocess.py:93} INFO - saved reliability diagram: reports/calibration/xgb_2024_09_01_reliability.png
+[2026-06-18T04:36:30.901+0000] {subprocess.py:93} INFO - LogReg AUC: {'train': 0.8432, 'test': 0.8607, 'oot': 0.86}
+[2026-06-18T04:36:30.909+0000] {subprocess.py:93} INFO - LogReg precision/recall/F1 (oot): {'precision': 0.612, 'recall': 0.7698, 'f1': 0.6819}
+[2026-06-18T04:36:30.911+0000] {subprocess.py:93} INFO - saved model artefact: model_bank/credit_xgb_2024_09_01.pkl
+[2026-06-18T04:36:30.912+0000] {subprocess.py:93} INFO - saved model artefact: model_bank/credit_logreg_2024_09_01.pkl
+[2026-06-18T04:36:30.919+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:36:30.921+0000] {subprocess.py:93} INFO - CHAMPION by OOT AUC: xgb (oot_auc=0.9145)
+[2026-06-18T04:36:30.922+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:36:30.924+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-18T04:36:30.924+0000] {subprocess.py:93} INFO - 
+[2026-06-18T04:36:32.073+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-18T04:36:32.077+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-18T04:36:32.112+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.model_train, run_id=manual__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260618T043615, end_date=20260618T043632
+[2026-06-18T04:36:32.144+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-18T04:36:32.306+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-06-18T04:36:32.308+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

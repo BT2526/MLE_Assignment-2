@@ -1,0 +1,40 @@
+[2026-06-16T15:26:35.986+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-16T15:26:36.007+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_attributes scheduled__2023-12-01T00:00:00+00:00 [queued]>
+[2026-06-16T15:26:36.011+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_attributes scheduled__2023-12-01T00:00:00+00:00 [queued]>
+[2026-06-16T15:26:36.012+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2026-06-16T15:26:36.018+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_bronze_attributes> on 2023-12-01 00:00:00+00:00
+[2026-06-16T15:26:36.022+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=51512) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-16T15:26:36.022+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_bronze_attributes', 'scheduled__2023-12-01T00:00:00+00:00', '--job-id', '241', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpio6m_y9d']
+[2026-06-16T15:26:36.029+0000] {standard_task_runner.py:91} INFO - Job 241: Subtask feature_pipeline.feature_bronze_attributes
+[2026-06-16T15:26:36.027+0000] {standard_task_runner.py:64} INFO - Started process 51513 to run task
+[2026-06-16T15:26:36.064+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_bronze_attributes scheduled__2023-12-01T00:00:00+00:00 [running]> on host 1cab6e97738a
+[2026-06-16T15:26:36.101+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_bronze_attributes' AIRFLOW_CTX_EXECUTION_DATE='2023-12-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-12-01T00:00:00+00:00'
+[2026-06-16T15:26:36.102+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-16T15:26:36.109+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-16T15:26:36.111+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 bronze_processing.py --snapshotdate "2023-12-01" --source attributes']
+[2026-06-16T15:26:36.115+0000] {subprocess.py:86} INFO - Output:
+[2026-06-16T15:26:36.453+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-06-16T15:26:36.454+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/bronze_processing.py", line 7, in <module>
+[2026-06-16T15:26:36.454+0000] {subprocess.py:93} INFO -     import utils.data_processing_bronze_table as bronze
+[2026-06-16T15:26:36.455+0000] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'utils'
+[2026-06-16T15:26:36.479+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-06-16T15:26:36.480+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-16T15:26:36.485+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-06-16T15:26:36.489+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_bronze_attributes, run_id=scheduled__2023-12-01T00:00:00+00:00, execution_date=20231201T000000, start_date=20260616T152636, end_date=20260616T152636
+[2026-06-16T15:26:36.500+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 241 for task feature_pipeline.feature_bronze_attributes (Bash command failed. The command returned a non-zero exit code 1.; 51513)
+[2026-06-16T15:26:36.504+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-06-16T15:26:36.516+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-16T15:26:36.517+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

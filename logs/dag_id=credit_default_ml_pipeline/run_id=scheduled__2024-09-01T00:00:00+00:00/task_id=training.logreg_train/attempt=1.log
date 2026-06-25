@@ -1,0 +1,343 @@
+[2026-06-20T08:11:57.132+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T08:11:57.171+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.logreg_train scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T08:11:57.190+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.logreg_train scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T08:11:57.192+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T08:11:57.221+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): training.logreg_train> on 2024-09-01 00:00:00+00:00
+[2026-06-20T08:11:57.234+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=62564) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T08:11:57.236+0000] {standard_task_runner.py:64} INFO - Started process 62568 to run task
+[2026-06-20T08:11:57.234+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.logreg_train', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '2328', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpf3gb4jo_']
+[2026-06-20T08:11:57.238+0000] {standard_task_runner.py:91} INFO - Job 2328: Subtask training.logreg_train
+[2026-06-20T08:11:57.477+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.logreg_train scheduled__2024-09-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T08:11:57.537+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.logreg_train' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2026-06-20T08:11:57.538+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T08:11:57.549+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T08:11:57.550+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 model_train_logreg.py --snapshotdate "2024-09-01"']
+[2026-06-20T08:11:57.559+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T08:12:00.806+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T08:12:00.807+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T08:12:00.987+0000] {subprocess.py:93} INFO - 26/06/20 08:12:00 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T08:12:07.395+0000] {subprocess.py:93} INFO - [Stage 3:========>                                                  (1 + 6) / 7]                                                                                2026/06/20 08:12:07 INFO mlflow.tracking.fluent: Experiment with name 'credit_default_prediction' does not exist. Creating a new experiment.
+[2026-06-20T08:12:07.459+0000] {subprocess.py:93} INFO - 2026/06/20 08:12:07 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+[2026-06-20T08:12:07.460+0000] {subprocess.py:93} INFO - The git executable must be specified in one of the following ways:
+[2026-06-20T08:12:07.461+0000] {subprocess.py:93} INFO -     - be included in your $PATH
+[2026-06-20T08:12:07.461+0000] {subprocess.py:93} INFO -     - be set via $GIT_PYTHON_GIT_EXECUTABLE
+[2026-06-20T08:12:07.462+0000] {subprocess.py:93} INFO -     - explicitly set via git.refresh(<full-path-to-git-executable>)
+[2026-06-20T08:12:07.462+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:07.463+0000] {subprocess.py:93} INFO - All git commands will error until this is rectified.
+[2026-06-20T08:12:07.464+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:07.464+0000] {subprocess.py:93} INFO - This initial message can be silenced or aggravated in the future by setting the
+[2026-06-20T08:12:07.465+0000] {subprocess.py:93} INFO - $GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+[2026-06-20T08:12:07.465+0000] {subprocess.py:93} INFO -     - quiet|q|silence|s|silent|none|n|0: for no message or exception
+[2026-06-20T08:12:07.466+0000] {subprocess.py:93} INFO -     - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+[2026-06-20T08:12:07.466+0000] {subprocess.py:93} INFO -     - error|e|exception|raise|r|2: for a raised exception
+[2026-06-20T08:12:07.467+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:07.467+0000] {subprocess.py:93} INFO - Example:
+[2026-06-20T08:12:07.468+0000] {subprocess.py:93} INFO -     export GIT_PYTHON_REFRESH=quiet
+[2026-06-20T08:12:07.469+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:08.059+0000] {subprocess.py:93} INFO - 2026/06/20 08:12:08 INFO mlflow.tracking._tracking_service.client: 🏃 View run logreg_challenger_2024-09-01_tt12m at: http://mlflow-ui:5000/#/experiments/295278157830474540/runs/d78016ff123b426f82db152a9d29ec81.
+[2026-06-20T08:12:08.061+0000] {subprocess.py:93} INFO - 2026/06/20 08:12:08 INFO mlflow.tracking._tracking_service.client: 🧪 View experiment at: http://mlflow-ui:5000/#/experiments/295278157830474540.
+[2026-06-20T08:12:08.347+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:08.348+0000] {subprocess.py:93} INFO - --- Logistic Regression training 2024-09-01 (tt_months=12) ---
+[2026-06-20T08:12:08.349+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:08.350+0000] {subprocess.py:93} INFO - aligned rows: 6961  bad rate: 0.284
+[2026-06-20T08:12:08.351+0000] {subprocess.py:93} INFO - LogReg AUC: {'train': 0.847, 'test': 0.8705, 'oot': 0.8712}
+[2026-06-20T08:12:08.352+0000] {subprocess.py:93} INFO - LogReg Brier (OOT): 0.1464
+[2026-06-20T08:12:08.353+0000] {subprocess.py:93} INFO - LogReg precision/recall/F1 (oot): {'precision': 0.6267, 'recall': 0.7904, 'f1': 0.6991}
+[2026-06-20T08:12:08.353+0000] {subprocess.py:93} INFO - saved LogReg artefact: model_bank/credit_logreg_2024_09_01.pkl
+[2026-06-20T08:12:08.354+0000] {subprocess.py:93} INFO - saved OOT1 predictions: datamart/gold/model_predictions/credit_logreg_2024_09_01/credit_logreg_2024_09_01_predictions_2024_07_01.parquet (485 rows)
+[2026-06-20T08:12:08.355+0000] {subprocess.py:93} INFO - saved OOT1 predictions: datamart/gold/model_predictions/credit_logreg_2024_09_01/credit_logreg_2024_09_01_predictions_2024_08_01.parquet (518 rows)
+[2026-06-20T08:12:08.360+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:08.361+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T08:12:08.362+0000] {subprocess.py:93} INFO - 
+[2026-06-20T08:12:09.442+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T08:12:09.454+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T08:12:09.517+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.logreg_train, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260620T081157, end_date=20260620T081209
+[2026-06-20T08:12:09.578+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T08:12:09.662+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T08:12:09.676+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T16:08:32.508+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T16:08:32.520+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.logreg_train scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T16:08:32.525+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.logreg_train scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T16:08:32.526+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T16:08:32.533+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): training.logreg_train> on 2024-09-01 00:00:00+00:00
+[2026-06-20T16:08:32.538+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=48765) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T16:08:32.539+0000] {standard_task_runner.py:64} INFO - Started process 48769 to run task
+[2026-06-20T16:08:32.538+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.logreg_train', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '2800', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpt3no0o2r']
+[2026-06-20T16:08:32.539+0000] {standard_task_runner.py:91} INFO - Job 2800: Subtask training.logreg_train
+[2026-06-20T16:08:32.633+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.logreg_train scheduled__2024-09-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T16:08:32.660+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.logreg_train' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2026-06-20T16:08:32.661+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T16:08:32.665+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T16:08:32.667+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 model_train_logreg.py --snapshotdate "2024-09-01"']
+[2026-06-20T16:08:32.673+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T16:08:34.278+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T16:08:34.279+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T16:08:34.406+0000] {subprocess.py:93} INFO - 26/06/20 16:08:34 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T16:09:40.167+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:09:40.168+0000] {subprocess.py:93} INFO - --- Logistic Regression training 2024-09-01 (tt_months=12) ---
+[2026-06-20T16:09:40.169+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:09:40.169+0000] {subprocess.py:93} INFO - aligned rows: 6961  bad rate: 0.284
+[2026-06-20T16:09:40.169+0000] {subprocess.py:93} INFO - urllib3.exceptions.ResponseError: too many 500 error responses
+[2026-06-20T16:09:40.170+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:09:40.170+0000] {subprocess.py:93} INFO - The above exception was the direct cause of the following exception:
+[2026-06-20T16:09:40.170+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:09:40.171+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-06-20T16:09:40.172+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+[2026-06-20T16:09:40.173+0000] {subprocess.py:93} INFO -     resp = conn.urlopen(
+[2026-06-20T16:09:40.173+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^
+[2026-06-20T16:09:40.174+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 946, in urlopen
+[2026-06-20T16:09:40.174+0000] {subprocess.py:93} INFO -     return self.urlopen(
+[2026-06-20T16:09:40.174+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^
+[2026-06-20T16:09:40.174+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 946, in urlopen
+[2026-06-20T16:09:40.175+0000] {subprocess.py:93} INFO -     return self.urlopen(
+[2026-06-20T16:09:40.175+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^
+[2026-06-20T16:09:40.177+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 946, in urlopen
+[2026-06-20T16:09:40.177+0000] {subprocess.py:93} INFO -     return self.urlopen(
+[2026-06-20T16:09:40.177+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^
+[2026-06-20T16:09:40.179+0000] {subprocess.py:93} INFO -   [Previous line repeated 2 more times]
+[2026-06-20T16:09:40.179+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 936, in urlopen
+[2026-06-20T16:09:40.179+0000] {subprocess.py:93} INFO -     retries = retries.increment(method, url, response=response, _pool=self)
+[2026-06-20T16:09:40.180+0000] {subprocess.py:93} INFO -               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-20T16:09:40.180+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+[2026-06-20T16:09:40.180+0000] {subprocess.py:93} INFO -     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+[2026-06-20T16:09:40.180+0000] {subprocess.py:93} INFO -     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-20T16:09:40.181+0000] {subprocess.py:93} INFO - urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='mlflow-ui', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=credit_default_prediction (Caused by ResponseError('too many 500 error responses'))
+[2026-06-20T16:09:40.181+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:09:40.181+0000] {subprocess.py:93} INFO - During handling of the above exception, another exception occurred:
+[2026-06-20T16:09:40.183+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:09:40.183+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-06-20T16:09:40.185+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/mlflow/utils/rest_utils.py", line 187, in http_request
+[2026-06-20T16:09:40.185+0000] {subprocess.py:93} INFO -     return _get_http_response_with_retries(
+[2026-06-20T16:09:40.185+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-20T16:09:40.185+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/mlflow/utils/request_utils.py", line 237, in _get_http_response_with_retries
+[2026-06-20T16:09:40.186+0000] {subprocess.py:93} INFO -     return session.request(method, url, allow_redirects=allow_redirects, **kwargs)
+[2026-06-20T16:09:40.186+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-20T16:09:40.186+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+[2026-06-20T16:09:40.186+0000] {subprocess.py:93} INFO -     resp = self.send(prep, **send_kwargs)
+[2026-06-20T16:09:40.187+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-20T16:09:40.187+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+[2026-06-20T16:09:40.187+0000] {subprocess.py:93} INFO -     r = adapter.send(request, **kwargs)
+[2026-06-20T16:09:40.188+0000] {subprocess.py:93} INFO -         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-20T16:09:40.189+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/requests/adapters.py", line 691, in send
+[2026-06-20T16:09:40.189+0000] {subprocess.py:93} INFO -     raise RetryError(e, request=request)
+[2026-06-20T16:09:40.189+0000] {subprocess.py:93} INFO - requests.exceptions.RetryError: HTTPConnectionPool(host='mlflow-ui', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=credit_default_prediction (Caused by ResponseError('too many 500 error responses'))
+[2026-06-20T16:09:40.190+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:09:40.190+0000] {subprocess.py:93} INFO - During handling of the above exception, another exception occurred:
+[2026-06-20T16:09:40.190+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:09:40.190+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-06-20T16:09:40.191+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/model_train_logreg.py", line 197, in <module>
+[2026-06-20T16:09:40.191+0000] {subprocess.py:93} INFO -     main(a.snapshotdate, a.tt_months)
+[2026-06-20T16:09:40.192+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/model_train_logreg.py", line 106, in main
+[2026-06-20T16:09:40.192+0000] {subprocess.py:93} INFO -     mlflow.set_experiment(EXPERIMENT_NAME)
+[2026-06-20T16:09:40.192+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/mlflow/tracking/fluent.py", line 143, in set_experiment
+[2026-06-20T16:09:40.192+0000] {subprocess.py:93} INFO -     experiment = client.get_experiment_by_name(experiment_name)
+[2026-06-20T16:09:40.193+0000] {subprocess.py:93} INFO -                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-20T16:09:40.193+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/mlflow/tracking/client.py", line 1240, in get_experiment_by_name
+[2026-06-20T16:09:40.193+0000] {subprocess.py:93} INFO -     return self._tracking_client.get_experiment_by_name(name)
+[2026-06-20T16:09:40.193+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-20T16:09:40.193+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/mlflow/tracking/_tracking_service/client.py", line 484, in get_experiment_by_name
+[2026-06-20T16:09:40.194+0000] {subprocess.py:93} INFO -     return self.store.get_experiment_by_name(name)
+[2026-06-20T16:09:40.194+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-20T16:09:40.194+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/mlflow/store/tracking/rest_store.py", line 518, in get_experiment_by_name
+[2026-06-20T16:09:40.194+0000] {subprocess.py:93} INFO -     response_proto = self._call_endpoint(GetExperimentByName, req_body)
+[2026-06-20T16:09:40.194+0000] {subprocess.py:93} INFO -                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-20T16:09:40.195+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/mlflow/store/tracking/rest_store.py", line 81, in _call_endpoint
+[2026-06-20T16:09:40.195+0000] {subprocess.py:93} INFO -     return call_endpoint(self.get_host_creds(), endpoint, method, json_body, response_proto)
+[2026-06-20T16:09:40.195+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-20T16:09:40.195+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/mlflow/utils/rest_utils.py", line 357, in call_endpoint
+[2026-06-20T16:09:40.196+0000] {subprocess.py:93} INFO -     response = http_request(**call_kwargs)
+[2026-06-20T16:09:40.196+0000] {subprocess.py:93} INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-20T16:09:40.196+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/mlflow/utils/rest_utils.py", line 210, in http_request
+[2026-06-20T16:09:40.196+0000] {subprocess.py:93} INFO -     raise MlflowException(f"API request to {url} failed with exception {e}")
+[2026-06-20T16:09:40.197+0000] {subprocess.py:93} INFO - mlflow.exceptions.MlflowException: API request to http://mlflow-ui:5000/api/2.0/mlflow/experiments/get-by-name failed with exception HTTPConnectionPool(host='mlflow-ui', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=credit_default_prediction (Caused by ResponseError('too many 500 error responses'))
+[2026-06-20T16:09:40.810+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-06-20T16:09:40.812+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T16:09:40.824+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-06-20T16:09:40.827+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=credit_default_ml_pipeline, task_id=training.logreg_train, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260620T160832, end_date=20260620T160940
+[2026-06-20T16:09:40.835+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 2800 for task training.logreg_train (Bash command failed. The command returned a non-zero exit code 1.; 48769)
+[2026-06-20T16:09:40.878+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-06-20T16:09:40.894+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T16:09:40.895+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T18:05:38.652+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T18:05:38.666+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.logreg_train scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T18:05:38.671+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.logreg_train scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-20T18:05:38.672+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T18:05:38.678+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): training.logreg_train> on 2024-09-01 00:00:00+00:00
+[2026-06-20T18:05:38.681+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=67452) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T18:05:38.682+0000] {standard_task_runner.py:64} INFO - Started process 67455 to run task
+[2026-06-20T18:05:38.682+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.logreg_train', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '3375', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpwuy58l4a']
+[2026-06-20T18:05:38.684+0000] {standard_task_runner.py:91} INFO - Job 3375: Subtask training.logreg_train
+[2026-06-20T18:05:38.790+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.logreg_train scheduled__2024-09-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T18:05:38.816+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.logreg_train' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2026-06-20T18:05:38.818+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T18:05:38.822+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T18:05:38.822+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 model_train_logreg.py --snapshotdate "2024-09-01"']
+[2026-06-20T18:05:38.827+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T18:05:41.475+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T18:05:41.476+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T18:05:41.689+0000] {subprocess.py:93} INFO - 26/06/20 18:05:41 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T18:05:48.819+0000] {subprocess.py:93} INFO - 2026/06/20 18:05:48 INFO mlflow.tracking.fluent: Experiment with name 'credit_default_prediction' does not exist. Creating a new experiment.
+[2026-06-20T18:05:48.892+0000] {subprocess.py:93} INFO - 2026/06/20 18:05:48 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+[2026-06-20T18:05:48.893+0000] {subprocess.py:93} INFO - The git executable must be specified in one of the following ways:
+[2026-06-20T18:05:48.894+0000] {subprocess.py:93} INFO -     - be included in your $PATH
+[2026-06-20T18:05:48.894+0000] {subprocess.py:93} INFO -     - be set via $GIT_PYTHON_GIT_EXECUTABLE
+[2026-06-20T18:05:48.895+0000] {subprocess.py:93} INFO -     - explicitly set via git.refresh(<full-path-to-git-executable>)
+[2026-06-20T18:05:48.895+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:05:48.895+0000] {subprocess.py:93} INFO - All git commands will error until this is rectified.
+[2026-06-20T18:05:48.896+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:05:48.897+0000] {subprocess.py:93} INFO - This initial message can be silenced or aggravated in the future by setting the
+[2026-06-20T18:05:48.898+0000] {subprocess.py:93} INFO - $GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+[2026-06-20T18:05:48.898+0000] {subprocess.py:93} INFO -     - quiet|q|silence|s|silent|none|n|0: for no message or exception
+[2026-06-20T18:05:48.898+0000] {subprocess.py:93} INFO -     - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+[2026-06-20T18:05:48.899+0000] {subprocess.py:93} INFO -     - error|e|exception|raise|r|2: for a raised exception
+[2026-06-20T18:05:48.899+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:05:48.900+0000] {subprocess.py:93} INFO - Example:
+[2026-06-20T18:05:48.901+0000] {subprocess.py:93} INFO -     export GIT_PYTHON_REFRESH=quiet
+[2026-06-20T18:05:48.902+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:05:49.358+0000] {subprocess.py:93} INFO - 2026/06/20 18:05:49 INFO mlflow.tracking._tracking_service.client: 🏃 View run logreg_challenger_2024-09-01_tt12m at: http://mlflow-ui:5000/#/experiments/662911045783293660/runs/8cd746a4a51044cb86994bd0231a7c79.
+[2026-06-20T18:05:49.359+0000] {subprocess.py:93} INFO - 2026/06/20 18:05:49 INFO mlflow.tracking._tracking_service.client: 🧪 View experiment at: http://mlflow-ui:5000/#/experiments/662911045783293660.
+[2026-06-20T18:05:49.661+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:05:49.662+0000] {subprocess.py:93} INFO - --- Logistic Regression training 2024-09-01 (tt_months=12) ---
+[2026-06-20T18:05:49.663+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:05:49.664+0000] {subprocess.py:93} INFO - aligned rows: 6460  bad rate: 0.282
+[2026-06-20T18:05:49.665+0000] {subprocess.py:93} INFO - LogReg AUC: {'train': 0.8546, 'test': 0.8707, 'oot': 0.8748}
+[2026-06-20T18:05:49.672+0000] {subprocess.py:93} INFO - LogReg Brier (OOT): 0.1438
+[2026-06-20T18:05:49.678+0000] {subprocess.py:93} INFO - LogReg precision/recall/F1 (oot): {'precision': 0.6393, 'recall': 0.8041, 'f1': 0.7123}
+[2026-06-20T18:05:49.680+0000] {subprocess.py:93} INFO - saved LogReg artefact: model_bank/credit_logreg_2024_09_01.pkl
+[2026-06-20T18:05:49.681+0000] {subprocess.py:93} INFO - saved OOT1 predictions: datamart/gold/model_predictions/credit_logreg_2024_09_01/credit_logreg_2024_09_01_predictions_2024_07_01.parquet (485 rows)
+[2026-06-20T18:05:49.682+0000] {subprocess.py:93} INFO - saved OOT1 predictions: datamart/gold/model_predictions/credit_logreg_2024_09_01/credit_logreg_2024_09_01_predictions_2024_08_01.parquet (518 rows)
+[2026-06-20T18:05:49.684+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:05:49.685+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T18:05:49.686+0000] {subprocess.py:93} INFO - 
+[2026-06-20T18:05:51.062+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T18:05:51.069+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T18:05:51.177+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.logreg_train, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260620T180538, end_date=20260620T180551
+[2026-06-20T18:05:51.280+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T18:05:51.309+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T03:00:12.353+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T03:00:12.371+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.logreg_train scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-21T03:00:12.377+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.logreg_train scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-21T03:00:12.377+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T03:00:12.385+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): training.logreg_train> on 2024-09-01 00:00:00+00:00
+[2026-06-21T03:00:12.393+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=66282) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T03:00:12.394+0000] {standard_task_runner.py:64} INFO - Started process 66285 to run task
+[2026-06-21T03:00:12.393+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.logreg_train', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '3841', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpvr7w9m9m']
+[2026-06-21T03:00:12.395+0000] {standard_task_runner.py:91} INFO - Job 3841: Subtask training.logreg_train
+[2026-06-21T03:00:12.421+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.logreg_train scheduled__2024-09-01T00:00:00+00:00 [running]> on host f6e9e2801916
+[2026-06-21T03:00:12.584+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.logreg_train' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2026-06-21T03:00:12.585+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T03:00:12.590+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-21T03:00:12.593+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 model_train_logreg.py --snapshotdate "2024-09-01"']
+[2026-06-21T03:00:12.598+0000] {subprocess.py:86} INFO - Output:
+[2026-06-21T03:00:14.762+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-21T03:00:14.765+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-21T03:00:14.949+0000] {subprocess.py:93} INFO - 26/06/21 03:00:14 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-21T03:00:19.571+0000] {subprocess.py:93} INFO - 2026/06/21 03:00:19 INFO mlflow.tracking.fluent: Experiment with name 'credit_default_prediction' does not exist. Creating a new experiment.
+[2026-06-21T03:00:19.606+0000] {subprocess.py:93} INFO - 2026/06/21 03:00:19 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+[2026-06-21T03:00:19.607+0000] {subprocess.py:93} INFO - The git executable must be specified in one of the following ways:
+[2026-06-21T03:00:19.607+0000] {subprocess.py:93} INFO -     - be included in your $PATH
+[2026-06-21T03:00:19.608+0000] {subprocess.py:93} INFO -     - be set via $GIT_PYTHON_GIT_EXECUTABLE
+[2026-06-21T03:00:19.608+0000] {subprocess.py:93} INFO -     - explicitly set via git.refresh(<full-path-to-git-executable>)
+[2026-06-21T03:00:19.608+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:19.609+0000] {subprocess.py:93} INFO - All git commands will error until this is rectified.
+[2026-06-21T03:00:19.609+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:19.610+0000] {subprocess.py:93} INFO - This initial message can be silenced or aggravated in the future by setting the
+[2026-06-21T03:00:19.610+0000] {subprocess.py:93} INFO - $GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+[2026-06-21T03:00:19.610+0000] {subprocess.py:93} INFO -     - quiet|q|silence|s|silent|none|n|0: for no message or exception
+[2026-06-21T03:00:19.611+0000] {subprocess.py:93} INFO -     - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+[2026-06-21T03:00:19.611+0000] {subprocess.py:93} INFO -     - error|e|exception|raise|r|2: for a raised exception
+[2026-06-21T03:00:19.611+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:19.612+0000] {subprocess.py:93} INFO - Example:
+[2026-06-21T03:00:19.613+0000] {subprocess.py:93} INFO -     export GIT_PYTHON_REFRESH=quiet
+[2026-06-21T03:00:19.614+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:20.189+0000] {subprocess.py:93} INFO - 2026/06/21 03:00:20 INFO mlflow.tracking._tracking_service.client: 🏃 View run logreg_challenger_2024-09-01_tt12m at: http://mlflow-ui:5000/#/experiments/148220887801434164/runs/547a992eeae2487eb792a990c0f71f21.
+[2026-06-21T03:00:20.193+0000] {subprocess.py:93} INFO - 2026/06/21 03:00:20 INFO mlflow.tracking._tracking_service.client: 🧪 View experiment at: http://mlflow-ui:5000/#/experiments/148220887801434164.
+[2026-06-21T03:00:20.498+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:20.500+0000] {subprocess.py:93} INFO - --- Logistic Regression training 2024-09-01 (tt_months=12) ---
+[2026-06-21T03:00:20.501+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:20.501+0000] {subprocess.py:93} INFO - aligned rows: 6469  bad rate: 0.288
+[2026-06-21T03:00:20.502+0000] {subprocess.py:93} INFO - LogReg AUC: {'train': 0.8381, 'test': 0.862, 'oot': 0.8663}
+[2026-06-21T03:00:20.502+0000] {subprocess.py:93} INFO - LogReg Brier (OOT): 0.1496
+[2026-06-21T03:00:20.502+0000] {subprocess.py:93} INFO - LogReg precision/recall/F1 (oot): {'precision': 0.6158, 'recall': 0.7766, 'f1': 0.6869}
+[2026-06-21T03:00:20.503+0000] {subprocess.py:93} INFO - saved LogReg artefact: model_bank/credit_logreg_2024_09_01.pkl
+[2026-06-21T03:00:20.507+0000] {subprocess.py:93} INFO - saved OOT1 predictions: datamart/gold/model_predictions/credit_logreg_2024_09_01/credit_logreg_2024_09_01_predictions_2024_07_01.parquet (485 rows)
+[2026-06-21T03:00:20.508+0000] {subprocess.py:93} INFO - saved OOT1 predictions: datamart/gold/model_predictions/credit_logreg_2024_09_01/credit_logreg_2024_09_01_predictions_2024_08_01.parquet (518 rows)
+[2026-06-21T03:00:20.509+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:20.511+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-21T03:00:20.512+0000] {subprocess.py:93} INFO - 
+[2026-06-21T03:00:21.644+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-21T03:00:21.651+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T03:00:21.720+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.logreg_train, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260621T030012, end_date=20260621T030021
+[2026-06-21T03:00:21.774+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T03:00:22.059+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-21T03:00:22.079+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T06:27:07.738+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T06:27:07.755+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.logreg_train scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-21T06:27:07.764+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.training.logreg_train scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2026-06-21T06:27:07.766+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T06:27:07.776+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): training.logreg_train> on 2024-09-01 00:00:00+00:00
+[2026-06-21T06:27:07.782+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=68139) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T06:27:07.783+0000] {standard_task_runner.py:64} INFO - Started process 68143 to run task
+[2026-06-21T06:27:07.782+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'training.logreg_train', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '4302', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpafs2m7k2']
+[2026-06-21T06:27:07.784+0000] {standard_task_runner.py:91} INFO - Job 4302: Subtask training.logreg_train
+[2026-06-21T06:27:07.912+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.training.logreg_train scheduled__2024-09-01T00:00:00+00:00 [running]> on host 9377a3f0491f
+[2026-06-21T06:27:07.948+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='training.logreg_train' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2026-06-21T06:27:07.949+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T06:27:07.955+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-21T06:27:07.956+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 model_train_logreg.py --snapshotdate "2024-09-01"']
+[2026-06-21T06:27:07.961+0000] {subprocess.py:86} INFO - Output:
+[2026-06-21T06:27:11.295+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-21T06:27:11.298+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-21T06:27:11.487+0000] {subprocess.py:93} INFO - 26/06/21 06:27:11 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-21T06:27:18.765+0000] {subprocess.py:93} INFO - [Stage 3:=========================>                                 (3 + 4) / 7]                                                                                2026/06/21 06:27:18 INFO mlflow.tracking.fluent: Experiment with name 'credit_default_prediction' does not exist. Creating a new experiment.
+[2026-06-21T06:27:18.843+0000] {subprocess.py:93} INFO - 2026/06/21 06:27:18 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+[2026-06-21T06:27:18.845+0000] {subprocess.py:93} INFO - The git executable must be specified in one of the following ways:
+[2026-06-21T06:27:18.845+0000] {subprocess.py:93} INFO -     - be included in your $PATH
+[2026-06-21T06:27:18.846+0000] {subprocess.py:93} INFO -     - be set via $GIT_PYTHON_GIT_EXECUTABLE
+[2026-06-21T06:27:18.847+0000] {subprocess.py:93} INFO -     - explicitly set via git.refresh(<full-path-to-git-executable>)
+[2026-06-21T06:27:18.847+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:18.848+0000] {subprocess.py:93} INFO - All git commands will error until this is rectified.
+[2026-06-21T06:27:18.849+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:18.849+0000] {subprocess.py:93} INFO - This initial message can be silenced or aggravated in the future by setting the
+[2026-06-21T06:27:18.850+0000] {subprocess.py:93} INFO - $GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+[2026-06-21T06:27:18.851+0000] {subprocess.py:93} INFO -     - quiet|q|silence|s|silent|none|n|0: for no message or exception
+[2026-06-21T06:27:18.852+0000] {subprocess.py:93} INFO -     - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+[2026-06-21T06:27:18.854+0000] {subprocess.py:93} INFO -     - error|e|exception|raise|r|2: for a raised exception
+[2026-06-21T06:27:18.854+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:18.855+0000] {subprocess.py:93} INFO - Example:
+[2026-06-21T06:27:18.856+0000] {subprocess.py:93} INFO -     export GIT_PYTHON_REFRESH=quiet
+[2026-06-21T06:27:18.856+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:19.406+0000] {subprocess.py:93} INFO - 2026/06/21 06:27:19 INFO mlflow.tracking._tracking_service.client: 🏃 View run logreg_challenger_2024-09-01_tt12m at: http://mlflow-ui:5000/#/experiments/828710781934904840/runs/906bae6cc47a4436a125886a5d3b5ff6.
+[2026-06-21T06:27:19.415+0000] {subprocess.py:93} INFO - 2026/06/21 06:27:19 INFO mlflow.tracking._tracking_service.client: 🧪 View experiment at: http://mlflow-ui:5000/#/experiments/828710781934904840.
+[2026-06-21T06:27:19.658+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:19.666+0000] {subprocess.py:93} INFO - --- Logistic Regression training 2024-09-01 (tt_months=12) ---
+[2026-06-21T06:27:19.667+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:19.669+0000] {subprocess.py:93} INFO - aligned rows: 7415  bad rate: 0.283
+[2026-06-21T06:27:19.670+0000] {subprocess.py:93} INFO - LogReg AUC: {'train': 0.849, 'test': 0.8747, 'oot': 0.8767}
+[2026-06-21T06:27:19.671+0000] {subprocess.py:93} INFO - LogReg Brier (OOT): 0.1433
+[2026-06-21T06:27:19.672+0000] {subprocess.py:93} INFO - LogReg precision/recall/F1 (oot): {'precision': 0.6301, 'recall': 0.7904, 'f1': 0.7012}
+[2026-06-21T06:27:19.673+0000] {subprocess.py:93} INFO - saved LogReg artefact: model_bank/credit_logreg_2024_09_01.pkl
+[2026-06-21T06:27:19.677+0000] {subprocess.py:93} INFO - saved OOT1 predictions: datamart/gold/model_predictions/credit_logreg_2024_09_01/credit_logreg_2024_09_01_predictions_2024_07_01.parquet (485 rows)
+[2026-06-21T06:27:19.679+0000] {subprocess.py:93} INFO - saved OOT1 predictions: datamart/gold/model_predictions/credit_logreg_2024_09_01/credit_logreg_2024_09_01_predictions_2024_08_01.parquet (518 rows)
+[2026-06-21T06:27:19.695+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:19.703+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-21T06:27:19.705+0000] {subprocess.py:93} INFO - 
+[2026-06-21T06:27:20.897+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-21T06:27:20.905+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T06:27:20.975+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=training.logreg_train, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20260621T062707, end_date=20260621T062720
+[2026-06-21T06:27:21.074+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T06:27:21.310+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-21T06:27:21.370+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

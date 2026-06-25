@@ -1,0 +1,334 @@
+[2026-06-16T14:39:09.183+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-16T14:39:09.209+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-16T14:39:09.214+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-16T14:39:09.215+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-16T14:39:09.224+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_silver_attributes> on 2023-02-01 00:00:00+00:00
+[2026-06-16T14:39:09.229+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_silver_attributes', 'scheduled__2023-02-01T00:00:00+00:00', '--job-id', '99', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpuj1_h2o5']
+[2026-06-16T14:39:09.232+0000] {standard_task_runner.py:91} INFO - Job 99: Subtask feature_pipeline.feature_silver_attributes
+[2026-06-16T14:39:09.230+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=21004) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-16T14:39:09.240+0000] {standard_task_runner.py:64} INFO - Started process 21005 to run task
+[2026-06-16T14:39:09.270+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [running]> on host 1cab6e97738a
+[2026-06-16T14:39:09.310+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_silver_attributes' AIRFLOW_CTX_EXECUTION_DATE='2023-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-02-01T00:00:00+00:00'
+[2026-06-16T14:39:09.312+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-16T14:39:09.319+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-16T14:39:09.320+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 silver_processing.py --snapshotdate "2023-02-01" --source attributes']
+[2026-06-16T14:39:09.324+0000] {subprocess.py:86} INFO - Output:
+[2026-06-16T14:39:10.997+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-16T14:39:11.003+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-16T14:39:11.171+0000] {subprocess.py:93} INFO - 26/06/16 14:39:11 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-16T14:39:11.931+0000] {subprocess.py:93} INFO - 26/06/16 14:39:11 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-16T14:39:18.263+0000] {subprocess.py:93} INFO - 
+[2026-06-16T14:39:18.264+0000] {subprocess.py:93} INFO - --- silver attributes 2023-02-01 ---
+[2026-06-16T14:39:18.266+0000] {subprocess.py:93} INFO - 
+[2026-06-16T14:39:18.267+0000] {subprocess.py:93} INFO - [silver:attributes] loaded datamart/bronze/attributes/bronze_attributes_2023_02_01.csv rows: 501
+[2026-06-16T14:39:18.268+0000] {subprocess.py:93} INFO - [silver:attributes] saved to: datamart/silver/attributes/2023_02_01.parquet
+[2026-06-16T14:39:18.269+0000] {subprocess.py:93} INFO - 
+[2026-06-16T14:39:18.270+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-16T14:39:18.271+0000] {subprocess.py:93} INFO - 
+[2026-06-16T14:39:18.674+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-16T14:39:18.676+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-16T14:39:18.688+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_silver_attributes, run_id=scheduled__2023-02-01T00:00:00+00:00, execution_date=20230201T000000, start_date=20260616T143909, end_date=20260616T143918
+[2026-06-16T14:39:18.730+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-16T14:39:18.744+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-16T14:39:18.746+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T05:20:36.004+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T05:20:36.017+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-20T05:20:36.020+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-20T05:20:36.020+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T05:20:36.025+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_silver_attributes> on 2023-02-01 00:00:00+00:00
+[2026-06-20T05:20:36.027+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=2180) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T05:20:36.028+0000] {standard_task_runner.py:64} INFO - Started process 2182 to run task
+[2026-06-20T05:20:36.028+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_silver_attributes', 'scheduled__2023-02-01T00:00:00+00:00', '--job-id', '1399', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpkyu7kgf7']
+[2026-06-20T05:20:36.029+0000] {standard_task_runner.py:91} INFO - Job 1399: Subtask feature_pipeline.feature_silver_attributes
+[2026-06-20T05:20:36.125+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T05:20:36.150+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_silver_attributes' AIRFLOW_CTX_EXECUTION_DATE='2023-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-02-01T00:00:00+00:00'
+[2026-06-20T05:20:36.151+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T05:20:36.156+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T05:20:36.156+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 silver_processing.py --snapshotdate "2023-02-01" --source attributes']
+[2026-06-20T05:20:36.159+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T05:20:37.112+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T05:20:37.115+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T05:20:37.283+0000] {subprocess.py:93} INFO - 26/06/20 05:20:37 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T05:20:43.586+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:20:43.590+0000] {subprocess.py:93} INFO - --- silver attributes 2023-02-01 ---
+[2026-06-20T05:20:43.594+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:20:43.602+0000] {subprocess.py:93} INFO - [silver:attributes] loaded datamart/bronze/attributes/bronze_attributes_2023_02_01.csv rows: 501
+[2026-06-20T05:20:43.620+0000] {subprocess.py:93} INFO - [silver:attributes] saved to: datamart/silver/attributes/2023_02_01.parquet
+[2026-06-20T05:20:43.626+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:20:43.632+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T05:20:43.637+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:20:44.072+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T05:20:44.075+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T05:20:44.112+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_silver_attributes, run_id=scheduled__2023-02-01T00:00:00+00:00, execution_date=20230201T000000, start_date=20260620T052036, end_date=20260620T052044
+[2026-06-20T05:20:44.159+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T05:20:44.188+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T05:20:44.201+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T05:37:10.580+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T05:37:10.594+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-20T05:37:10.599+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-20T05:37:10.599+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T05:37:10.607+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_silver_attributes> on 2023-02-01 00:00:00+00:00
+[2026-06-20T05:37:10.612+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=14638) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T05:37:10.613+0000] {standard_task_runner.py:64} INFO - Started process 14643 to run task
+[2026-06-20T05:37:10.613+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_silver_attributes', 'scheduled__2023-02-01T00:00:00+00:00', '--job-id', '1466', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpqn6k1kqr']
+[2026-06-20T05:37:10.615+0000] {standard_task_runner.py:91} INFO - Job 1466: Subtask feature_pipeline.feature_silver_attributes
+[2026-06-20T05:37:10.746+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T05:37:10.781+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_silver_attributes' AIRFLOW_CTX_EXECUTION_DATE='2023-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-02-01T00:00:00+00:00'
+[2026-06-20T05:37:10.783+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T05:37:10.788+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T05:37:10.788+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 silver_processing.py --snapshotdate "2023-02-01" --source attributes']
+[2026-06-20T05:37:10.793+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T05:37:12.387+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T05:37:12.389+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T05:37:12.592+0000] {subprocess.py:93} INFO - 26/06/20 05:37:12 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T05:37:20.043+0000] {subprocess.py:93} INFO - [Stage 5:>                                                          (0 + 1) / 1]
+[2026-06-20T05:37:20.044+0000] {subprocess.py:93} INFO - --- silver attributes 2023-02-01 ---
+[2026-06-20T05:37:20.045+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:37:20.045+0000] {subprocess.py:93} INFO - [silver:attributes] loaded datamart/bronze/attributes/bronze_attributes_2023_02_01.csv rows: 501
+[2026-06-20T05:37:20.046+0000] {subprocess.py:93} INFO - [silver:attributes] saved to: datamart/silver/attributes/2023_02_01.parquet
+[2026-06-20T05:37:20.047+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:37:20.048+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T05:37:20.049+0000] {subprocess.py:93} INFO - 
+[2026-06-20T05:37:20.459+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T05:37:20.461+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T05:37:20.482+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_silver_attributes, run_id=scheduled__2023-02-01T00:00:00+00:00, execution_date=20230201T000000, start_date=20260620T053710, end_date=20260620T053720
+[2026-06-20T05:37:20.503+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T05:37:20.518+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T05:37:20.520+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T06:43:32.772+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T06:43:32.817+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-20T06:43:32.830+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-20T06:43:32.832+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T06:43:32.863+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_silver_attributes> on 2023-02-01 00:00:00+00:00
+[2026-06-20T06:43:32.876+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=67278) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T06:43:32.875+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_silver_attributes', 'scheduled__2023-02-01T00:00:00+00:00', '--job-id', '1776', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp7wpcgtnu']
+[2026-06-20T06:43:32.879+0000] {standard_task_runner.py:64} INFO - Started process 67331 to run task
+[2026-06-20T06:43:32.881+0000] {standard_task_runner.py:91} INFO - Job 1776: Subtask feature_pipeline.feature_silver_attributes
+[2026-06-20T06:43:33.332+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T06:43:33.432+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_silver_attributes' AIRFLOW_CTX_EXECUTION_DATE='2023-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-02-01T00:00:00+00:00'
+[2026-06-20T06:43:33.434+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T06:43:33.456+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T06:43:33.459+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 silver_processing.py --snapshotdate "2023-02-01" --source attributes']
+[2026-06-20T06:43:33.472+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T06:43:37.274+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T06:43:37.292+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T06:43:37.558+0000] {subprocess.py:93} INFO - 26/06/20 06:43:37 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T06:43:51.339+0000] {subprocess.py:93} INFO - [Stage 1:>                                                          (0 + 1) / 1]                                                                                [Stage 5:>                                                          (0 + 1) / 1]
+[2026-06-20T06:43:51.345+0000] {subprocess.py:93} INFO - --- silver attributes 2023-02-01 ---
+[2026-06-20T06:43:51.350+0000] {subprocess.py:93} INFO - 
+[2026-06-20T06:43:51.352+0000] {subprocess.py:93} INFO - [silver:attributes] loaded datamart/bronze/attributes/bronze_attributes_2023_02_01.csv rows: 501
+[2026-06-20T06:43:51.356+0000] {subprocess.py:93} INFO - [silver:attributes] saved to: datamart/silver/attributes/2023_02_01.parquet
+[2026-06-20T06:43:51.358+0000] {subprocess.py:93} INFO - 
+[2026-06-20T06:43:51.360+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T06:43:51.364+0000] {subprocess.py:93} INFO - 
+[2026-06-20T06:43:51.966+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T06:43:51.970+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T06:43:52.036+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_silver_attributes, run_id=scheduled__2023-02-01T00:00:00+00:00, execution_date=20230201T000000, start_date=20260620T064332, end_date=20260620T064352
+[2026-06-20T06:43:52.104+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T06:43:52.149+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T06:43:52.153+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T07:13:08.152+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T07:13:08.188+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-20T07:13:08.200+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-20T07:13:08.201+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T07:13:08.216+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_silver_attributes> on 2023-02-01 00:00:00+00:00
+[2026-06-20T07:13:08.226+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=98605) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T07:13:08.225+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_silver_attributes', 'scheduled__2023-02-01T00:00:00+00:00', '--job-id', '1958', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp1tl2ugdj']
+[2026-06-20T07:13:08.229+0000] {standard_task_runner.py:64} INFO - Started process 98615 to run task
+[2026-06-20T07:13:08.230+0000] {standard_task_runner.py:91} INFO - Job 1958: Subtask feature_pipeline.feature_silver_attributes
+[2026-06-20T07:13:08.450+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T07:13:08.500+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_silver_attributes' AIRFLOW_CTX_EXECUTION_DATE='2023-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-02-01T00:00:00+00:00'
+[2026-06-20T07:13:08.504+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T07:13:08.513+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T07:13:08.514+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 silver_processing.py --snapshotdate "2023-02-01" --source attributes']
+[2026-06-20T07:13:08.526+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T07:13:10.849+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T07:13:10.853+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T07:13:11.310+0000] {subprocess.py:93} INFO - 26/06/20 07:13:11 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T07:13:12.443+0000] {subprocess.py:93} INFO - 26/06/20 07:13:12 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-20T07:13:25.152+0000] {subprocess.py:93} INFO - [Stage 5:>                                                          (0 + 1) / 1]
+[2026-06-20T07:13:25.156+0000] {subprocess.py:93} INFO - --- silver attributes 2023-02-01 ---
+[2026-06-20T07:13:25.157+0000] {subprocess.py:93} INFO - 
+[2026-06-20T07:13:25.159+0000] {subprocess.py:93} INFO - [silver:attributes] loaded datamart/bronze/attributes/bronze_attributes_2023_02_01.csv rows: 501
+[2026-06-20T07:13:25.161+0000] {subprocess.py:93} INFO - [silver:attributes] saved to: datamart/silver/attributes/2023_02_01.parquet
+[2026-06-20T07:13:25.163+0000] {subprocess.py:93} INFO - 
+[2026-06-20T07:13:25.165+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T07:13:25.166+0000] {subprocess.py:93} INFO - 
+[2026-06-20T07:13:25.702+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T07:13:25.715+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T07:13:25.780+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_silver_attributes, run_id=scheduled__2023-02-01T00:00:00+00:00, execution_date=20230201T000000, start_date=20260620T071308, end_date=20260620T071325
+[2026-06-20T07:13:25.871+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T07:13:25.926+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T07:13:25.931+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T15:14:44.591+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T15:14:44.609+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-20T15:14:44.615+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-20T15:14:44.616+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T15:14:44.624+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_silver_attributes> on 2023-02-01 00:00:00+00:00
+[2026-06-20T15:14:44.628+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=85895) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T15:14:44.629+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_silver_attributes', 'scheduled__2023-02-01T00:00:00+00:00', '--job-id', '2429', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmppura8mh6']
+[2026-06-20T15:14:44.630+0000] {standard_task_runner.py:64} INFO - Started process 85906 to run task
+[2026-06-20T15:14:44.630+0000] {standard_task_runner.py:91} INFO - Job 2429: Subtask feature_pipeline.feature_silver_attributes
+[2026-06-20T15:14:44.757+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T15:14:44.789+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_silver_attributes' AIRFLOW_CTX_EXECUTION_DATE='2023-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-02-01T00:00:00+00:00'
+[2026-06-20T15:14:44.790+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T15:14:44.795+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T15:14:44.796+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 silver_processing.py --snapshotdate "2023-02-01" --source attributes']
+[2026-06-20T15:14:44.801+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T15:14:46.255+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T15:14:46.256+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T15:14:46.469+0000] {subprocess.py:93} INFO - 26/06/20 15:14:46 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T15:14:47.221+0000] {subprocess.py:93} INFO - 26/06/20 15:14:47 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-20T15:14:53.548+0000] {subprocess.py:93} INFO - [Stage 5:>                                                          (0 + 1) / 1]
+[2026-06-20T15:14:53.551+0000] {subprocess.py:93} INFO - --- silver attributes 2023-02-01 ---
+[2026-06-20T15:14:53.552+0000] {subprocess.py:93} INFO - 
+[2026-06-20T15:14:53.553+0000] {subprocess.py:93} INFO - [silver:attributes] loaded datamart/bronze/attributes/bronze_attributes_2023_02_01.csv rows: 501
+[2026-06-20T15:14:53.554+0000] {subprocess.py:93} INFO - [silver:attributes] saved to: datamart/silver/attributes/2023_02_01.parquet
+[2026-06-20T15:14:53.557+0000] {subprocess.py:93} INFO - 
+[2026-06-20T15:14:53.558+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T15:14:53.562+0000] {subprocess.py:93} INFO - 
+[2026-06-20T15:14:53.998+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T15:14:54.001+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T15:14:54.029+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_silver_attributes, run_id=scheduled__2023-02-01T00:00:00+00:00, execution_date=20230201T000000, start_date=20260620T151444, end_date=20260620T151454
+[2026-06-20T15:14:54.082+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T15:14:54.101+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T15:14:54.104+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T16:52:49.670+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T16:52:49.683+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-20T16:52:49.688+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-20T16:52:49.688+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T16:52:49.693+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_silver_attributes> on 2023-02-01 00:00:00+00:00
+[2026-06-20T16:52:49.697+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=69801) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T16:52:49.698+0000] {standard_task_runner.py:64} INFO - Started process 69811 to run task
+[2026-06-20T16:52:49.697+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_silver_attributes', 'scheduled__2023-02-01T00:00:00+00:00', '--job-id', '2916', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp2ygz_xg7']
+[2026-06-20T16:52:49.698+0000] {standard_task_runner.py:91} INFO - Job 2916: Subtask feature_pipeline.feature_silver_attributes
+[2026-06-20T16:52:49.822+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T16:52:49.850+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_silver_attributes' AIRFLOW_CTX_EXECUTION_DATE='2023-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-02-01T00:00:00+00:00'
+[2026-06-20T16:52:49.851+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T16:52:49.856+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T16:52:49.857+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 silver_processing.py --snapshotdate "2023-02-01" --source attributes']
+[2026-06-20T16:52:49.864+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T16:52:51.145+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T16:52:51.147+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T16:52:51.327+0000] {subprocess.py:93} INFO - 26/06/20 16:52:51 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T16:52:58.400+0000] {subprocess.py:93} INFO - [Stage 5:>                                                          (0 + 1) / 1]
+[2026-06-20T16:52:58.402+0000] {subprocess.py:93} INFO - --- silver attributes 2023-02-01 ---
+[2026-06-20T16:52:58.404+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:52:58.406+0000] {subprocess.py:93} INFO - [silver:attributes] loaded datamart/bronze/attributes/bronze_attributes_2023_02_01.csv rows: 501
+[2026-06-20T16:52:58.407+0000] {subprocess.py:93} INFO - [silver:attributes] cleared stale partition: datamart/silver/attributes/2023_02_01.parquet
+[2026-06-20T16:52:58.411+0000] {subprocess.py:93} INFO - [silver:attributes] saved to: datamart/silver/attributes/2023_02_01.parquet
+[2026-06-20T16:52:58.412+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:52:58.414+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T16:52:58.415+0000] {subprocess.py:93} INFO - 
+[2026-06-20T16:52:58.881+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T16:52:58.884+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T16:52:58.907+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_silver_attributes, run_id=scheduled__2023-02-01T00:00:00+00:00, execution_date=20230201T000000, start_date=20260620T165249, end_date=20260620T165258
+[2026-06-20T16:52:58.955+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T16:52:58.986+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T16:52:58.990+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-20T17:05:18.968+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-20T17:05:18.984+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-20T17:05:18.990+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-20T17:05:18.991+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-20T17:05:18.998+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_silver_attributes> on 2023-02-01 00:00:00+00:00
+[2026-06-20T17:05:19.002+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=4181) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-20T17:05:19.003+0000] {standard_task_runner.py:64} INFO - Started process 4189 to run task
+[2026-06-20T17:05:19.003+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_silver_attributes', 'scheduled__2023-02-01T00:00:00+00:00', '--job-id', '3007', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmptpnkhkhm']
+[2026-06-20T17:05:19.005+0000] {standard_task_runner.py:91} INFO - Job 3007: Subtask feature_pipeline.feature_silver_attributes
+[2026-06-20T17:05:19.157+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [running]> on host 9cf341f51c89
+[2026-06-20T17:05:19.193+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_silver_attributes' AIRFLOW_CTX_EXECUTION_DATE='2023-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-02-01T00:00:00+00:00'
+[2026-06-20T17:05:19.194+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-20T17:05:19.199+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-20T17:05:19.200+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 silver_processing.py --snapshotdate "2023-02-01" --source attributes']
+[2026-06-20T17:05:19.206+0000] {subprocess.py:86} INFO - Output:
+[2026-06-20T17:05:21.044+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-20T17:05:21.045+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-20T17:05:21.272+0000] {subprocess.py:93} INFO - 26/06/20 17:05:21 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-20T17:05:21.914+0000] {subprocess.py:93} INFO - 26/06/20 17:05:21 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-20T17:05:21.917+0000] {subprocess.py:93} INFO - 26/06/20 17:05:21 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[2026-06-20T17:05:28.752+0000] {subprocess.py:93} INFO - [Stage 5:>                                                          (0 + 1) / 1]
+[2026-06-20T17:05:28.756+0000] {subprocess.py:93} INFO - --- silver attributes 2023-02-01 ---
+[2026-06-20T17:05:28.757+0000] {subprocess.py:93} INFO - 
+[2026-06-20T17:05:28.758+0000] {subprocess.py:93} INFO - [silver:attributes] loaded datamart/bronze/attributes/bronze_attributes_2023_02_01.csv rows: 501
+[2026-06-20T17:05:28.759+0000] {subprocess.py:93} INFO - [silver:attributes] saved to: datamart/silver/attributes/2023_02_01.parquet
+[2026-06-20T17:05:28.759+0000] {subprocess.py:93} INFO - 
+[2026-06-20T17:05:28.760+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-20T17:05:28.761+0000] {subprocess.py:93} INFO - 
+[2026-06-20T17:05:29.174+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-20T17:05:29.176+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-20T17:05:29.202+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_silver_attributes, run_id=scheduled__2023-02-01T00:00:00+00:00, execution_date=20230201T000000, start_date=20260620T170518, end_date=20260620T170529
+[2026-06-20T17:05:29.259+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-20T17:05:29.279+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-20T17:05:29.281+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T01:30:45.445+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T01:30:45.464+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-21T01:30:45.470+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-21T01:30:45.471+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T01:30:45.481+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_silver_attributes> on 2023-02-01 00:00:00+00:00
+[2026-06-21T01:30:45.486+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=4417) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T01:30:45.486+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_silver_attributes', 'scheduled__2023-02-01T00:00:00+00:00', '--job-id', '3470', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpbbc2abyb']
+[2026-06-21T01:30:45.488+0000] {standard_task_runner.py:64} INFO - Started process 4426 to run task
+[2026-06-21T01:30:45.488+0000] {standard_task_runner.py:91} INFO - Job 3470: Subtask feature_pipeline.feature_silver_attributes
+[2026-06-21T01:30:45.517+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [running]> on host f6e9e2801916
+[2026-06-21T01:30:45.684+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_silver_attributes' AIRFLOW_CTX_EXECUTION_DATE='2023-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-02-01T00:00:00+00:00'
+[2026-06-21T01:30:45.685+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T01:30:45.690+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-21T01:30:45.691+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 silver_processing.py --snapshotdate "2023-02-01" --source attributes']
+[2026-06-21T01:30:45.697+0000] {subprocess.py:86} INFO - Output:
+[2026-06-21T01:30:47.749+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-21T01:30:47.754+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-21T01:30:47.994+0000] {subprocess.py:93} INFO - 26/06/21 01:30:47 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-21T01:30:48.530+0000] {subprocess.py:93} INFO - 26/06/21 01:30:48 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-21T01:30:48.537+0000] {subprocess.py:93} INFO - 26/06/21 01:30:48 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[2026-06-21T01:30:48.538+0000] {subprocess.py:93} INFO - 26/06/21 01:30:48 WARN Utils: Service 'SparkUI' could not bind on port 4042. Attempting port 4043.
+[2026-06-21T01:30:48.540+0000] {subprocess.py:93} INFO - 26/06/21 01:30:48 WARN Utils: Service 'SparkUI' could not bind on port 4043. Attempting port 4044.
+[2026-06-21T01:30:55.341+0000] {subprocess.py:93} INFO - [Stage 5:>                                                          (0 + 1) / 1]
+[2026-06-21T01:30:55.342+0000] {subprocess.py:93} INFO - --- silver attributes 2023-02-01 ---
+[2026-06-21T01:30:55.343+0000] {subprocess.py:93} INFO - 
+[2026-06-21T01:30:55.345+0000] {subprocess.py:93} INFO - [silver:attributes] loaded datamart/bronze/attributes/bronze_attributes_2023_02_01.csv rows: 501
+[2026-06-21T01:30:55.345+0000] {subprocess.py:93} INFO - [silver:attributes] saved to: datamart/silver/attributes/2023_02_01.parquet
+[2026-06-21T01:30:55.346+0000] {subprocess.py:93} INFO - 
+[2026-06-21T01:30:55.346+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-21T01:30:55.347+0000] {subprocess.py:93} INFO - 
+[2026-06-21T01:30:55.743+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-21T01:30:55.744+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T01:30:55.755+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_silver_attributes, run_id=scheduled__2023-02-01T00:00:00+00:00, execution_date=20230201T000000, start_date=20260621T013045, end_date=20260621T013055
+[2026-06-21T01:30:55.770+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T01:30:55.869+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-21T01:30:55.870+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-21T05:27:11.793+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-21T05:27:11.809+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-21T05:27:11.817+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-21T05:27:11.817+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-21T05:27:11.829+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_silver_attributes> on 2023-02-01 00:00:00+00:00
+[2026-06-21T05:27:11.834+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=4404) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-21T05:27:11.836+0000] {standard_task_runner.py:64} INFO - Started process 4416 to run task
+[2026-06-21T05:27:11.835+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_silver_attributes', 'scheduled__2023-02-01T00:00:00+00:00', '--job-id', '3938', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpw89bgfj0']
+[2026-06-21T05:27:11.838+0000] {standard_task_runner.py:91} INFO - Job 3938: Subtask feature_pipeline.feature_silver_attributes
+[2026-06-21T05:27:12.008+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_attributes scheduled__2023-02-01T00:00:00+00:00 [running]> on host 9377a3f0491f
+[2026-06-21T05:27:12.061+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_silver_attributes' AIRFLOW_CTX_EXECUTION_DATE='2023-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-02-01T00:00:00+00:00'
+[2026-06-21T05:27:12.062+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-21T05:27:12.068+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-21T05:27:12.069+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 silver_processing.py --snapshotdate "2023-02-01" --source attributes']
+[2026-06-21T05:27:12.079+0000] {subprocess.py:86} INFO - Output:
+[2026-06-21T05:27:14.031+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-21T05:27:14.032+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-21T05:27:14.208+0000] {subprocess.py:93} INFO - 26/06/21 05:27:14 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-21T05:27:14.924+0000] {subprocess.py:93} INFO - 26/06/21 05:27:14 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-21T05:27:14.926+0000] {subprocess.py:93} INFO - 26/06/21 05:27:14 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[2026-06-21T05:27:14.930+0000] {subprocess.py:93} INFO - 26/06/21 05:27:14 WARN Utils: Service 'SparkUI' could not bind on port 4042. Attempting port 4043.
+[2026-06-21T05:27:14.933+0000] {subprocess.py:93} INFO - 26/06/21 05:27:14 WARN Utils: Service 'SparkUI' could not bind on port 4043. Attempting port 4044.
+[2026-06-21T05:27:21.829+0000] {subprocess.py:93} INFO - [Stage 5:>                                                          (0 + 1) / 1]
+[2026-06-21T05:27:21.831+0000] {subprocess.py:93} INFO - --- silver attributes 2023-02-01 ---
+[2026-06-21T05:27:21.832+0000] {subprocess.py:93} INFO - 
+[2026-06-21T05:27:21.832+0000] {subprocess.py:93} INFO - [silver:attributes] loaded datamart/bronze/attributes/bronze_attributes_2023_02_01.csv rows: 501
+[2026-06-21T05:27:21.833+0000] {subprocess.py:93} INFO - [silver:attributes] saved to: datamart/silver/attributes/2023_02_01.parquet
+[2026-06-21T05:27:21.834+0000] {subprocess.py:93} INFO - 
+[2026-06-21T05:27:21.835+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-21T05:27:21.837+0000] {subprocess.py:93} INFO - 
+[2026-06-21T05:27:22.251+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-21T05:27:22.253+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-21T05:27:22.269+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_silver_attributes, run_id=scheduled__2023-02-01T00:00:00+00:00, execution_date=20230201T000000, start_date=20260621T052711, end_date=20260621T052722
+[2026-06-21T05:27:22.302+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-21T05:27:22.316+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-21T05:27:22.317+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

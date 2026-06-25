@@ -18,13 +18,41 @@ Two gold artefacts are produced:
                      UP TO AND INCLUDING the application month only
    plus a set of engineered ratio features.
 
-   LEAKAGE CONTROL
+LEAKAGE CONTROL
    ---------------
    The label is observed at mob = 6, but every feature in this store is taken
    as-of mob = 0 (the application point) - the only information truly available
    when the lending decision is made.  Clickstream is aggregated only over dates
    <= application date.  Nothing from the future or from the target enters the
    feature store, so there is no temporal or target leakage.
+
+   CLICKSTREAM: CHANGES FROM ASSIGNMENT 1
+   -----------------------------------------
+   Assignment 1's gold feature script took a different approach to clickstream data:
+
+     A1: joined the customer's clickstream row for that SAME calendar snapshot
+         month only (a direct join on Customer_ID, no date-range filtering),
+         restricted to a hardcoded allow-list of months that had clickstream
+         coverage (clickstream_valid_snapshots, 2023-01 .. 2024-06).  Customers
+         with no row for that exact month got explicit nulls (via pad_features).
+         A1 also produced two separate gold tables: a "baseline" version without
+         clickstream, and a "full" version with it.
+
+     A2: averages a customer's clickstream history over ALL months <= their 
+         application date, rather than using a single snapshot month.
+         This removes the hardcoded valid-snapshot allow-list (so it generalises
+         to any month, including ones past 2024-06), and fills customers with
+         no clickstream history at all using a global median rather than a null
+         (see the Imputer-safety handling below), so the feature store always
+         ships with zero nulls.  Only one gold feature table is produced.
+
+   Trade-off: A1's single-month join is closer to "current" behaviour and avoids
+   smoothing out month-to-month signal, but a same-month join is only leakage-
+   safe if the calling code already constrains which clickstream partition is
+   read in to the application month; the A2 history-average approach makes the
+   <= application_date constraint explicit and enforced in code regardless of
+   which partitions happen to be loaded, at the cost of averaging away some
+   recency information.
 """
 
 import os
