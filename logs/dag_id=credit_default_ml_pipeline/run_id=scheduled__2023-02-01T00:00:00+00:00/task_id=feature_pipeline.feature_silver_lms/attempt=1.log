@@ -793,3 +793,161 @@ airflow.exceptions.AirflowException: Bash command failed. The command returned a
 [2026-06-21T05:27:22.186+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
 [2026-06-21T05:27:22.201+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
 [2026-06-21T05:27:22.202+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-25T17:20:04.517+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-25T17:20:04.547+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_lms scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-25T17:20:04.553+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_lms scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-25T17:20:04.553+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-25T17:20:04.560+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_silver_lms> on 2023-02-01 00:00:00+00:00
+[2026-06-25T17:20:04.567+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=4361) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-25T17:20:04.567+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_silver_lms', 'scheduled__2023-02-01T00:00:00+00:00', '--job-id', '4396', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp3_9zif5d']
+[2026-06-25T17:20:04.569+0000] {standard_task_runner.py:64} INFO - Started process 4371 to run task
+[2026-06-25T17:20:04.569+0000] {standard_task_runner.py:91} INFO - Job 4396: Subtask feature_pipeline.feature_silver_lms
+[2026-06-25T17:20:04.601+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_lms scheduled__2023-02-01T00:00:00+00:00 [running]> on host b54b2be331ab
+[2026-06-25T17:20:04.762+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_silver_lms' AIRFLOW_CTX_EXECUTION_DATE='2023-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-02-01T00:00:00+00:00'
+[2026-06-25T17:20:04.764+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-25T17:20:04.768+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-25T17:20:04.769+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 silver_processing.py --snapshotdate "2023-02-01" --source lms']
+[2026-06-25T17:20:04.773+0000] {subprocess.py:86} INFO - Output:
+[2026-06-25T17:20:06.666+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-25T17:20:06.679+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-25T17:20:06.888+0000] {subprocess.py:93} INFO - 26/06/25 17:20:06 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-25T17:20:07.657+0000] {subprocess.py:93} INFO - 26/06/25 17:20:07 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-06-25T17:20:07.658+0000] {subprocess.py:93} INFO - 26/06/25 17:20:07 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[2026-06-25T17:20:12.854+0000] {subprocess.py:93} INFO - 
+[2026-06-25T17:20:12.857+0000] {subprocess.py:93} INFO - --- silver lms 2023-02-01 ---
+[2026-06-25T17:20:12.858+0000] {subprocess.py:93} INFO - 
+[2026-06-25T17:20:12.860+0000] {subprocess.py:93} INFO - [silver:lms] loaded datamart/bronze/lms/bronze_lms_2023_02_01.csv rows: 1031
+[2026-06-25T17:20:12.862+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-06-25T17:20:12.867+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/silver_processing.py", line 25, in <module>
+[2026-06-25T17:20:12.869+0000] {subprocess.py:93} INFO -     main(a.snapshotdate, a.source)
+[2026-06-25T17:20:12.870+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/silver_processing.py", line 13, in main
+[2026-06-25T17:20:12.874+0000] {subprocess.py:93} INFO -     silver.process_silver_table(source, snapshotdate,
+[2026-06-25T17:20:12.875+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/utils/data_processing_silver_table.py", line 265, in process_silver_table
+[2026-06-25T17:20:12.879+0000] {subprocess.py:93} INFO -     df.coalesce(1).write.mode("overwrite").parquet(part)
+[2026-06-25T17:20:12.882+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/pyspark/sql/readwriter.py", line 1721, in parquet
+[2026-06-25T17:20:12.884+0000] {subprocess.py:93} INFO -     self._jwrite.parquet(path)
+[2026-06-25T17:20:12.885+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/py4j/java_gateway.py", line 1322, in __call__
+[2026-06-25T17:20:12.889+0000] {subprocess.py:93} INFO -     return_value = get_return_value(
+[2026-06-25T17:20:12.892+0000] {subprocess.py:93} INFO -                    ^^^^^^^^^^^^^^^^^
+[2026-06-25T17:20:12.894+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/pyspark/errors/exceptions/captured.py", line 179, in deco
+[2026-06-25T17:20:12.895+0000] {subprocess.py:93} INFO -     return f(*a, **kw)
+[2026-06-25T17:20:12.897+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^
+[2026-06-25T17:20:12.898+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/py4j/protocol.py", line 326, in get_return_value
+[2026-06-25T17:20:12.899+0000] {subprocess.py:93} INFO -     raise Py4JJavaError(
+[2026-06-25T17:20:12.900+0000] {subprocess.py:93} INFO - py4j.protocol.Py4JJavaError: An error occurred while calling o192.parquet.
+[2026-06-25T17:20:12.902+0000] {subprocess.py:93} INFO - : ExitCodeException exitCode=1: chmod: changing permissions of '/opt/***/scripts/datamart/silver/lms/2023_02_01.parquet': Operation not permitted
+[2026-06-25T17:20:12.904+0000] {subprocess.py:93} INFO - 
+[2026-06-25T17:20:12.907+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.util.Shell.runCommand(Shell.java:1007)
+[2026-06-25T17:20:12.909+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.util.Shell.run(Shell.java:900)
+[2026-06-25T17:20:12.911+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:1212)
+[2026-06-25T17:20:12.912+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1306)
+[2026-06-25T17:20:12.915+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1288)
+[2026-06-25T17:20:12.917+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:978)
+[2026-06-25T17:20:12.917+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.RawLocalFileSystem.mkOneDirWithMode(RawLocalFileSystem.java:660)
+[2026-06-25T17:20:12.919+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:700)
+[2026-06-25T17:20:12.921+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+[2026-06-25T17:20:12.923+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:699)
+[2026-06-25T17:20:12.924+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+[2026-06-25T17:20:12.927+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:699)
+[2026-06-25T17:20:12.930+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+[2026-06-25T17:20:12.931+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.ChecksumFileSystem.mkdirs(ChecksumFileSystem.java:788)
+[2026-06-25T17:20:12.932+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter.setupJob(FileOutputCommitter.java:356)
+[2026-06-25T17:20:12.933+0000] {subprocess.py:93} INFO - 	at org.apache.spark.internal.io.HadoopMapReduceCommitProtocol.setupJob(HadoopMapReduceCommitProtocol.scala:188)
+[2026-06-25T17:20:12.934+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.writeAndCommit(FileFormatWriter.scala:269)
+[2026-06-25T17:20:12.935+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeWrite(FileFormatWriter.scala:304)
+[2026-06-25T17:20:12.937+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:190)
+[2026-06-25T17:20:12.939+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:190)
+[2026-06-25T17:20:12.939+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+[2026-06-25T17:20:12.941+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+[2026-06-25T17:20:12.941+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+[2026-06-25T17:20:12.942+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:107)
+[2026-06-25T17:20:12.943+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2026-06-25T17:20:12.944+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2026-06-25T17:20:12.946+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2026-06-25T17:20:12.949+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-06-25T17:20:12.951+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2026-06-25T17:20:12.954+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:107)
+[2026-06-25T17:20:12.956+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+[2026-06-25T17:20:12.958+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:461)
+[2026-06-25T17:20:12.958+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(origin.scala:76)
+[2026-06-25T17:20:12.960+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:461)
+[2026-06-25T17:20:12.962+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:32)
+[2026-06-25T17:20:12.965+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+[2026-06-25T17:20:12.967+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+[2026-06-25T17:20:12.968+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+[2026-06-25T17:20:12.968+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+[2026-06-25T17:20:12.969+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:437)
+[2026-06-25T17:20:12.970+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:98)
+[2026-06-25T17:20:12.970+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:85)
+[2026-06-25T17:20:12.972+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:83)
+[2026-06-25T17:20:12.973+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:142)
+[2026-06-25T17:20:12.974+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:859)
+[2026-06-25T17:20:12.975+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:388)
+[2026-06-25T17:20:12.976+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:361)
+[2026-06-25T17:20:12.979+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:240)
+[2026-06-25T17:20:12.980+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriter.parquet(DataFrameWriter.scala:792)
+[2026-06-25T17:20:12.980+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2026-06-25T17:20:12.981+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2026-06-25T17:20:12.982+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2026-06-25T17:20:12.982+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2026-06-25T17:20:12.983+0000] {subprocess.py:93} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2026-06-25T17:20:12.984+0000] {subprocess.py:93} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2026-06-25T17:20:12.986+0000] {subprocess.py:93} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2026-06-25T17:20:12.987+0000] {subprocess.py:93} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2026-06-25T17:20:12.989+0000] {subprocess.py:93} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2026-06-25T17:20:12.990+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2026-06-25T17:20:12.990+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2026-06-25T17:20:12.992+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-06-25T17:20:12.992+0000] {subprocess.py:93} INFO - 
+[2026-06-25T17:20:13.408+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-06-25T17:20:13.411+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-25T17:20:13.427+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-06-25T17:20:13.434+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_silver_lms, run_id=scheduled__2023-02-01T00:00:00+00:00, execution_date=20230201T000000, start_date=20260625T172004, end_date=20260625T172013
+[2026-06-25T17:20:13.449+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 4396 for task feature_pipeline.feature_silver_lms (Bash command failed. The command returned a non-zero exit code 1.; 4371)
+[2026-06-25T17:20:13.487+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-06-25T17:20:13.638+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-25T17:20:13.650+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-26T01:24:32.792+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-26T01:24:32.818+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_lms scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-26T01:24:32.825+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_lms scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2026-06-26T01:24:32.827+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-26T01:24:32.838+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): feature_pipeline.feature_silver_lms> on 2023-02-01 00:00:00+00:00
+[2026-06-26T01:24:32.844+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=87974) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-26T01:24:32.845+0000] {standard_task_runner.py:64} INFO - Started process 87982 to run task
+[2026-06-26T01:24:32.844+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'feature_pipeline.feature_silver_lms', 'scheduled__2023-02-01T00:00:00+00:00', '--job-id', '4853', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpv00_0ys7']
+[2026-06-26T01:24:32.846+0000] {standard_task_runner.py:91} INFO - Job 4853: Subtask feature_pipeline.feature_silver_lms
+[2026-06-26T01:24:32.878+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.feature_pipeline.feature_silver_lms scheduled__2023-02-01T00:00:00+00:00 [running]> on host b54b2be331ab
+[2026-06-26T01:24:33.109+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='feature_pipeline.feature_silver_lms' AIRFLOW_CTX_EXECUTION_DATE='2023-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-02-01T00:00:00+00:00'
+[2026-06-26T01:24:33.111+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-26T01:24:33.123+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-26T01:24:33.125+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && python3 silver_processing.py --snapshotdate "2023-02-01" --source lms']
+[2026-06-26T01:24:33.138+0000] {subprocess.py:86} INFO - Output:
+[2026-06-26T01:24:35.563+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-06-26T01:24:35.565+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-06-26T01:24:35.816+0000] {subprocess.py:93} INFO - 26/06/26 01:24:35 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-26T01:24:45.534+0000] {subprocess.py:93} INFO - [Stage 5:>                                                          (0 + 1) / 1]
+[2026-06-26T01:24:45.542+0000] {subprocess.py:93} INFO - --- silver lms 2023-02-01 ---
+[2026-06-26T01:24:45.543+0000] {subprocess.py:93} INFO - 
+[2026-06-26T01:24:45.544+0000] {subprocess.py:93} INFO - [silver:lms] loaded datamart/bronze/lms/bronze_lms_2023_02_01.csv rows: 1031
+[2026-06-26T01:24:45.545+0000] {subprocess.py:93} INFO - [silver:lms] saved to: datamart/silver/lms/2023_02_01.parquet
+[2026-06-26T01:24:45.546+0000] {subprocess.py:93} INFO - 
+[2026-06-26T01:24:45.548+0000] {subprocess.py:93} INFO - --- done ---
+[2026-06-26T01:24:45.549+0000] {subprocess.py:93} INFO - 
+[2026-06-26T01:24:45.994+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-26T01:24:45.998+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-26T01:24:46.036+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=feature_pipeline.feature_silver_lms, run_id=scheduled__2023-02-01T00:00:00+00:00, execution_date=20230201T000000, start_date=20260626T012432, end_date=20260626T012446
+[2026-06-26T01:24:46.100+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-26T01:24:46.113+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

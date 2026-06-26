@@ -39,10 +39,11 @@ gold_feature_store                         |
 
 ## Quick Start
 
-### 1. Clone / navigate to the project root
+### 1. Clone the repository and navigate to the project root
 
 ```bash
-cd "Assignment 2"
+git clone https://github.com/BT2526/cs611-assignment2
+cd <repo-folder>
 ```
 
 ### 2. Build and start all services
@@ -59,7 +60,13 @@ This will:
 
 > First build takes ~5–10 minutes depending on your machine. Subsequent starts are much faster.
 
-### 3. Verify services are healthy
+### 3. Create required directories (to modify CLI commands accordingly based on parent folder)
+
+```bash
+mkdir -p scripts/mlruns
+```
+
+### 4. Verify services are healthy
 
 ```bash
 docker ps
@@ -108,10 +115,10 @@ To trigger a specific month manually from the Airflow UI:
 2. Click **Trigger DAG w/ config**
 3. Set `logical_date` to the 1st of the desired month (e.g., `2024-09-01`)
 
-Or via CLI inside the container:
+Or via CLI inside the container (to modify CLI commands accordingly based on parent folder):
 
 ```bash
-docker exec -it assignment2-airflow-scheduler-1 \
+docker compose exec airflow-scheduler \
   airflow dags trigger credit_default_ml_pipeline \
   --exec-date 2024-09-01
 ```
@@ -144,7 +151,7 @@ Runs both the champion and challenger models against the current month's feature
 - Generates an **Evidently AI HTML drift report** for the champion model
 - If any metric breaches its threshold (PSI/CSI > 0.25, AUC drop > 0.05, Brier increase > 0.05), fires a `notify_data_science_team` alert
 
-> The email notification task is wired up as a governance pattern demonstration. No SMTP backend is configured — the task will fail gracefully without blocking the pipeline.
+> Drift alert emails are delivered via MailHog (configured as the SMTP backend). View them at http://localhost:8025 — no real email is sent externally.
 
 ---
 
@@ -159,7 +166,7 @@ Runs both the champion and challenger models against the current month's feature
 To manually retrain outside the DAG:
 
 ```bash
-docker exec -it assignment2-airflow-scheduler-1 bash -c "
+docker compose exec airflow-scheduler bash -c "
   cd /opt/airflow/scripts &&
   python3 model_train_xgb.py --snapshotdate 2024-09-01 &&
   python3 model_train_logreg.py --snapshotdate 2024-09-01 &&
@@ -180,9 +187,9 @@ Generated inside the container at:
 /opt/airflow/scripts/reports/
 ```
 
-To copy to your local machine:
+To copy to your local machine (to modify CLI commands accordingly based on parent folder):
 ```bash
-docker cp assignment2-airflow-scheduler-1:/opt/airflow/scripts/reports ./reports
+docker compose cp airflow-scheduler:/opt/airflow/scripts/reports ./reports
 ```
 
 ### Datamart files

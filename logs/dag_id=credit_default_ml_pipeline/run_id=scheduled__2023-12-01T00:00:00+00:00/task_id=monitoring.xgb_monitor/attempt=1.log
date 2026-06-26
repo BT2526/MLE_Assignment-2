@@ -127,3 +127,25 @@
 [2026-06-21T05:59:58.561+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
 [2026-06-21T05:59:58.584+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
 [2026-06-21T05:59:58.586+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-25T17:52:28.233+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-25T17:52:28.247+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.xgb_monitor scheduled__2023-12-01T00:00:00+00:00 [queued]>
+[2026-06-25T17:52:28.251+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: credit_default_ml_pipeline.monitoring.xgb_monitor scheduled__2023-12-01T00:00:00+00:00 [queued]>
+[2026-06-25T17:52:28.251+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-25T17:52:28.257+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): monitoring.xgb_monitor> on 2023-12-01 00:00:00+00:00
+[2026-06-25T17:52:28.261+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=38589) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-25T17:52:28.262+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'credit_default_ml_pipeline', 'monitoring.xgb_monitor', 'scheduled__2023-12-01T00:00:00+00:00', '--job-id', '4595', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp4ccqby28']
+[2026-06-25T17:52:28.263+0000] {standard_task_runner.py:64} INFO - Started process 38594 to run task
+[2026-06-25T17:52:28.264+0000] {standard_task_runner.py:91} INFO - Job 4595: Subtask monitoring.xgb_monitor
+[2026-06-25T17:52:28.291+0000] {task_command.py:426} INFO - Running <TaskInstance: credit_default_ml_pipeline.monitoring.xgb_monitor scheduled__2023-12-01T00:00:00+00:00 [running]> on host b54b2be331ab
+[2026-06-25T17:52:28.438+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='credit_default_ml_pipeline' AIRFLOW_CTX_TASK_ID='monitoring.xgb_monitor' AIRFLOW_CTX_EXECUTION_DATE='2023-12-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-12-01T00:00:00+00:00'
+[2026-06-25T17:52:28.439+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-25T17:52:28.445+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-25T17:52:28.446+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/scripts && if [ ! -f model_bank/champion.txt ]; then echo \'[SKIP] no champion.txt for 2023-12-01\'; exit 0; fi && CHAMP=$(cat model_bank/champion.txt | tr -d \'\\n\') && python3 model_monitor.py --snapshotdate "2023-12-01" --modelname "$CHAMP"']
+[2026-06-25T17:52:28.451+0000] {subprocess.py:86} INFO - Output:
+[2026-06-25T17:52:28.452+0000] {subprocess.py:93} INFO - [SKIP] no champion.txt for 2023-12-01
+[2026-06-25T17:52:28.452+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-25T17:52:28.453+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-25T17:52:28.464+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=credit_default_ml_pipeline, task_id=monitoring.xgb_monitor, run_id=scheduled__2023-12-01T00:00:00+00:00, execution_date=20231201T000000, start_date=20260625T175228, end_date=20260625T175228
+[2026-06-25T17:52:28.502+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-06-25T17:52:28.514+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-25T17:52:28.515+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
